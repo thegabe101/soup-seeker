@@ -10,16 +10,11 @@ app.use(cors());
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    port: 3306,
+    // port: 3306,
     password: "password",
     database: "LoginSystem",
     debug: true,
 });
-
-// db.connect(function (err) {
-//     if (err) console.error('error connecting ' + err.stack);
-//     console.log('Connected successfully.')
-// })
 
 app.post('/register', (req, res) => {
 
@@ -31,8 +26,28 @@ app.post('/register', (req, res) => {
         console.log(result)
         console.log(err);
     })
-})
+});
 
-app.listen(3306, () => {
+app.post('/loginuser', (req, res) => {
+
+    const email = req.body.email;
+    const username = req.body.username;
+    const password = req.body.password;
+
+    db.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            if (result) {
+                console.log(result);
+                res.send(result);
+            } else {
+                res.send({ message: 'No seeker exists with that username and password combination.' })
+            }
+        }
+    })
+});
+
+app.listen(3001, () => {
     console.log('Server running.')
 })

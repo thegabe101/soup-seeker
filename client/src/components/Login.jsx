@@ -1,13 +1,37 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../App";
 import { FiGithub } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
 import "../styles/login.css";
+import axios from "axios";
 
 export const Login = () => {
-	const { userName, getUsername } = useContext(AppContext);
-	const { passwordReg, setPasswordReg } = useContext(AppContext);
+	// const { userName, setUsername } = useContext(AppContext);
+	// const { passwordReg, setPasswordReg } = useContext(AppContext);
+	// const { email, setEmail } = useContext(AppContext);
+
+	const [userName, setUserName] = useState("");
+	const [passwordReg, setPasswordReg] = useState("");
+	const [email, setEmail] = useState("");
+
+	const postNewUser = () => {
+		axios
+			.post("http://localhost:3001/register", {
+				email: email,
+				username: userName,
+				password: passwordReg,
+			})
+			.then((response) => {
+				console.log(response);
+			});
+	};
+
+	const loginUser = () => {
+		axios.post('http://localhost:3001/loginuser', {
+			
+		})
+	}
 
 	return (
 		<div className="loginPage">
@@ -16,15 +40,37 @@ export const Login = () => {
 				<h1>Login</h1>
 				<input type="text" placeholder="username" />
 				<input type="text" placeholder="password" />
+				<button onClick={loginUser}>Seek</button>
 				<br />
 				<FiGithub />
 				<CiTwitter />
 			</div>
 			<div>
 				<h3>New seeker? Sign up below...</h3>
-				<input type="text" placeholder="email" />
-				<input type="text" placeholder="username" />
-				<input type="text" placeholder="password" />
+				<input
+					type="text"
+					placeholder="email"
+					onChange={(e) => {
+						setEmail(e.target.value);
+					}}
+				/>
+				<input
+					type="text"
+					placeholder="username"
+					onChange={(e) => {
+						setUserName(e.target.value);
+					}}
+				/>
+				<input
+					type="text"
+					placeholder="password"
+					onChange={(e) => {
+						setPasswordReg(e.target.value);
+					}}
+				/>
+			</div>
+			<div>
+				<button onClick={postNewUser}>Register</button>
 			</div>
 		</div>
 	);
