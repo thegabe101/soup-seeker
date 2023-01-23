@@ -17,3 +17,10 @@
     width: 20vw;
     height: 20vh;
 }
+
+.loginStat {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    color: white;
+}

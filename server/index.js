@@ -30,7 +30,6 @@ app.post('/register', (req, res) => {
 
 app.post('/loginuser', (req, res) => {
 
-    const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
 
@@ -38,7 +37,7 @@ app.post('/loginuser', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            if (result) {
+            if (result.length > 0) {
                 console.log(result);
                 res.send(result);
             } else {

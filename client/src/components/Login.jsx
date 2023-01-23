@@ -14,6 +14,9 @@ export const Login = () => {
 	const [userName, setUserName] = useState("");
 	const [passwordReg, setPasswordReg] = useState("");
 	const [email, setEmail] = useState("");
+	const [logUsername, setLogUsername] = useState("");
+	const [logPassword, setLogPassword] = useState("");
+	const [loginStat, setLoginStat] = useState("");
 
 	const postNewUser = () => {
 		axios
@@ -28,22 +31,41 @@ export const Login = () => {
 	};
 
 	const loginUser = () => {
-		axios.post('http://localhost:3001/loginuser', {
-			
-		})
-	}
+		axios
+			.post("http://localhost:3001/loginuser", {
+				username: logUsername,
+				password: logPassword,
+			})
+			.then((response) => {
+				console.log(response.data);
+				setLoginStat(response.data.message);
+			});
+	};
 
 	return (
 		<div className="loginPage">
 			<h1 className="loginHeader">Enter within and seek thy soup...</h1>
 			<div className="loginContainer">
 				<h1>Login</h1>
-				<input type="text" placeholder="username" />
-				<input type="text" placeholder="password" />
+				<input
+					type="text"
+					placeholder="username"
+					onChange={(e) => {
+						setLogUsername(e.target.value);
+					}}
+				/>
+				<input
+					type="text"
+					placeholder="password"
+					onChange={(e) => {
+						setLogPassword(e.target.value);
+					}}
+				/>
 				<button onClick={loginUser}>Seek</button>
-				<br />
+				<h2 className="loginStat">{loginStat}</h2>
 				<FiGithub />
 				<CiTwitter />
+				<br />
 			</div>
 			<div>
 				<h3>New seeker? Sign up below...</h3>
