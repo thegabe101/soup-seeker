@@ -33,13 +33,14 @@ nav h1 {
   display: flex;
   align-items: center;
   padding-top: 50px;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .board {
-  width: 450px;
-  height: 550px;
-  border: 1px solid black;
+  margin-left: 1vw;
+  width: 40vw;
+  height: 80vh;
+  /* border: 0.5px solid white; */
   display: flex;
   flex-direction: column;
 }
@@ -79,7 +80,7 @@ nav h1 {
 .keyboard {
   width: 700px;
   height: 300px;
-  margin-top: 60px;
+  margin-top: 60vh;
 }
 
 .line1 {
@@ -108,12 +109,12 @@ nav h1 {
 .key {
   width: 50px;
   height: 70px;
-  margin: 5px;
+  margin: 3px;
   border-radius: 4px;
   display: grid;
   place-items: center;
   font-size: 20px;
-  background-color: grey;
+  background-color: rgb(154, 116, 46);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
@@ -124,4 +125,9 @@ nav h1 {
 }
 #disabled {
   background-color: #3a393c;
+}
+
+.soupImg {
+  height: 50px;
+  width: 100px;
 }
