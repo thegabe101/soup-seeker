@@ -6,6 +6,8 @@ import { useState, createContext } from 'react';
 import { AuthProvider } from './components/AuthProvider';
 import { NavBar } from './components/NavBar';
 import { Profile } from './pages/Profile';
+import { RequireAuth } from './components/RequireAuth';
+import { LandingPage } from './pages/LandingPage';
 
 
 function App() {
@@ -17,9 +19,10 @@ function App() {
         {/* <AppContext.Provider value={{ userName, setUserName, passwordReg, setPasswordReg }}> */}
         <Router>
           <NavBar />
+          <LandingPage />
           <Routes>
             <Route path='/login' element={<LoginPage />}></Route>
-            <Route path='profile' element={<Profile />} />
+            <Route path='/profile' element={<RequireAuth><Profile /></RequireAuth>} />
           </Routes>
         </Router>
         {/* </AppContext.Provider> */}

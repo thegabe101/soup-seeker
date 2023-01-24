@@ -52,7 +52,7 @@ export const Login = () => {
 						`Welcome, seeker of the soup ${response.data[0].username}, seek in ${timeLeft}`,
 						setTimeout(() => {
 							timeLeft -= 1;
-							navigate(`/`);
+							navigate(`/`, { replace: true });
 						}, 3000)
 					);
 				}
