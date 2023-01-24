@@ -16,10 +16,11 @@ export const AppContext = createContext();
 
 function App() {
   const [board, setBoard] = useState(emptyBoard);
+  const [currentGuess, setCurrentGuess] = useState({ attempt: 0, letterPosition: 0 })
 
 
   return (
-    <AppContext.Provider value={{ board, setBoard }}>
+    <AppContext.Provider value={{ board, setBoard, currentGuess, setCurrentGuess }}>
       <AuthProvider>
         <div className="App">
           <Router>

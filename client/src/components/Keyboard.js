@@ -1,23 +1,25 @@
 import React from 'react';
 import '../App.css';
+import Key from './Key';
+import { MdOutlineBackspace } from 'react-icons/md';
 
 function Keyboard() {
     const arrOne = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const arrTwo = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
     const arrThree = ["Z", "X", "C", "V", "B", "N", "M"];
 
-    const val1 = arrOne.map((key) => key);
-
     return (
         <div className='keyboard'>
             <div className='line1'>
-                {arrOne.map((e) => <button>{e}</button>)}
+                {arrOne.map((key) => <Key keyValue={key} />)}
             </div>
             <div className='line2'>
-                {arrTwo.map((e) => <button>{e}</button>)}
+                {arrTwo.map((key) => <Key keyValue={key} />)}
             </div>
             <div className='line3'>
-                {arrThree.map((e) => <button>{e}</button>)}
+                <Key keyValue={'enter'} bigKey />
+                {arrThree.map((key) => <Key keyValue={key} />)}
+                <Key keyValue={<MdOutlineBackspace />} />
             </div>
         </div>
     )
