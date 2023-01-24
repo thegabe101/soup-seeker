@@ -10,7 +10,6 @@ import { RequireAuth } from './components/RequireAuth';
 import { LandingPage } from './pages/LandingPage';
 import { PlayPage } from './pages/PlayPage';
 import { emptyBoard } from './components/Words';
-import { useContext } from 'react';
 
 
 export const AppContext = createContext();
@@ -20,8 +19,8 @@ function App() {
 
 
   return (
-    <AuthProvider>
-      <AppContext.Provider value={{ board, setBoard }}>
+    <AppContext.Provider value={{ board, setBoard }}>
+      <AuthProvider>
         <div className="App">
           <Router>
             <NavBar />
@@ -33,8 +32,8 @@ function App() {
             </Routes>
           </Router>
         </div>
-      </AppContext.Provider>
-    </AuthProvider>
+      </AuthProvider>
+    </AppContext.Provider>
   );
 }
 
