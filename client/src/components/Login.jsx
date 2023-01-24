@@ -1,22 +1,27 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { AppContext } from "../App";
+// import { AppContext } from "../App";
 import { FiGithub } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
+import { CiFacebook } from "react-icons/ci";
 import "../styles/login.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { IconContext } from "react-icons";
+import { useAuth } from "./AuthProvider";
 
 export const Login = () => {
-	// const { userName, setUsername } = useContext(AppContext);
-	// const { passwordReg, setPasswordReg } = useContext(AppContext);
-	// const { email, setEmail } = useContext(AppContext);
+	const navigate = useNavigate();
 
+	// const [user, setUser] = useState("");
 	const [userName, setUserName] = useState("");
 	const [passwordReg, setPasswordReg] = useState("");
 	const [email, setEmail] = useState("");
 	const [logUsername, setLogUsername] = useState("");
 	const [logPassword, setLogPassword] = useState("");
 	const [loginStat, setLoginStat] = useState("");
+	const auth = useAuth();
+	let timeLeft = 3;
 
 	const postNewUser = () => {
 		axios
@@ -37,8 +42,20 @@ export const Login = () => {
 				password: logPassword,
 			})
 			.then((response) => {
-				console.log(response.data);
-				setLoginStat(response.data.message);
+				if (response.data.message) {
+					console.log(response.data);
+					setLoginStat(response.data.message);
+				} else {
+					console.log(logUsername);
+					auth.login(logUsername);
+					setLoginStat(
+						`Welcome, seeker of the soup ${response.data[0].username}, seek in ${timeLeft}`,
+						setTimeout(() => {
+							timeLeft -= 1;
+							navigate(`/`);
+						}, 3000)
+					);
+				}
 			});
 	};
 
@@ -62,9 +79,6 @@ export const Login = () => {
 					}}
 				/>
 				<button onClick={loginUser}>Seek</button>
-				<h2 className="loginStat">{loginStat}</h2>
-				<FiGithub />
-				<CiTwitter />
 				<br />
 			</div>
 			<div>
@@ -93,6 +107,22 @@ export const Login = () => {
 			</div>
 			<div>
 				<button onClick={postNewUser}>Register</button>
+			</div>
+			<h2 className="loginStat">{loginStat}</h2>
+			<br />
+			<div className="iconRow">
+				<IconContext.Provider
+					value={{
+						color: "white",
+						size: "2em",
+					}}
+				>
+					<FiGithub />
+					<h2>| |</h2>
+					<CiTwitter />
+					<h2>| |</h2>
+					<CiFacebook />
+				</IconContext.Provider>
 			</div>
 		</div>
 	);

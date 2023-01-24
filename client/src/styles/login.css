@@ -24,3 +24,8 @@
     width: 100%;
     color: white;
 }
+
+.iconRow {
+    display: inline-block;
+    flex-direction: column;
+}
