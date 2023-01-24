@@ -8,6 +8,7 @@ import { NavBar } from './components/NavBar';
 import { Profile } from './pages/Profile';
 import { RequireAuth } from './components/RequireAuth';
 import { LandingPage } from './pages/LandingPage';
+import { PlayPage } from './pages/PlayPage';
 
 
 function App() {
@@ -16,16 +17,15 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        {/* <AppContext.Provider value={{ userName, setUserName, passwordReg, setPasswordReg }}> */}
         <Router>
           <NavBar />
-          <LandingPage />
           <Routes>
+            <Route path='/' element={<LandingPage />} />
             <Route path='/login' element={<LoginPage />}></Route>
             <Route path='/profile' element={<RequireAuth><Profile /></RequireAuth>} />
+            <Route path='/play' element={<RequireAuth><PlayPage /></RequireAuth>} />
           </Routes>
         </Router>
-        {/* </AppContext.Provider> */}
       </div>
     </AuthProvider>
   );

@@ -19,7 +19,7 @@ export const NavBar = () => {
 			<NavLink to="/">Home</NavLink>
 			{!auth.user && <NavLink to="/login">Login</NavLink>}
 			{auth.user && <NavLink to="/profile">Profile</NavLink>}
-			<button onClick={handleLogout}>Logout</button>
+			{auth.user && <button onClick={handleLogout}>Logout</button>}
 		</nav>
 	);
 };
