@@ -19,7 +19,7 @@ function Keyboard() {
             <div className='line3'>
                 <Key keyValue={'enter'} bigKey />
                 {arrThree.map((key) => <Key keyValue={key} />)}
-                <Key keyValue={<MdOutlineBackspace />} />
+                <Key keyValue={'del'} />
             </div>
         </div>
     )

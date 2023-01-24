@@ -5,7 +5,6 @@ import Letter from "./Letter";
 import Soup from "./Soup";
 
 function Board() {
-
 	return (
 		<div className="board">
 			<div className="row">
