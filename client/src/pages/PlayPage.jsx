@@ -1,5 +1,10 @@
 import React from "react";
+import Board from "../components/Board";
 
 export const PlayPage = () => {
-	return <div>PlayPage</div>;
+	return (
+		<div>
+			<Board />
+		</div>
+	);
 };
