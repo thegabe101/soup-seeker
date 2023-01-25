@@ -1,23 +1,16 @@
 import React from 'react';
-import gazpacho from '../assets/images/gazpacho.jpg';
-import cornChowder from '../assets/images/cornchowder.jpg';
 import "../App.css";
+import SoupImage from './SoupImage';
+import { useState } from 'react';
 
 
-function Soup() {
-    const soupArray = [
-        {
-            name: "gazpacho",
-            src: gazpacho
-        },
-        {
-            name: "corn chowder",
-            src: cornChowder
-        }
-    ];
+function Soup(props) {
+
+    // const { src, index } = props;
+    // const [soupInfo, setSoupInfo] = useState({ src, index })
 
     return (
-        <div >{soupArray.map((imgSrc, index) => (<img className='soupImg' src={imgSrc.src} key={index}></img>))}</div>
+        <div><SoupImage  /></div>
     )
 }
 
