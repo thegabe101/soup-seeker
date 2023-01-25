@@ -1,29 +1,36 @@
 import React from 'react';
 import { soupTypes } from '../soup-types';
+import { useContext, useEffect } from 'react';
+import { AppContext } from '../App';
 
 function SoupImage() {
 
+    let i = 0;
+
+    const genRandom = () => {
+        i = Math.random() * soupTypes.length;
+        // console.log(i);
+
+        i = Math.floor(i);
+        console.log(i);
+        return i;
+    }
+
+    const { soupPic, setSoupPic } = useContext(AppContext);
+
+    const setPic = () => {
+        setSoupPic(soupTypes[i].src)
+    }
+
+    useEffect(() => {
+        genRandom();
+        setPic();
+    }, [])
+
+
     return (
-        <div>
-            {soupTypes.map(
-                (
-                    { src, index },
-                    key
-                ) => {
-                    return (
-                        <div key={key}>
-                            <img className="soupImg" src={src} index={index} />
-                        </div>
-                    )
-                }
-            )}
-        </div>
+        <div><img className="soupImg" src={soupPic}></img></div>
     );
 };
 
 export default SoupImage;
-
-
-
-    //test map
-    // <div>{soupArray.map((name, index) => <button>{name.name}</button>)}</div>

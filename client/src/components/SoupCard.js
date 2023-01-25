@@ -38,8 +38,8 @@ function SoupGuessCard() {
         <div className="soupGuessCard">
             <h3>On your current row, which soup do you see?</h3>
             <button className="button-5" onClick={soupSetter}>{soupInfo}</button>
-            <button className="button-5">{soupInfo}</button>
-            <button className="button-5">{soupInfo}</button>
+            <button className="button-5" onClick={soupSetter}>{soupInfo}</button>
+            <button className="button-5" onClick={soupSetter}>{soupInfo}</button>
         </div>
     );
 };

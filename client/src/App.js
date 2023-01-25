@@ -20,6 +20,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState({ attempt: 0, letterPosition: 0 });
   const [gamesWon, setGamesWon] = useState(0);
   const [soupInfo, setSoupInfo] = useState(null);
+  const [soupPic, setSoupPic] = useState(null);
 
   const onSelector = (keyValue) => {
     //escape if clause to check if letter position is greater than 4 in the array; if so, exit because it needs to go to the next row 
@@ -47,7 +48,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo }}>
+    <AppContext.Provider value={{ board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic }}>
       <AuthProvider>
         <div className="App">
           <Router>
