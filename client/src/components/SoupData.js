@@ -1,11 +1,9 @@
-import React from 'react';
 import gazpacho from '../assets/images/gazpacho.jpg';
 import cornChowder from '../assets/images/cornchowder.jpg';
 import tomatosoup from '../assets/images/tomatosoup.jpg';
-import "../App.css";
+import React from 'react';
 
-
-function Soup(props) {
+function SoupData() {
     const soupArray = [
         {
             name: "gazpacho",
@@ -22,8 +20,9 @@ function Soup(props) {
     ];
 
     return (
-        <div >{soupArray.map((imgSrc, name, index) => (<img className='soupImg' src={imgSrc.src} key={index} ></img>))}</div>
-    )
-}
+        <div>{soupArray.map((name, index) => <button>{name.name}</button>)}</div>
+    );
+};
 
-export default Soup;
+export default SoupData;
+

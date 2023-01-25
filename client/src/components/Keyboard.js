@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import Key from './Key';
 import { MdOutlineBackspace } from 'react-icons/md';
+import SoupGuessCard from './SoupCard';
 
 function Keyboard() {
     const arrOne = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
@@ -10,6 +11,7 @@ function Keyboard() {
 
     return (
         <div className='keyboard'>
+            <SoupGuessCard />
             <div className='line1'>
                 {arrOne.map((key) => <Key keyValue={key} />)}
             </div>
