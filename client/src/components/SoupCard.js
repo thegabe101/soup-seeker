@@ -2,6 +2,7 @@ import React from "react";
 import { soupTypes } from "../soup-types";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../App";
+import '../App.css';
 
 
 
@@ -20,6 +21,7 @@ function SoupGuessCard() {
     const { soupInfo, setSoupInfo } = useContext(AppContext);
 
     const soupSetter = () => {
+        genRandom();
         setSoupInfo(
             [soupTypes[i].name]
         );
@@ -33,13 +35,11 @@ function SoupGuessCard() {
 
 
     return (
-        <div>
-            <div>
-                <h3>On your current row, which soup do you see?</h3>
-                <button>{soupInfo}</button>
-                <button>{soupInfo}</button>
-                <button>{soupInfo}</button>
-            </div>
+        <div className="soupGuessCard">
+            <h3>On your current row, which soup do you see?</h3>
+            <button className="button-5" onClick={soupSetter}>{soupInfo}</button>
+            <button className="button-5">{soupInfo}</button>
+            <button className="button-5">{soupInfo}</button>
         </div>
     );
 };
