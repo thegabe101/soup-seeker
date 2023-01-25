@@ -5,6 +5,8 @@ import Letter from "./Letter";
 import Soup from "./Soup";
 
 function Board() {
+	
+
 	return (
 		<div className="board">
 			<div className="row">
@@ -13,7 +15,7 @@ function Board() {
 				<Letter letterPosition={2} attemptValue={0} />
 				<Letter letterPosition={3} attemptValue={0} />
 				<Letter letterPosition={4} attemptValue={0} />
-				<Soup />
+				<Soup  />
 			</div>
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={1} />

@@ -5,14 +5,17 @@ import tomatosoup from './assets/images/tomatosoup.jpg';
 export const soupTypes = [
     {
         name: "gazpacho",
-        src: gazpacho
+        src: gazpacho,
+        index: 1
     },
     {
         name: "corn chowder",
-        src: cornChowder
+        src: cornChowder,
+        index: 2
     },
     {
         name: "tomato soup",
-        src: tomatosoup
+        src: tomatosoup,
+        index: 3
     }
 ]

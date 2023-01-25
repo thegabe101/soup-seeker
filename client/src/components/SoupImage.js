@@ -7,12 +7,12 @@ function SoupImage() {
         <div>
             {soupTypes.map(
                 (
-                    { src },
-                    index
+                    { src, index },
+                    key
                 ) => {
                     return (
-                        <div key={index}>
-                            <img className="soupImg" src={src} />
+                        <div key={key}>
+                            <img className="soupImg" src={src} index={index} />
                         </div>
                     )
                 }
