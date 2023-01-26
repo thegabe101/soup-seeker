@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { FiGithub } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
-import "../styles/login.css";
+import "../App.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { IconContext } from "react-icons";

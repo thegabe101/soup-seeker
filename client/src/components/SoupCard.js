@@ -25,17 +25,19 @@ function SoupGuessCard() {
             soupArr.push(soupTypes[Math.floor(Math.random(i) * max)].name)
         }
         duplicateChecker();
-        let noDupeArr = [];
+        setSoupIndex(noDupeArr);
+    }
+
+    let noDupeArr = [];
+
+    const duplicateChecker = () => {
         soupArr.forEach((c) => {
             if (!noDupeArr.includes(c)) {
                 noDupeArr.push(c);
                 console.log(noDupeArr);
+                duplicateChecker();
             }
         })
-        setSoupIndex(noDupeArr);
-    }
-
-    const duplicateChecker = () => {
         let dupeInd = soupArr.filter((s, index) => {
             return soupArr.indexOf(s) !== index;
         });

@@ -143,7 +143,7 @@ nav h1 {
 .button-5 {
   align-items: center;
   background-clip: padding-box;
-  background-color: #fa6400;
+  background-color: #8d7d2d;
   border: 1px solid transparent;
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -180,7 +180,89 @@ nav h1 {
 }
 
 .button-5:active {
+  background-color: #622d0a;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.button-6 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #7b0d1c;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 3px;
+  /* min-height: 3rem; */
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  /* position: relative; */
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* vertical-align: baseline; */
+  width: auto;
+}
+
+.button-6:hover,
+.button-6:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(156, 53, 2, 0.862) 4px 4px 12px;
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
+}
+
+.loginHeader {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 20vh;
+}
+
+.loginStat {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: white;
+}
+
+.iconRow {
+  display: inline-block;
+  flex-direction: column;
+}
+
+.soupIc {
+  padding: 1px;
+  border-radius: 15px;
 }
