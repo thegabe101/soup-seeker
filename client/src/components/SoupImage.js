@@ -3,7 +3,7 @@ import { soupTypes } from '../soup-types';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../App';
 
-function SoupImage() {
+function SoupImage(props) {
 
     let i = 0;
 
@@ -12,7 +12,6 @@ function SoupImage() {
         // console.log(i);
 
         i = Math.floor(i);
-        console.log(i);
         return i;
     }
 
@@ -29,7 +28,7 @@ function SoupImage() {
 
 
     return (
-        <div><img className="soupImg" src={soupPic}></img></div>
+        <div><img className="soupImg" src={soupPic} ></img></div>
     );
 };
 
