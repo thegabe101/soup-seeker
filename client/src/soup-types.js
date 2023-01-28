@@ -12,6 +12,7 @@ import creamofmushroom from './assets/images/creamofmushroom.jpg';
 import miso from './assets/images/miso.jpg';
 import frenchonion from './assets/images/frenchonion.jpg';
 import butternutsquash from './assets/images/butternutsquash.jpg';
+import pozole from "./assets/images/pozole.jpg";
 
 export const soupTypes = [
     {
@@ -84,4 +85,9 @@ export const soupTypes = [
         src: butternutsquash,
         index: 11
     },
+    {
+        name: "pozole",
+        src: pozole,
+        index: 12
+    }
 ]

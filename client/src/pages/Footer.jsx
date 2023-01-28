@@ -8,20 +8,16 @@ import { IconContext } from "react-icons";
 export const Footer = () => {
 	return (
 		<div className="footer">
-			<div>
-				<IconContext.Provider
-					value={{
-						color: "white",
-						size: "2em",
-					}}
-				>
-					<FiGithub />
-					<h2>| |</h2>
-					<CiTwitter />
-					<h2>| |</h2>
-					<CiFacebook />
-				</IconContext.Provider>
-			</div>
+			<IconContext.Provider
+				value={{
+					color: "white",
+					size: "1.7em",
+				}}
+			>
+				<FiGithub className="iconPadding" />
+				<CiTwitter className="iconPadding" />
+				<CiFacebook className="iconPadding" />
+			</IconContext.Provider>
 		</div>
 	);
 };
