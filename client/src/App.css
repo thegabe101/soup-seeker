@@ -128,8 +128,9 @@ nav h1 {
 }
 
 .soupImg {
-    height: fit-content;
-    width: 40px;
+    height: 12vh;
+    border-radius: 20px;
+    width: 10vw;
 }
 
 .soupGuessCard {

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { soupTypes } from '../soup-types';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../App';
 
 function SoupImage(props) {
+    // const [soupImgState, setSoupImgState] = useState(null);
 
     let i = 0;
 
@@ -15,16 +16,26 @@ function SoupImage(props) {
         return i;
     }
 
-    const { soupPic, setSoupPic } = useContext(AppContext);
+    const { soupPic, setSoupPic, soupIndex, setSoupIndex, soupInfo, setSoupInfo } = useContext(AppContext);
 
     const setPic = () => {
-        setSoupPic(soupTypes[i].src)
+        // if (soupTypes[i].name)
+        console.log(soupIndex);
+        for (let j = 0; j < soupIndex.length; j++) {
+            if (soupTypes[j].name === soupIndex[j]) {
+                setSoupPic(soupTypes[j].src)
+            }
+        }
     }
 
     useEffect(() => {
         genRandom();
         setPic();
-    }, [])
+
+        return () => {
+            setPic(soupTypes[i].src)
+        }
+    },)
 
 
     return (
