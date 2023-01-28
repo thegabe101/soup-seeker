@@ -16,11 +16,11 @@ function SoupGuessCard() {
         return i;
     }
 
-    const { soupInfo, setSoupInfo, soupIndex, setSoupIndex } = useContext(AppContext);
+    const { soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic } = useContext(AppContext);
 
 
     const soupIndexSetter = () => {
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 3; j++) {
             if (!soupArr.includes(soupTypes[j].name)) {
                 soupArr.push(soupTypes[Math.floor(Math.random(i) * max)].name);
             }
@@ -38,8 +38,11 @@ function SoupGuessCard() {
                     }
                 } newList.push(thisValue);
                 setSoupIndex(newList);
+                if (newList[0] === soupTypes[0].name) {
+                    setSoupPic(soupTypes[i].src)
+                }
                 // console.log(soupIndex);
-                
+
             } return false;
         }
     }
@@ -48,8 +51,7 @@ function SoupGuessCard() {
     const soupSetter = () => {
         genRandom();
         soupIndexSetter();
-        setSoupInfo(soupIndex
-        );
+        setSoupInfo(soupIndex);
         // console.log(soupInfo)
     };
 
@@ -57,15 +59,19 @@ function SoupGuessCard() {
     useEffect(() => {
         genRandom();
         soupSetter();
-    }, [])
+        // setSoupPic(soupTypes[i].src)
+        // return () => {
+        //     setSoupPic(soupTypes[i].src);
+        // }
+    }, [setSoupPic])
 
 
     return (
         <div className="soupGuessCard">
             <h3>On your current row, which soup do you see?</h3>
-            <button className="button-5" onClick={soupSetter}>{soupIndex[0]}</button>
-            <button className="button-5" onClick={soupSetter}>{soupIndex[1]}</button>
-            <button className="button-5" onClick={soupSetter}>{soupIndex[2]}</button>
+            <button className="button-8" onClick={soupSetter}>{soupIndex[0]}</button>
+            <button className="button-8" onClick={soupSetter}>{soupIndex[1]}</button>
+            <button className="button-8" onClick={soupSetter}>{soupIndex[2]}</button>
         </div>
     );
 };

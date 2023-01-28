@@ -10,7 +10,7 @@ function SoupImage(props) {
     let i = 0;
 
     const genRandom = () => {
-        i = Math.random() * soupTypes.length;
+        i = Math.random() * soupIndex.length;
         // console.log(i);
 
         i = Math.floor(i);
@@ -19,24 +19,30 @@ function SoupImage(props) {
 
     const { soupPic, setSoupPic, soupIndex, setSoupIndex, soupInfo, setSoupInfo } = useContext(AppContext);
 
+    // let soupPicIndex = soupIndex[i].toString().indexOf(soupIndex[i]);
+
+    let changedSoupPic = [];
     const setPic = () => {
-        setSoupPic(soupdefault)
-        // if (soupTypes[i].name)
-        console.log(soupIndex);
-        for (let j = 0; j < soupIndex.length; j++) {
-            if (soupTypes[j].name === soupIndex[j]) {
-                setSoupPic(soupTypes[j].src)
-            }
-        }
+        let j = soupIndex[i];
+        console.log(j);
+        // let soupGrabber = soupTypes[soupIndex[i]].src;
+        // setSoupPic(soupGrabber)
+        let image = document.getElementsByClassName("soupImg");
+        image.src = soupPic;
+        // let soupGrabber = soupIndex[i];
+        // console.log(soupGrabber);
+        // setSoupPic(soupTypes[i].src)
     }
 
     useEffect(() => {
-        setPic(soupdefault);
+        //default image grabber on component mount 
+        setSoupPic(soupdefault);
         genRandom();
-        return () => {
-            setPic(soupTypes[i].src)
-        }
-    },)
+        // setPic();
+        // return () => {
+        //     setSoupPic(soupTypes[i].src);
+        // }
+    }, [])
 
 
     return (

@@ -3,8 +3,12 @@ import { emptyBoard } from "./Words";
 import "../App.css";
 import Letter from "./Letter";
 import Soup from "./Soup";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 function Board() {
+	const { board } = useContext(AppContext);
+
 	return (
 		<div className="board">
 			<div className="row">
@@ -21,7 +25,7 @@ function Board() {
 				<Letter letterPosition={2} attemptValue={1} />
 				<Letter letterPosition={3} attemptValue={1} />
 				<Letter letterPosition={4} attemptValue={1} />
-				<Soup />
+				{board[1][0] ? <Soup /> : ""}
 			</div>
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={2} />
@@ -29,7 +33,7 @@ function Board() {
 				<Letter letterPosition={2} attemptValue={2} />
 				<Letter letterPosition={3} attemptValue={2} />
 				<Letter letterPosition={4} attemptValue={2} />
-				<Soup />
+				{board[2][0] ? <Soup /> : ""}
 			</div>
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={3} />
@@ -37,7 +41,7 @@ function Board() {
 				<Letter letterPosition={2} attemptValue={3} />
 				<Letter letterPosition={3} attemptValue={3} />
 				<Letter letterPosition={4} attemptValue={3} />
-				<Soup />
+				{board[3][0] ? <Soup /> : ""}
 			</div>
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={4} />
@@ -45,7 +49,7 @@ function Board() {
 				<Letter letterPosition={2} attemptValue={4} />
 				<Letter letterPosition={3} attemptValue={4} />
 				<Letter letterPosition={4} attemptValue={4} />
-				<Soup />
+				{board[4][0] ? <Soup /> : ""}
 			</div>
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={5} />
@@ -53,7 +57,7 @@ function Board() {
 				<Letter letterPosition={2} attemptValue={5} />
 				<Letter letterPosition={3} attemptValue={5} />
 				<Letter letterPosition={4} attemptValue={5} />
-				<Soup />
+				{board[5][0] ? <Soup /> : ""}
 			</div>
 		</div>
 	);
