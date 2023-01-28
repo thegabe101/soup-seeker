@@ -19,7 +19,7 @@ function App() {
   const [board, setBoard] = useState(emptyBoard);
   const [currentGuess, setCurrentGuess] = useState({ attempt: 0, letterPosition: 0 });
   const [gamesWon, setGamesWon] = useState(0);
-  const [soupInfo, setSoupInfo] = useState(null);
+  const [soupInfo, setSoupInfo] = useState([]);
   const [soupPic, setSoupPic] = useState(null);
   let [soupIndex, setSoupIndex] = useState([]);
 
