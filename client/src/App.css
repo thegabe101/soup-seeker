@@ -5,6 +5,7 @@
   height: 100vh;
   /* display: flex; */
   color: white;
+  overflow: hidden;
 }
 
 body {
@@ -80,7 +81,7 @@ nav h1 {
 .keyboard {
   width: 700px;
   height: 300px;
-  margin-top: 60vh;
+  margin-top: 35vh;
 }
 
 .line1 {
