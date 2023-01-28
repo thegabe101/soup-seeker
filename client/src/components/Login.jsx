@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 // import { AppContext } from "../App";
 import { FiGithub } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
@@ -9,11 +9,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { useAuth } from "./AuthProvider";
+import { useContext } from "react";
+import { AppContext } from "../App";
+import { useEffect } from "react";
 
 export const Login = () => {
 	const navigate = useNavigate();
 
-	// const [user, setUser] = useState("");
 	const [userName, setUserName] = useState("");
 	const [passwordReg, setPasswordReg] = useState("");
 	const [email, setEmail] = useState("");
@@ -22,6 +24,15 @@ export const Login = () => {
 	const [loginStat, setLoginStat] = useState("");
 	const auth = useAuth();
 	let timeLeft = 2;
+
+	const { userPersist, setUserPersist } = useContext(AppContext);
+
+	useEffect(() => {
+		const loggedInUser = localStorage.getItem("user");
+		if (loggedInUser === true) {
+			navigate("/play");
+		}
+	}, []);
 
 	const postNewUser = () => {
 		axios
@@ -55,6 +66,8 @@ export const Login = () => {
 							navigate(`/play`, { replace: true });
 						}, 3000)
 					);
+					setUserPersist(true);
+					localStorage.setItem("user", userPersist);
 				}
 			});
 	};
