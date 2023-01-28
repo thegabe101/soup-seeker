@@ -1,6 +1,41 @@
 .loginHeader {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: calc(1.8em + 2.2vw);
+	font-weight: 700;
+	letter-spacing: .01em;
+	padding: 3rem 0 0 4.5rem;
+	text-shadow: .022em .022em .022em rgb(162, 154, 154);
+	color: #fff;
 }
+
+.loginText {
+    text-shadow: .022em .022em .022em rgb(162, 154, 154);
+	color: #fff;
+    letter-spacing: .03em;
+}
+
+/* header {
+	position: fixed;
+	width: 100%;
+	height: var(--heading-height);
+}
+
+header::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 6em;
+	width: 100%;
+	height: calc(var(--heading-height) + 10em);
+	z-index: -1;
+	transform: skewY(-3.5deg);
+	background: 
+		linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+		url(https://images.unsplash.com/photo-1495464101292-552d0b52fe41?auto=format&fit=crop&w=1350&q=80) no-repeat center,
+		linear-gradient(#4e4376, #2b5876);
+	background-size: cover;
+	border-bottom: .2em solid #fff;
+} */
 
 .loginPage {
     display: flex;
@@ -18,6 +53,18 @@
     height: 20vh;
 }
 
+.form__input {
+    background-color: #8d7d2d;
+    color: aliceblue;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+::placeholder {
+    color: aliceblue;
+    padding: 7px;
+}
+
 .loginStat {
     display: flex;
     flex-direction: row;
@@ -29,3 +76,48 @@
     display: inline-block;
     flex-direction: column;
 }
+
+.button-7 {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #9d361f;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 17px;
+    /* min-height: 3rem; */
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    /* position: relative; */
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    /* vertical-align: baseline; */
+    width: auto;
+  }
+  
+  .button-7:hover,
+  .button-7:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(156, 53, 2, 0.862) 4px 4px 12px;
+  }
+  
+  .button-7:hover {
+    transform: translateY(-1px);
+  }
+  
+  .button-7:active {
+    background-color: #622d0a;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }

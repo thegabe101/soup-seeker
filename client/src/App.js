@@ -12,6 +12,7 @@ import { PlayPage } from './pages/PlayPage';
 import { emptyBoard } from './components/Words';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from './pages/Footer';
 
 
 export const AppContext = createContext();
@@ -66,6 +67,7 @@ function App() {
               <Route path='/profile' element={<RequireAuth><Profile /></RequireAuth>} />
               <Route path='/play' element={<RequireAuth><PlayPage /></RequireAuth>} />
             </Routes>
+            <Footer />
           </Router>
         </div>
       </AuthProvider>

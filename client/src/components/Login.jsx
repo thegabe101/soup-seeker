@@ -74,10 +74,13 @@ export const Login = () => {
 
 	return (
 		<div className="loginPage">
-			<h1 className="loginHeader">Enter within and seek thy soup...</h1>
+			<h1 className="loginHeader header">
+				Enter within and seek thy soup...
+			</h1>
 			<div className="loginContainer">
-				<h1>Login</h1>
+				<h1 className="loginText">Login</h1>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="username"
 					onChange={(e) => {
@@ -85,18 +88,22 @@ export const Login = () => {
 					}}
 				/>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="password"
 					onChange={(e) => {
 						setLogPassword(e.target.value);
 					}}
 				/>
-				<button onClick={loginUser}>Seek</button>
+				<button className="button-7" onClick={loginUser}>
+					Seek
+				</button>
 				<br />
 			</div>
 			<div>
-				<h3>New seeker? Sign up below...</h3>
+				<h3 className="loginText">New seeker? Sign up below...</h3>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="email"
 					onChange={(e) => {
@@ -104,6 +111,7 @@ export const Login = () => {
 					}}
 				/>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="username"
 					onChange={(e) => {
@@ -111,6 +119,7 @@ export const Login = () => {
 					}}
 				/>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="password"
 					onChange={(e) => {
@@ -119,24 +128,12 @@ export const Login = () => {
 				/>
 			</div>
 			<div>
-				<button onClick={postNewUser}>Register</button>
+				<button className="button-7" onClick={postNewUser}>
+					Register
+				</button>
 			</div>
 			<h2 className="loginStat">{loginStat}</h2>
 			<br />
-			<div className="iconRow">
-				<IconContext.Provider
-					value={{
-						color: "white",
-						size: "2em",
-					}}
-				>
-					<FiGithub />
-					<h2>| |</h2>
-					<CiTwitter />
-					<h2>| |</h2>
-					<CiFacebook />
-				</IconContext.Provider>
-			</div>
 		</div>
 	);
 };

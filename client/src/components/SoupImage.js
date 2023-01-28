@@ -33,7 +33,7 @@ function SoupImage(props) {
         setPic();
 
         return () => {
-            setPic(soupTypes[i].src)
+            setPic(soupPic)
         }
     },)
 
