@@ -27,6 +27,8 @@ function App() {
   let [soupIndex, setSoupIndex] = useState([]);
   const [userPersist, setUserPersist] = useState();
 
+  const correctWord = 'RIGHT';
+
 
 
 
@@ -56,7 +58,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+    <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
       <AuthProvider>
         <div className="App">
           <Router>

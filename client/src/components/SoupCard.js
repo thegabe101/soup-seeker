@@ -16,7 +16,7 @@ function SoupGuessCard() {
         return i;
     }
 
-    const { soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic } = useContext(AppContext);
+    const { soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board } = useContext(AppContext);
 
 
     const soupIndexSetter = () => {
@@ -34,7 +34,7 @@ function SoupGuessCard() {
                     if (newList.indexOf(thisValue) > -1) {
                         foundRepeatingValue = true;
                         console.log("getting repeated");
-                        newList.pop((thisValue));
+                        // newList.pop((thisValue));
                     }
                 } newList.push(thisValue);
                 setSoupIndex(newList);
@@ -61,18 +61,20 @@ function SoupGuessCard() {
         soupSetter();
         // setSoupPic(soupTypes[i].src)
         // return () => {
-        //     setSoupPic(soupTypes[i].src);
+        //     soupSetter();
         // }
-    }, [setSoupPic])
+    }, [])
 
 
     return (
-        <div className="soupGuessCard">
+
+        < div className="soupGuessCard" >
             <h3>On your current row, which soup do you see?</h3>
             <button className="button-8" onClick={soupSetter}>{soupIndex[0]}</button>
             <button className="button-8" onClick={soupSetter}>{soupIndex[1]}</button>
             <button className="button-8" onClick={soupSetter}>{soupIndex[2]}</button>
-        </div>
+        </div >
+
     );
 };
 

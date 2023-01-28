@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #121212;
+  background-color: #070812; 
   width: 100vw;
   height: 100vh;
   /* display: flex; */
@@ -51,8 +51,9 @@ nav h1 {
 
 .row {
   flex: 33%;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
+  height: fit-content;
   margin: 5px;
 }
 
@@ -83,7 +84,7 @@ nav h1 {
 
 .keyboard {
   width: 500px;
-  height: 75vh;
+  height: 85vh;
   margin-top: 75vh;
   margin-left: 3vw;
 }
@@ -138,15 +139,18 @@ nav h1 {
     width: 10vw;
 }
 
-.soupGuessCard {
+/* .soupGuessCard {
   display: flex;
+  flex-direction: row;
   border: #b49f39 1px solid;
   padding: 7px;
-  height: max-content;
-  width: 500px;
+  height: fit-content;
+  width: 100%;
   font-size: 16px;
   position: relative;
-}
+  margin-left: 75%;
+} */
+
 
 .button-5 {
   align-items: center;

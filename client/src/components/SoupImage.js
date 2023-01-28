@@ -29,6 +29,7 @@ function SoupImage(props) {
         // setSoupPic(soupGrabber)
         let image = document.getElementsByClassName("soupImg");
         image.src = soupPic;
+        setSoupPic(soupPic);
         // let soupGrabber = soupIndex[i];
         // console.log(soupGrabber);
         // setSoupPic(soupTypes[i].src)
@@ -36,12 +37,12 @@ function SoupImage(props) {
 
     useEffect(() => {
         //default image grabber on component mount 
-        setSoupPic(soupdefault);
         genRandom();
+        setSoupPic(soupdefault);
         // setPic();
-        // return () => {
-        //     setSoupPic(soupTypes[i].src);
-        // }
+        return () => {
+            setPic();
+        }
     }, [])
 
 

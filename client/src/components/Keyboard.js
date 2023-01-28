@@ -5,6 +5,7 @@ import { MdOutlineBackspace } from 'react-icons/md';
 import SoupGuessCard from './SoupCard';
 import { useContext } from 'react';
 import { AppContext } from '../App';
+import Soup from './Soup';
 
 
 function Keyboard() {
@@ -50,7 +51,7 @@ function Keyboard() {
 
     return (
         <div className='keyboard' onKeyDown={keySense}>
-            <SoupGuessCard />
+            {board[0][4] ? <SoupGuessCard /> : ''}
             <div className='line1'>
                 {arrOne.map((key) => <Key keyValue={key} />)}
             </div>
