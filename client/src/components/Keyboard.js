@@ -1,9 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import '../App.css';
 import Key from './Key';
 import { MdOutlineBackspace } from 'react-icons/md';
 import SoupGuessCard from './SoupCard';
-import { useEffect } from 'react';
 import { useContext } from 'react';
 import { AppContext } from '../App';
 
@@ -18,9 +17,9 @@ function Keyboard() {
 
     //keydown functionality needs to look for enter, del, and letters
     const keySense = useCallback((e) => {
-        if (e.key === 'enter') {
+        if (e.key === 'Enter') {
             onEnter();
-        } else if (e.key === 'delete') {
+        } else if (e.key === 'Backspace') {
             onDelete();
         } else {
             arrOne.forEach((key) => {
@@ -65,6 +64,6 @@ function Keyboard() {
             </div>
         </div>
     )
-}
+};
 
 export default Keyboard;

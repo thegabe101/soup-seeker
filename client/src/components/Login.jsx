@@ -21,7 +21,7 @@ export const Login = () => {
 	const [logPassword, setLogPassword] = useState("");
 	const [loginStat, setLoginStat] = useState("");
 	const auth = useAuth();
-	let timeLeft = 3;
+	let timeLeft = 2;
 
 	const postNewUser = () => {
 		axios
