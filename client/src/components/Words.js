@@ -11,6 +11,7 @@ export const emptyBoard = [
 
 export const genWordSet = async () => {
     let wordSet;
+    let todaysWord;
     await fetch(wordBank)
         .then((response) => response.text())
         .then((result) => {
@@ -18,10 +19,11 @@ export const genWordSet = async () => {
             // console.log(result)
             const wordArray = result.split('\n');
             // console.log(wordArray);
+            todaysWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             wordSet = new Set(wordArray);
             // console.log(wordSet);
             // console.log(wordSet);
         });
     // console.log(wordSet)
-    return { wordSet };
+    return { wordSet, todaysWord };
 };

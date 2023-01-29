@@ -9,7 +9,7 @@ import Soup from './Soup';
 
 
 function Keyboard() {
-    const { board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter } = useContext(AppContext);
+    const { board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters } = useContext(AppContext);
 
     const arrOne = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const arrTwo = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -51,16 +51,22 @@ function Keyboard() {
 
     return (
         <div className='keyboard' onKeyDown={keySense}>
-            {board[0][4] ? <SoupGuessCard /> : ''}
+            {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
-                {arrOne.map((key) => <Key keyValue={key} />)}
+                {arrOne.map((key) => {
+                    return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
+                })}
             </div>
             <div className='line2'>
-                {arrTwo.map((key) => <Key keyValue={key} />)}
+                {arrTwo.map((key) => {
+                    return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
+                })}
             </div>
             <div className='line3'>
                 <Key keyValue={'enter'} bigKey />
-                {arrThree.map((key) => <Key keyValue={key} />)}
+                {arrThree.map((key) => {
+                    return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
+                })}
                 <Key keyValue={'delete'} bigKey />
             </div>
         </div>

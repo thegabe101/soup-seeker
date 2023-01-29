@@ -23,18 +23,52 @@ function App() {
   const [gamesWon, setGamesWon] = useState(0);
   const [soupInfo, setSoupInfo] = useState([]);
   const [soupPic, setSoupPic] = useState(null);
+  const [userPersist, setUserPersist] = useState(false);
+  const [validWord, setValidWord] = useState('');
+  const [disabledLetters, setDisabledLetters] = useState([]);
+  const [gameOver, setGameOver] = useState({ gameOver: false, guessedWord: false })
+  const [correctWord, setCorrectWord] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
-  const [userPersist, setUserPersist] = useState();
 
-  const correctWord = 'RIGHT';
 
   useEffect(() => {
     genWordSet().then((words) => {
       console.log(words)
       setWordSet(words.wordSet);
-      // setCorrectWord(words.todaysWord);
+      setCorrectWord(words.todaysWord);
     });
   }, []);
+
+
+  // console.log(correctWord);
+  // console.log(gameOver);
+
+  const onEnter = () => {
+    if (currentGuess.letterPosition !== 5) return;
+
+    let currentWord = '';
+
+    for (let i = 0; i < 5; i++) {
+      currentWord += board[currentGuess.attempt][i];
+      // console.log({ wordSet });
+    }
+    //not sure why this \r is appearing in the word set but can just concatenate 
+    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
+      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
+      console.log(currentWord)
+    } else {
+      console.log(currentWord);
+      setValidWord('Not null');
+      // alert('You must guess a valid word!')
+    } if (currentWord.toLocaleLowerCase() === correctWord) {
+      setGameOver({ gameOver: true, guessedWord: true });
+      return;
+    }
+    if (currentGuess.attempt === 5) {
+      setGameOver({ gameOver: true, guessedWord: false })
+    }
+    //increase the array index w attempt; reset position in array to start for next guess 
+  }
 
   const onSelector = (keyValue) => {
     //escape if clause to check if letter position is greater than 4 in the array; if so, exit because it needs to go to the next row 
@@ -51,33 +85,13 @@ function App() {
     const currentBoard = [...board];
     currentBoard[currentGuess.attempt][currentGuess.letterPosition - 1] = '';
     setBoard(currentBoard);
-    setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 })
+    setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 });
+    setValidWord('');
   }
-
-  const onEnter = () => {
-    if (currentGuess.letterPosition !== 5) return;
-
-    let currentWord = '';
-
-    for (let i = 0; i < 5; i++) {
-      currentWord += board[currentGuess.attempt][i];
-      console.log({ wordSet })
-    }
-    console.log((wordSet.has(currentWord.toLowerCase() + `\r`)))
-
-    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
-      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-    } else {
-      console.log(currentWord)
-      alert('Please guess a valid word.')
-    }
-    //increase the array index w attempt; reset position in array to start for next guess 
-  }
-
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />

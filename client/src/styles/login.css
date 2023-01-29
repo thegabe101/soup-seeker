@@ -13,30 +13,6 @@
     letter-spacing: .03em;
 }
 
-/* header {
-	position: fixed;
-	width: 100%;
-	height: var(--heading-height);
-}
-
-header::before {
-	content: "";
-	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 6em;
-	width: 100%;
-	height: calc(var(--heading-height) + 10em);
-	z-index: -1;
-	transform: skewY(-3.5deg);
-	background: 
-		linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-		url(https://images.unsplash.com/photo-1495464101292-552d0b52fe41?auto=format&fit=crop&w=1350&q=80) no-repeat center,
-		linear-gradient(#4e4376, #2b5876);
-	background-size: cover;
-	border-bottom: .2em solid #fff;
-} */
-
 .loginPage {
     display: flex;
     flex-direction: column;
@@ -54,7 +30,7 @@ header::before {
 }
 
 .form__input {
-    background-color: #8d7d2d;
+    background-color: #39375012;
     color: aliceblue;
     border-radius: 5px;
     font-size: larger;
@@ -80,7 +56,7 @@ header::before {
 .button-7 {
     align-items: center;
     background-clip: padding-box;
-    background-color: #9d361f;
+    background-color: #333848e3;
     border: 1px solid transparent;
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;

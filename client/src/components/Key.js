@@ -3,7 +3,7 @@ import '../App.css';
 import { AppContext } from '../App';
 import { MdOutlineBackspace } from 'react-icons/md';
 
-function Key({ keyValue, bigKey }) {
+function Key({ keyValue, bigKey, disabled }) {
     const { board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter } = useContext(AppContext);
 
 
@@ -20,7 +20,7 @@ function Key({ keyValue, bigKey }) {
     }
 
     return (
-        <div className='key' id={bigKey && "big"} onClick={selectLetter}>{keyValue} </div>
+        <div className='key' id={bigKey ? "big" : disabled && 'disabled'} onClick={selectLetter}>{keyValue} </div>
     )
 }
 

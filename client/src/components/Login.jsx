@@ -27,12 +27,18 @@ export const Login = () => {
 
 	const { userPersist, setUserPersist } = useContext(AppContext);
 
-	useEffect(() => {
-		const loggedInUser = localStorage.getItem("user");
-		if (loggedInUser === true) {
-			navigate("/play");
-		}
-	}, []);
+	// useEffect(() => {
+	// 	const loggedInUser = localStorage.getItem("user");
+	// 	if (loggedInUser === true) {
+	// 		navigate("/play");
+	// 	}
+	// }, [setUserPersist]);
+
+	// useEffect(() => {
+	// 	if (auth) {
+	// 		navigate("/play");
+	// 	}
+	// }, []);
 
 	const postNewUser = () => {
 		axios
@@ -57,8 +63,11 @@ export const Login = () => {
 					console.log(response.data);
 					setLoginStat(response.data.message);
 				} else {
-					console.log(logUsername);
+					// console.log(logUsername);
+					// setUserPersist(true);
+					// localStorage.setItem("user", userPersist);
 					auth.login(logUsername);
+					localStorage.setItem("user", logUsername);
 					setLoginStat(
 						`Welcome, seeker of the soup ${response.data[0].username}, seek in ${timeLeft}`,
 						setTimeout(() => {
@@ -66,8 +75,6 @@ export const Login = () => {
 							navigate(`/play`, { replace: true });
 						}, 3000)
 					);
-					setUserPersist(true);
-					localStorage.setItem("user", userPersist);
 				}
 			});
 	};
