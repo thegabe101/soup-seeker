@@ -326,6 +326,14 @@ nav h1 {
   transform: translateY(0);
 }
 
+.profImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid black;
+}
+
+
 @keyframes move {
   0% {
       transform: translateY(25%);
