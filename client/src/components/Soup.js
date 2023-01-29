@@ -31,11 +31,11 @@ function Soup(props) {
     }
 
     useEffect(() => {
-        indexSetter();
+        // indexSetter();
     }, [])
 
     return (
-        <div><SoupImage index={soupIndex} /></div>
+        <div><SoupImage /></div>
     )
 }
 

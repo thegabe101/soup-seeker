@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 // import { AppContext } from "../App";
 import { FiGithub } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
@@ -9,11 +9,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { useAuth } from "./AuthProvider";
+import { useContext } from "react";
+import { AppContext } from "../App";
+import { useEffect } from "react";
 
 export const Login = () => {
 	const navigate = useNavigate();
 
-	// const [user, setUser] = useState("");
 	const [userName, setUserName] = useState("");
 	const [passwordReg, setPasswordReg] = useState("");
 	const [email, setEmail] = useState("");
@@ -21,7 +23,16 @@ export const Login = () => {
 	const [logPassword, setLogPassword] = useState("");
 	const [loginStat, setLoginStat] = useState("");
 	const auth = useAuth();
-	let timeLeft = 3;
+	let timeLeft = 2;
+
+	const { userPersist, setUserPersist } = useContext(AppContext);
+
+	useEffect(() => {
+		const loggedInUser = localStorage.getItem("user");
+		if (loggedInUser === true) {
+			navigate("/play");
+		}
+	}, []);
 
 	const postNewUser = () => {
 		axios
@@ -55,16 +66,21 @@ export const Login = () => {
 							navigate(`/play`, { replace: true });
 						}, 3000)
 					);
+					setUserPersist(true);
+					localStorage.setItem("user", userPersist);
 				}
 			});
 	};
 
 	return (
 		<div className="loginPage">
-			<h1 className="loginHeader">Enter within and seek thy soup...</h1>
+			<h1 className="loginHeader header">
+				Enter within and seek thy soup...
+			</h1>
 			<div className="loginContainer">
-				<h1>Login</h1>
+				<h1 className="loginText">Login</h1>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="username"
 					onChange={(e) => {
@@ -72,18 +88,22 @@ export const Login = () => {
 					}}
 				/>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="password"
 					onChange={(e) => {
 						setLogPassword(e.target.value);
 					}}
 				/>
-				<button onClick={loginUser}>Seek</button>
+				<button className="button-7" onClick={loginUser}>
+					Seek
+				</button>
 				<br />
 			</div>
 			<div>
-				<h3>New seeker? Sign up below...</h3>
+				<h3 className="loginText">New seeker? Sign up below...</h3>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="email"
 					onChange={(e) => {
@@ -91,6 +111,7 @@ export const Login = () => {
 					}}
 				/>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="username"
 					onChange={(e) => {
@@ -98,6 +119,7 @@ export const Login = () => {
 					}}
 				/>
 				<input
+					className="form__input"
 					type="text"
 					placeholder="password"
 					onChange={(e) => {
@@ -106,24 +128,12 @@ export const Login = () => {
 				/>
 			</div>
 			<div>
-				<button onClick={postNewUser}>Register</button>
+				<button className="button-7" onClick={postNewUser}>
+					Register
+				</button>
 			</div>
 			<h2 className="loginStat">{loginStat}</h2>
 			<br />
-			<div className="iconRow">
-				<IconContext.Provider
-					value={{
-						color: "white",
-						size: "2em",
-					}}
-				>
-					<FiGithub />
-					<h2>| |</h2>
-					<CiTwitter />
-					<h2>| |</h2>
-					<CiFacebook />
-				</IconContext.Provider>
-			</div>
 		</div>
 	);
 };

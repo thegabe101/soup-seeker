@@ -1,10 +1,11 @@
 .App {
   text-align: center;
-  background-color: #121212;
+  background-color: #070812; 
   width: 100vw;
   height: 100vh;
   /* display: flex; */
   color: white;
+  overflow: hidden;
 }
 
 body {
@@ -19,6 +20,9 @@ nav {
   border-bottom: 1px solid grey;
   display: flex;
   justify-content: space-around;
+  text-shadow: .022em .022em .022em rgb(162, 154, 154);
+	color: #fff;
+  letter-spacing: .03em;
 }
 
 nav h1 {
@@ -47,8 +51,9 @@ nav h1 {
 
 .row {
   flex: 33%;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
+  height: fit-content;
   margin: 5px;
 }
 
@@ -78,9 +83,10 @@ nav h1 {
 }
 
 .keyboard {
-  width: 700px;
-  height: 300px;
-  margin-top: 60vh;
+  width: 500px;
+  height: 85vh;
+  margin-top: 75vh;
+  margin-left: 3vw;
 }
 
 .line1 {
@@ -128,17 +134,23 @@ nav h1 {
 }
 
 .soupImg {
-    height: fit-content;
-    width: 40px;
+    height: 12vh;
+    border-radius: 20px;
+    width: 10vw;
 }
 
-.soupGuessCard {
-  display: inline-block;
+/* .soupGuessCard {
+  display: flex;
+  flex-direction: row;
   border: #b49f39 1px solid;
-  padding: 5px;
+  padding: 7px;
   height: fit-content;
-  width: 500px;
-}
+  width: 100%;
+  font-size: 16px;
+  position: relative;
+  margin-left: 75%;
+} */
+
 
 .button-5 {
   align-items: center;
@@ -158,9 +170,10 @@ nav h1 {
   line-height: 1.25;
   margin: 3px;
   /* min-height: 3rem; */
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: calc(.375rem - 1px) calc(1.0rem - 1px);
   /* position: relative; */
   text-decoration: none;
+  margin: 10px;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
@@ -265,4 +278,67 @@ nav h1 {
 .soupIc {
   padding: 1px;
   border-radius: 15px;
+}
+
+.button-8 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #8d7d2d;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  /* margin: 3px; */
+  /* min-height: 3rem; */
+  padding: calc(.375rem - 1px) calc(1.0rem - 1px);
+  /* position: relative; */
+  text-decoration: none;
+  margin: 10px;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* vertical-align: baseline; */
+  width: auto;
+}
+
+.button-8:hover,
+.button-8:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(156, 53, 2, 0.862) 4px 4px 12px;
+}
+
+.button-8:hover {
+  transform: translateY(-1px);
+}
+
+.button-8:active {
+  background-color: #622d0a;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.profImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid black;
+}
+
+@keyframes move {
+  0% {
+      transform: translateY(25%);
+  }
+
+  100% {
+      transform: translateY(-25%);
+  }
 }

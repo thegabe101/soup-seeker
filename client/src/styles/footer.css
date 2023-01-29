@@ -1,0 +1,14 @@
+.footer {
+    border-top: 0.5px white solid;
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #070812;
+    }
+
+    .iconPadding {
+        padding: 5px;
+    }
