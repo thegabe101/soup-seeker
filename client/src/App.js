@@ -29,14 +29,12 @@ function App() {
   const correctWord = 'RIGHT';
 
   useEffect(() => {
-    console.log(wordSet);
     genWordSet().then((words) => {
+      console.log(words)
       setWordSet(words.wordSet);
       // setCorrectWord(words.todaysWord);
     });
   }, []);
-
-
 
   const onSelector = (keyValue) => {
     //escape if clause to check if letter position is greater than 4 in the array; if so, exit because it needs to go to the next row 
@@ -57,25 +55,30 @@ function App() {
   }
 
   const onEnter = () => {
-    if (currentGuess.letterPosition < 5) return;
+    if (currentGuess.letterPosition !== 5) return;
 
     let currentWord = '';
 
     for (let i = 0; i < 5; i++) {
       currentWord += board[currentGuess.attempt][i];
+      console.log({ wordSet })
     }
+    console.log((wordSet.has(currentWord.toLowerCase() + `\r`)))
 
-    if (wordSet.has(currentWord.toLowerCase())) {
+    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-    } else alert('Please guess a valid word.')
+    } else {
+      console.log(currentWord)
+      alert('Please guess a valid word.')
+    }
     //increase the array index w attempt; reset position in array to start for next guess 
   }
 
 
   return (
-    <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
-      <AuthProvider>
-        <div className="App">
+    <div className="App">
+      <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+        <AuthProvider>
           <Router>
             <NavBar />
             <Routes>
@@ -86,9 +89,9 @@ function App() {
             </Routes>
             <Footer />
           </Router>
-        </div>
-      </AuthProvider>
-    </AppContext.Provider>
+        </AuthProvider>
+      </AppContext.Provider>
+    </div>
   );
 };
 

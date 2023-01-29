@@ -16,7 +16,8 @@ export const Profile = () => {
 
 	return (
 		<div>
-			<h1>Welcome, seeker {auth.user}.</h1>
+			<h1>Welcome, Seeker</h1>
+			<h2>Username: {auth.user}</h2>
 			<h2>You have won {gamesWon} games in your soup seeking career.</h2>
 			<div>
 				<button onClick={handleLogout}>Logout</button>
