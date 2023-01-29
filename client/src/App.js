@@ -9,31 +9,32 @@ import { Profile } from './pages/Profile';
 import { RequireAuth } from './components/RequireAuth';
 import { LandingPage } from './pages/LandingPage';
 import { PlayPage } from './pages/PlayPage';
-import { emptyBoard } from './components/Words';
-// import { useNavigate } from 'react-router-dom';
+import { emptyBoard, genWordSet } from './components/Words';
+import { useNavigate } from 'react-router-dom';
 import { Footer } from './pages/Footer';
-import { genWordSet } from './components/Words';
+
 
 export const AppContext = createContext();
 
 function App() {
   const [board, setBoard] = useState(emptyBoard);
+  const [wordSet, setWordSet] = useState(new Set());
   const [currentGuess, setCurrentGuess] = useState({ attempt: 0, letterPosition: 0 });
   const [gamesWon, setGamesWon] = useState(0);
   const [soupInfo, setSoupInfo] = useState([]);
   const [soupPic, setSoupPic] = useState(null);
   let [soupIndex, setSoupIndex] = useState([]);
   const [userPersist, setUserPersist] = useState();
-  const [wordSet, setWordSet] = useState(new Set());
 
   const correctWord = 'RIGHT';
 
   useEffect(() => {
+    console.log(wordSet);
     genWordSet().then((words) => {
       setWordSet(words.wordSet);
-      console.log(wordSet)
+      // setCorrectWord(words.todaysWord);
     });
-  }, [])
+  }, []);
 
 
 
@@ -72,7 +73,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ wordSet, setWordSet, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+    <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
       <AuthProvider>
         <div className="App">
           <Router>
