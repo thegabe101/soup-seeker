@@ -33,14 +33,14 @@ function App() {
 
   useEffect(() => {
     genWordSet().then((words) => {
-      console.log(words)
+      // console.log(words)
       setWordSet(words.wordSet);
       setCorrectWord(words.todaysWord);
     });
   }, []);
 
 
-  // console.log(correctWord);
+  console.log(correctWord);
   // console.log(gameOver);
 
   const onEnter = () => {
@@ -55,9 +55,9 @@ function App() {
     //not sure why this \r is appearing in the word set but can just concatenate 
     if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-      console.log(currentWord)
+      // console.log(currentWord)
     } else {
-      console.log(currentWord);
+      // console.log(currentWord);
       setValidWord('Not null');
       // alert('You must guess a valid word!')
     } if (currentWord.toLowerCase() === correctWord) {
@@ -77,7 +77,7 @@ function App() {
     currentBoard[currentGuess.attempt][currentGuess.letterPosition] = keyValue;
     setBoard(currentBoard);
     setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition + 1 })
-    console.log(currentBoard)
+    // console.log(currentBoard)
   }
 
   const onDelete = () => {

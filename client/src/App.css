@@ -347,6 +347,19 @@ nav h1 {
 
 .gameOverLose {
 margin-left: 10%;
+background-color: #3b4545;
+background-color:rgba(0,0,0,0.5);
+color: white;
+height: 30vh;
+width: 40vw;
+border-radius: 25px;
+}
+
+.soupWin {
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  opacity: 1;
 }
 
 @keyframes move {

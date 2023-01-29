@@ -24,22 +24,9 @@ export const Login = () => {
 	const [logPassword, setLogPassword] = useState("");
 	const [loginStat, setLoginStat] = useState("");
 	const auth = useAuth();
-	let timeLeft = 2;
+	let [timeLeft, setTimeLeft] = useState(3);
 
 	const { userPersist, setUserPersist } = useContext(AppContext);
-
-	// useEffect(() => {
-	// 	const loggedInUser = localStorage.getItem("user");
-	// 	if (loggedInUser === true) {
-	// 		navigate("/play");
-	// 	}
-	// }, [setUserPersist]);
-
-	// useEffect(() => {
-	// 	if (auth) {
-	// 		navigate("/play");
-	// 	}
-	// }, []);
 
 	const postNewUser = () => {
 		axios
@@ -64,17 +51,14 @@ export const Login = () => {
 					console.log(response.data);
 					setLoginStat(response.data.message);
 				} else {
-					// console.log(logUsername);
-					// setUserPersist(true);
-					// localStorage.setItem("user", userPersist);
 					auth.login(logUsername);
 					localStorage.setItem("user", logUsername);
 					setLoginStat(
-						`Welcome, seeker of the soup ${response.data[0].username}, seek in ${timeLeft}`,
+						`Welcome back, seeker of the soup ${response.data[0].username}.`,
 						setTimeout(() => {
-							timeLeft -= 1;
+							setTimeLeft((timeLeft -= 1));
 							navigate(`/play`, { replace: true });
-						}, 3000)
+						}, 1500)
 					);
 				}
 			});
