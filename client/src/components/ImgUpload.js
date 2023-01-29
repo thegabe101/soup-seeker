@@ -1,10 +1,9 @@
-import "../App.css";
+// import "../App.css";
 import React, { Component } from "react";
 
 class ProfImg extends Component {
     constructor() {
         super();
-
         this.state = { avatar: "" };
     }
 
@@ -13,6 +12,7 @@ class ProfImg extends Component {
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = (e) => {
             let img = e.target.result;
+            localStorage.setItem('profilepicture', img)
             this.setState({ avatar: img });
         };
     };
@@ -20,9 +20,9 @@ class ProfImg extends Component {
     render() {
         return (
             <div>
-                <input type="file" onChange={this.handleChange} />
+                {!localStorage.getItem('profilepicture') && <input type="file" onChange={this.handleChange} />}
                 <div>
-                    <img src={this.state.avatar} className="profImg" alt="" />
+                    {!localStorage.getItem('profilepicture') ? <img src={this.state.avatar} /> : <img src={localStorage.getItem('profilepicture')} alt="A profile picture." className="profImg" />}
                 </div>
             </div>
         );
