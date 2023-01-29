@@ -278,6 +278,9 @@ nav h1 {
   flex-direction: row;
   width: 100%;
   color: white;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .iconRow {
@@ -360,6 +363,24 @@ border-radius: 25px;
   align-items: center;
   margin-top: 60px;
   opacity: 1;
+}
+
+.mapContainer {
+  display: inline-block;
+  margin-left: 46%;
+  margin-bottom: 30%;
+  position: fixed;
+  background-color: black;
+  height: 40vh;
+  width: 50vw;
+  background-color: #3b4545;
+  background-color:rgba(94, 135, 135, 0.16);
+  border-radius: 15px;
+}
+
+.sam {
+  height: 150px;
+  width: fit-content;
 }
 
 @keyframes move {

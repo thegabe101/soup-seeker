@@ -60,7 +60,7 @@ function App() {
       // console.log(currentWord);
       setValidWord('Not null');
       // alert('You must guess a valid word!')
-    } if (currentWord.toLowerCase() === correctWord) {
+    } if (currentWord === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true });
       return;
     }
