@@ -8,10 +8,12 @@ import { AppContext } from "../App";
 import SoupGuessCard from "./SoupCard";
 
 function Board() {
-	const { board, currentGuess, setCurrentGuess } = useContext(AppContext);
+	const { board, currentGuess, setCurrentGuess, validWord, setValidWord } =
+		useContext(AppContext);
 
 	return (
 		<div className="board">
+			{validWord !== "" && <h3>You must guess a valid word!</h3>}
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={0} />
 				<Letter letterPosition={1} attemptValue={0} />

@@ -1,11 +1,18 @@
 .App {
   text-align: center;
-  background-color: #070812; 
+  /* background-color: #070812;  */
   width: 100vw;
   height: 100vh;
   /* display: flex; */
   color: white;
   overflow: hidden;
+  background-image: url('./assets/images/picassosoup.jpg');
+  /* height: 100%;
+  width: 100%; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(7, 8, 6, 0.509);
+  background-blend-mode: multiply;
 }
 
 body {
@@ -68,6 +75,7 @@ nav h1 {
   font-weight: bolder;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  background-color:rgba(35, 172, 172, 0.16);
 }
 
 #correct {
@@ -75,18 +83,20 @@ nav h1 {
 }
 
 #almost {
-  background-color: #b49f39;
+  background-color: #1c1f48a8;
 }
 
 #error {
-  background-color: #3a393c;
+  background-color: #20332fe2;
 }
 
 .keyboard {
+  display: inline-block;
   width: 500px;
   height: 85vh;
-  margin-top: 75vh;
-  margin-left: 3vw;
+  margin-top: 108%;
+  margin-left: 45%;
+  position: fixed;
 }
 
 .line1 {
@@ -120,7 +130,7 @@ nav h1 {
   display: grid;
   place-items: center;
   font-size: 20px;
-  background-color: rgb(154, 116, 46);
+  background-color: rgba(57, 56, 52, 0.722);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
@@ -155,7 +165,7 @@ nav h1 {
 .button-5 {
   align-items: center;
   background-clip: padding-box;
-  background-color: #8d7d2d;
+  background-color: #22716769;
   border: 1px solid transparent;
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -201,7 +211,7 @@ nav h1 {
 .button-6 {
   align-items: center;
   background-clip: padding-box;
-  background-color: #7b0d1c;
+  background-color: #3b4545;
   border: 1px solid transparent;
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -285,7 +295,7 @@ nav h1 {
 .button-8 {
   align-items: center;
   background-clip: padding-box;
-  background-color: #8d7d2d;
+  background-color: #30587245;
   border: 1px solid transparent;
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;

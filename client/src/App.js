@@ -25,6 +25,7 @@ function App() {
   const [soupPic, setSoupPic] = useState(null);
   let [soupIndex, setSoupIndex] = useState([]);
   const [userPersist, setUserPersist] = useState();
+  const [validWord, setValidWord] = useState('');
 
   const correctWord = 'RIGHT';
 
@@ -51,7 +52,8 @@ function App() {
     const currentBoard = [...board];
     currentBoard[currentGuess.attempt][currentGuess.letterPosition - 1] = '';
     setBoard(currentBoard);
-    setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 })
+    setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 });
+    setValidWord('');
   }
 
   const onEnter = () => {
@@ -61,15 +63,16 @@ function App() {
 
     for (let i = 0; i < 5; i++) {
       currentWord += board[currentGuess.attempt][i];
-      console.log({ wordSet })
+      console.log({ wordSet });
     }
     console.log((wordSet.has(currentWord.toLowerCase() + `\r`)))
 
     if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
     } else {
-      console.log(currentWord)
-      alert('Please guess a valid word.')
+      console.log(currentWord);
+      setValidWord('Not null');
+      // alert('You must guess a valid word!')
     }
     //increase the array index w attempt; reset position in array to start for next guess 
   }
@@ -77,7 +80,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
