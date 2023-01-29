@@ -7,6 +7,7 @@ import { Login } from "../components/Login";
 import { useContext } from "react";
 import App, { AppContext } from "../App";
 import { PlayPage } from "./PlayPage";
+import Register from "../components/Register";
 
 export const LoginPage = () => {
 	const { userPersist, setUserPersist } = useContext(AppContext);
@@ -14,6 +15,7 @@ export const LoginPage = () => {
 	return (
 		<div className="main">
 			<Login />
+			{/* <Register /> */}
 			{/* {userPersist !== true ? <Login /> : <PlayPage />} */}
 		</div>
 	);

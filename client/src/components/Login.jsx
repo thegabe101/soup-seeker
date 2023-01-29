@@ -12,6 +12,7 @@ import { useAuth } from "./AuthProvider";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { useEffect } from "react";
+import Register from "./Register";
 
 export const Login = () => {
 	const navigate = useNavigate();
@@ -81,9 +82,7 @@ export const Login = () => {
 
 	return (
 		<div className="loginPage">
-			<h1 className="loginHeader header">
-				Enter within and seek thy soup...
-			</h1>
+			<h1 className="loginHeader">Enter within and seek thy soup...</h1>
 			<div className="loginContainer">
 				<h1 className="loginText">Login</h1>
 				<input

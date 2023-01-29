@@ -345,6 +345,10 @@ nav h1 {
   border: 5px solid black;
 }
 
+.gameOverLose {
+margin-left: 10%;
+}
+
 @keyframes move {
   0% {
       transform: translateY(25%);
