@@ -19,7 +19,7 @@ export const genWordSet = async () => {
             // console.log(result)
             const wordArray = result.split('\n');
             // console.log(wordArray);
-            todaysWord = wordArray[Math.floor(Math.random() * wordArray.length)]
+            todaysWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             wordSet = new Set(wordArray);
             // console.log(wordSet);
             // console.log(wordSet);

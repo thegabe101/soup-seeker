@@ -23,7 +23,7 @@ function App() {
   const [gamesWon, setGamesWon] = useState(0);
   const [soupInfo, setSoupInfo] = useState([]);
   const [soupPic, setSoupPic] = useState(null);
-  const [userPersist, setUserPersist] = useState();
+  const [userPersist, setUserPersist] = useState(false);
   const [validWord, setValidWord] = useState('');
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({ gameOver: false, guessedWord: false })
@@ -35,14 +35,40 @@ function App() {
     genWordSet().then((words) => {
       console.log(words)
       setWordSet(words.wordSet);
-      setCorrectWord(words.todaysWord.toUpperCase());
+      setCorrectWord(words.todaysWord);
     });
   }, []);
 
 
-  console.log(correctWord);
-  console.log(gameOver);
+  // console.log(correctWord);
+  // console.log(gameOver);
 
+  const onEnter = () => {
+    if (currentGuess.letterPosition !== 5) return;
+
+    let currentWord = '';
+
+    for (let i = 0; i < 5; i++) {
+      currentWord += board[currentGuess.attempt][i];
+      // console.log({ wordSet });
+    }
+    //not sure why this \r is appearing in the word set but can just concatenate 
+    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
+      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
+      console.log(currentWord)
+    } else {
+      console.log(currentWord);
+      setValidWord('Not null');
+      // alert('You must guess a valid word!')
+    } if (currentWord.toLocaleLowerCase() === correctWord) {
+      setGameOver({ gameOver: true, guessedWord: true });
+      return;
+    }
+    if (currentGuess.attempt === 5) {
+      setGameOver({ gameOver: true, guessedWord: false })
+    }
+    //increase the array index w attempt; reset position in array to start for next guess 
+  }
 
   const onSelector = (keyValue) => {
     //escape if clause to check if letter position is greater than 4 in the array; if so, exit because it needs to go to the next row 
@@ -62,33 +88,6 @@ function App() {
     setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 });
     setValidWord('');
   }
-
-  const onEnter = () => {
-    if (currentGuess.letterPosition !== 5) return;
-
-    let currentWord = '';
-
-    for (let i = 0; i < 5; i++) {
-      currentWord += board[currentGuess.attempt][i].toLowerCase();
-      // console.log({ wordSet });
-    }
-    //not sure why this \r is appearing in the word set but can just concatenate 
-    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
-      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-    } else {
-      console.log(currentWord);
-      setValidWord('Not null');
-      // alert('You must guess a valid word!')
-    } if (currentWord === correctWord.toLowerCase()) {
-      setGameOver({ gameOver: true, guessedWord: true });
-      return;
-    }
-    if (currentGuess.attempt === 5) {
-      setGameOver({ gameOver: true, guessedWord: false })
-    }
-    //increase the array index w attempt; reset position in array to start for next guess 
-  }
-
 
   return (
     <div className="App">
