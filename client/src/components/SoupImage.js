@@ -24,7 +24,7 @@ function SoupImage(props) {
     let changedSoupPic = [];
     const setPic = () => {
         let j = soupIndex[i];
-        console.log(j);
+        // console.log(j);
         // let soupGrabber = soupTypes[soupIndex[i]].src;
         // setSoupPic(soupGrabber)
         let image = document.getElementsByClassName("soupImg");

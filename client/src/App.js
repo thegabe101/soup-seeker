@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { LoginPage } from './pages/LoginPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import { AuthProvider } from './components/AuthProvider';
 import { NavBar } from './components/NavBar';
 import { Profile } from './pages/Profile';
@@ -10,13 +10,11 @@ import { RequireAuth } from './components/RequireAuth';
 import { LandingPage } from './pages/LandingPage';
 import { PlayPage } from './pages/PlayPage';
 import { emptyBoard } from './components/Words';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { Footer } from './pages/Footer';
-
+import { genWordSet } from './components/Words';
 
 export const AppContext = createContext();
-
 
 function App() {
   const [board, setBoard] = useState(emptyBoard);
@@ -26,9 +24,16 @@ function App() {
   const [soupPic, setSoupPic] = useState(null);
   let [soupIndex, setSoupIndex] = useState([]);
   const [userPersist, setUserPersist] = useState();
+  const [wordSet, setWordSet] = useState(new Set());
 
   const correctWord = 'RIGHT';
 
+  useEffect(() => {
+    genWordSet().then((words) => {
+      setWordSet(words.wordSet);
+      console.log(wordSet)
+    });
+  }, [])
 
 
 
@@ -52,13 +57,22 @@ function App() {
 
   const onEnter = () => {
     if (currentGuess.letterPosition < 5) return;
+
+    let currentWord = '';
+
+    for (let i = 0; i < 5; i++) {
+      currentWord += board[currentGuess.attempt][i];
+    }
+
+    if (wordSet.has(currentWord.toLowerCase())) {
+      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
+    } else alert('Please guess a valid word.')
     //increase the array index w attempt; reset position in array to start for next guess 
-    setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
   }
 
 
   return (
-    <AppContext.Provider value={{ correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+    <AppContext.Provider value={{ wordSet, setWordSet, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
       <AuthProvider>
         <div className="App">
           <Router>
