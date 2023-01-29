@@ -51,7 +51,7 @@ function Keyboard() {
 
     return (
         <div className='keyboard' onKeyDown={keySense}>
-            {board[0][4] ? <SoupGuessCard /> : ''}
+            {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
                 {arrOne.map((key) => <Key keyValue={key} />)}
             </div>

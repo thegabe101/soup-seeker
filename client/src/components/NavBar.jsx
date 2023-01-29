@@ -17,11 +17,11 @@ export const NavBar = () => {
 
 	return (
 		<nav>
-			<img src={soupic} className="soupIc"></img>
-			<h2>Soup Seeker</h2>
-			<NavLink to="/" className="button-5">
-				Home
+			<NavLink className="soupIc" to="/">
+				<img src={soupic}></img>
 			</NavLink>
+			<h2>Soup Seeker</h2>
+
 			{!auth.user && (
 				<NavLink to="/login" className="button-5">
 					Login

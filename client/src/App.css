@@ -278,6 +278,8 @@ nav h1 {
 .soupIc {
   padding: 1px;
   border-radius: 15px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .button-8 {
