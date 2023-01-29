@@ -30,7 +30,7 @@
 }
 
 .form__input {
-    background-color: #8d7d2d;
+    background-color: #39375012;
     color: aliceblue;
     border-radius: 5px;
     font-size: larger;
@@ -56,7 +56,7 @@
 .button-7 {
     align-items: center;
     background-clip: padding-box;
-    background-color: #9d361f;
+    background-color: #333848e3;
     border: 1px solid transparent;
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;

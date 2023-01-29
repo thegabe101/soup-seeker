@@ -11,7 +11,7 @@
   width: 100%; */
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgba(7, 8, 6, 0.509);
+  background-color: rgba(7, 8, 6, 0.579);
   background-blend-mode: multiply;
 }
 
@@ -79,7 +79,7 @@ nav h1 {
 }
 
 #correct {
-  background-color: #528d4e;
+  background-color: #316e2cbc;
 }
 
 #almost {
@@ -140,7 +140,7 @@ nav h1 {
   width: 100px;
 }
 #disabled {
-  background-color: #3a393c;
+  background-color: #20332fe2;
 }
 
 .soupImg {
