@@ -29,6 +29,7 @@ function App() {
   const [gameOver, setGameOver] = useState({ gameOver: false, guessedWord: false })
   const [correctWord, setCorrectWord] = useState('');
   const [playerPosition, setPlayerPosition] = useState(1);
+  // let [currentWord, setCurrentWord] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -44,29 +45,35 @@ function App() {
   console.log(correctWord);
   // console.log(gameOver);
 
+
+
   const onEnter = () => {
     if (currentGuess.letterPosition !== 5) return;
 
     let currentWord = '';
 
     for (let i = 0; i < 5; i++) {
+      // setCurrentWord(board[currentGuess.attempt][i].toString())
       currentWord += board[currentGuess.attempt][i];
-      // console.log({ wordSet });
     }
+
+    // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
     if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-      // console.log(currentWord)
-    } else {
+      // console.log(gameOver)
       // console.log(currentWord);
+    } else {
+      console.log(currentWord);
       setValidWord('Not null');
-      // alert('You must guess a valid word!')
     } if (currentWord === correctWord) {
+      console.log('hitting block')
       setGameOver({ gameOver: true, guessedWord: true });
       return;
     }
     if (currentGuess.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false })
+      return;
     }
     //increase the array index w attempt; reset position in array to start for next guess 
   }

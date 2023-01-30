@@ -28,7 +28,7 @@ nav {
   display: flex;
   justify-content: space-around;
   text-shadow: .022em .022em .022em rgb(162, 154, 154);
-	color: #fff;
+  color: #fff;
   letter-spacing: .03em;
 }
 
@@ -38,6 +38,7 @@ nav h1 {
   color: white;
   font-size: 45px;
 }
+
 .game {
   width: 100vw;
   height: calc(100vh - 170px);
@@ -75,7 +76,7 @@ nav h1 {
   font-weight: bolder;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:rgba(35, 172, 172, 0.16);
+  background-color: rgba(35, 172, 172, 0.16);
 }
 
 #correct {
@@ -107,6 +108,7 @@ nav h1 {
   justify-content: center;
   margin: 5px;
 }
+
 .line2 {
   flex: 33%;
   display: flex;
@@ -114,6 +116,7 @@ nav h1 {
   justify-content: center;
   margin: 5px;
 }
+
 .line3 {
   flex: 33%;
   display: flex;
@@ -139,14 +142,15 @@ nav h1 {
 #big {
   width: 100px;
 }
+
 #disabled {
   background-color: #20332fe2;
 }
 
 .soupImg {
-    height: 12vh;
-    border-radius: 20px;
-    width: 10vw;
+  height: 12vh;
+  border-radius: 20px;
+  width: 10vw;
 }
 
 /* .soupGuessCard {
@@ -173,7 +177,7 @@ nav h1 {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -219,7 +223,7 @@ nav h1 {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -254,7 +258,7 @@ nav h1 {
 }
 
 .loginHeader {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .loginPage {
@@ -306,7 +310,7 @@ nav h1 {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -349,13 +353,13 @@ nav h1 {
 }
 
 .gameOverLose {
-margin-left: 10%;
-background-color: #3b4545;
-background-color:rgba(0,0,0,0.5);
-color: white;
-height: 30vh;
-width: 40vw;
-border-radius: 25px;
+  margin-left: 10%;
+  background-color: #3b4545;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  height: 30vh;
+  width: 40vw;
+  border-radius: 25px;
 }
 
 .heart {
@@ -387,7 +391,7 @@ border-radius: 25px;
   height: 40vh;
   width: 50vw;
   background-color: #3b4545;
-  background-color:rgba(145, 173, 173, 0.16);
+  background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
 }
 
@@ -421,14 +425,14 @@ border-radius: 25px;
   height: 9.5vh;
   /* width: 50vw; */
   background-color: #3b4545;
-  background-color:rgba(145, 173, 173, 0.16);
+  background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
   /* top: 54%; */
 }
 
 .startingDiv {
   display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 
 .advance1 {
@@ -439,10 +443,10 @@ border-radius: 25px;
 
 @keyframes move {
   0% {
-      transform: translateY(25%);
+    transform: translateY(25%);
   }
 
   100% {
-      transform: translateY(-25%);
+    transform: translateY(-25%);
   }
 }
