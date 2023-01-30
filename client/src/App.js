@@ -28,7 +28,7 @@ function App() {
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({ gameOver: false, guessedWord: false })
   const [correctWord, setCorrectWord] = useState('');
-  const [playerPosition, setPlayerPosition] = useState(0);
+  const [playerPosition, setPlayerPosition] = useState(1);
   let [soupIndex, setSoupIndex] = useState([]);
 
 

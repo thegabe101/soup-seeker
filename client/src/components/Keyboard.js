@@ -6,10 +6,12 @@ import SoupGuessCard from './SoupCard';
 import { useContext } from 'react';
 import { AppContext } from '../App';
 import Soup from './Soup';
+import { GameOver } from '../pages/GameOver';
+import { Cauldron } from './Cauldron';
 
 
 function Keyboard() {
-    const { board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters } = useContext(AppContext);
+    const { board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters, gameOver } = useContext(AppContext);
 
     const arrOne = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const arrTwo = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -51,6 +53,7 @@ function Keyboard() {
 
     return (
         <div className='keyboard' onKeyDown={keySense}>
+            {gameOver.gameOver ? <GameOver /> : <Cauldron />}
             {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
                 {arrOne.map((key) => {

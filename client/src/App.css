@@ -94,7 +94,7 @@ nav h1 {
   display: inline-block;
   width: 500px;
   height: 85vh;
-  margin-top: 108%;
+  margin-top: 95vh;
   margin-left: 45%;
   position: fixed;
 }
@@ -358,6 +358,18 @@ width: 40vw;
 border-radius: 25px;
 }
 
+.heart {
+  display: flex;
+  /* justify-content: flex-start; */
+  font-size: larger;
+}
+
+.endHeart {
+  display: flex;
+  /* justify-content: center; */
+  font-size: larger;
+}
+
 .soupWin {
   justify-content: center;
   align-items: center;
@@ -366,7 +378,8 @@ border-radius: 25px;
 }
 
 .mapContainer {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   margin-left: 46%;
   margin-bottom: 30%;
   position: fixed;
@@ -374,14 +387,55 @@ border-radius: 25px;
   height: 40vh;
   width: 50vw;
   background-color: #3b4545;
-  background-color:rgba(94, 135, 135, 0.16);
+  background-color:rgba(145, 173, 173, 0.16);
   border-radius: 15px;
 }
 
 .sam {
-  height: 150px;
+  height: 75px;
   width: fit-content;
 }
+
+.ladle {
+  height: 75px;
+}
+
+.cauldron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cauldronImg {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.cauldronCard {
+  /* display: flex;
+  flex-direction: row;
+  position: fixed; */
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  height: 9.5vh;
+  /* width: 50vw; */
+  background-color: #3b4545;
+  background-color:rgba(145, 173, 173, 0.16);
+  border-radius: 15px;
+  /* top: 54%; */
+}
+
+.startingDiv {
+  display: flex;
+  align-items:flex-start;
+}
+
+.advance1 {
+  display: flex;
+  align-items: flex-start;
+}
+
 
 @keyframes move {
   0% {
