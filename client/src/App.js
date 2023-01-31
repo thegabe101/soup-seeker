@@ -35,17 +35,10 @@ function App() {
 
   useEffect(() => {
     genWordSet().then((words) => {
-      // console.log(words)
       setWordSet(words.wordSet);
       setCorrectWord(words.todaysWord);
     });
   }, []);
-
-
-  console.log(correctWord);
-  // console.log(gameOver);
-
-
 
   const onEnter = () => {
     if (currentGuess.letterPosition !== 5) return;
@@ -54,29 +47,31 @@ function App() {
 
     for (let i = 0; i < 5; i++) {
       // setCurrentWord(board[currentGuess.attempt][i].toString())
-      currentWord += board[currentGuess.attempt][i];
+      currentWord += board[currentGuess.attempt][i].toLowerCase();
     }
 
+    console.log(currentWord);
+    console.log(correctWord);
+    console.log(typeof currentWord);
+    console.log(typeof correctWord);
     // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
     if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-      // console.log(gameOver)
-      // console.log(currentWord);
+      console.log(currentWord)
+      console.log(correctWord);
     } else {
-      console.log(currentWord);
       setValidWord('Not null');
     } if (currentWord === correctWord) {
-      console.log('hitting block')
       setGameOver({ gameOver: true, guessedWord: true });
       return;
-    }
+    };
     if (currentGuess.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false })
       return;
-    }
+    };
     //increase the array index w attempt; reset position in array to start for next guess 
-  }
+  };
 
   const onSelector = (keyValue) => {
     //escape if clause to check if letter position is greater than 4 in the array; if so, exit because it needs to go to the next row 
@@ -85,7 +80,6 @@ function App() {
     currentBoard[currentGuess.attempt][currentGuess.letterPosition] = keyValue;
     setBoard(currentBoard);
     setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition + 1 })
-    // console.log(currentBoard)
   }
 
   const onDelete = () => {
