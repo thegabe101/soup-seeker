@@ -16,11 +16,12 @@ function Soup(props) {
     // console.log(i);
 
     const pushSoup = () => {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < max; i++) {
             genRandom();
             if (!soupArr.includes(soupTypes[randomNum].name)) {
                 soupArr.push(soupTypes[randomNum].name);
             }
+
             // console.log(soupArr.filter(soup => soup === spi[]))
             // return soupArr;
         }
@@ -29,16 +30,13 @@ function Soup(props) {
 
     useEffect(() => {
         pushSoup();
-        setSoupIndex(soupTypes[randomNum].name);
+        setSoupIndex(soupArr);
         console.log(soupIndex);
     }, [])
 
-
     const genRandom = () => {
         randomNum = Math.random() * max;
-
         randomNum = Math.floor(randomNum);
-        console.log(randomNum);
         return randomNum;
     }
 
@@ -77,15 +75,6 @@ function Soup(props) {
     //         } return false;
     //     }
     // }
-
-
-    // const soupSetter = () => {
-    //     // genRandom();
-    //     soupIndexSetter();
-    //     setSoupInfo(soupIndex);
-    // };
-
-    // let
 
     // onClick={soupSetter}
     // onClick={soupSetter}
