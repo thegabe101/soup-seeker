@@ -5,37 +5,64 @@ import { useState } from 'react';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../App';
 import { soupTypes } from '../soup-types';
+import soupdefault from '../assets/images/soupdefault.png';
 
 
-function Soup(props) {
-    let i = 0;
+function Soup() {
+    const { gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board } = useContext(AppContext);
+    let randomNum = 0;
+    let soupArr = [];
     const max = soupTypes.length;
-    const { soupIndex, setSoupIndex } = useContext(AppContext);
 
-    // const { src, index } = props;
-    // const [soupInfo, setSoupInfo] = useState({ src, index })
-    const genRandom = () => {
-        i = Math.random() * soupTypes.length;
-        // console.log(i);
-
-        i = Math.floor(i);
-        return i;
+    const pushSoup = () => {
+        for (let i = 0; i < max; i++) {
+            genRandom();
+            if (!soupArr.includes(soupTypes[randomNum].name)) {
+                soupArr.push(soupTypes[randomNum].name);
+            }
+            setSoupIndex(soupArr);
+        };
+        // //gets us a random item from the soup array below the index of 3
+        picPusher();
     }
 
-
-    const indexSetter = () => {
-        genRandom();
-        setSoupIndex([Math.floor(Math.random(i) * max), Math.floor(Math.random(i) * max), Math.floor(Math.random(i) * max)]);
-        console.log(soupIndex);
-        console.log(max);
+    const picPusher = () => {
+        const rand = soupArr[Math.floor(Math.random() * 3)];
+        let randInd = soupArr.indexOf(rand);
+        console.log(rand);
+        console.log(randInd);
+        let soups = Object.values(soupTypes);
+        soups.forEach((soup) => {
+            if (soup.name === rand) {
+                setSoupPic(soup.src);
+            }
+        })
     }
 
     useEffect(() => {
-        // indexSetter();
+        setSoupPic(soupdefault);
+        return () => {
+            pushSoup();
+        }
     }, [])
 
+    const genRandom = () => {
+        randomNum = Math.random() * max;
+        randomNum = Math.floor(randomNum);
+        return randomNum;
+    }
+
     return (
-        <div><SoupImage /></div>
+        <div>
+            < div className="soupGuessCard" >
+                {gameStarted == true ? <><h3>On your current row, which soup do you see?</h3>
+                    <button className="button-8" onClick={pushSoup}>{soupIndex[0]}</button>
+                    <button className="button-8" onClick={pushSoup}>{soupIndex[1]}</button>
+                    <button className="button-8" onClick={pushSoup}>{soupIndex[2]}</button>
+                </> : ''}
+                <img src={soupPic} className="soupImg" />
+            </div >
+        </div>
     )
 }
 

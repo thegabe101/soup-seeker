@@ -28,7 +28,7 @@ nav {
   display: flex;
   justify-content: space-around;
   text-shadow: .022em .022em .022em rgb(162, 154, 154);
-	color: #fff;
+  color: #fff;
   letter-spacing: .03em;
 }
 
@@ -38,9 +38,10 @@ nav h1 {
   color: white;
   font-size: 45px;
 }
+
 .game {
   width: 100vw;
-  height: calc(100vh - 170px);
+  height: calc(90vh - 170px);
   display: flex;
   align-items: center;
   padding-top: 50px;
@@ -50,9 +51,10 @@ nav h1 {
 .board {
   margin-left: 1vw;
   width: 40vw;
-  height: 80vh;
+  height: 85vh;
   /* border: 0.5px solid white; */
   display: flex;
+  margin-top: 10%;
   flex-direction: column;
 }
 
@@ -75,7 +77,7 @@ nav h1 {
   font-weight: bolder;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:rgba(35, 172, 172, 0.16);
+  background-color: rgba(35, 172, 172, 0.16);
 }
 
 #correct {
@@ -94,7 +96,7 @@ nav h1 {
   display: inline-block;
   width: 500px;
   height: 85vh;
-  margin-top: 108%;
+  margin-top: 95vh;
   margin-left: 45%;
   position: fixed;
 }
@@ -107,6 +109,7 @@ nav h1 {
   justify-content: center;
   margin: 5px;
 }
+
 .line2 {
   flex: 33%;
   display: flex;
@@ -114,6 +117,7 @@ nav h1 {
   justify-content: center;
   margin: 5px;
 }
+
 .line3 {
   flex: 33%;
   display: flex;
@@ -139,14 +143,15 @@ nav h1 {
 #big {
   width: 100px;
 }
+
 #disabled {
   background-color: #20332fe2;
 }
 
 .soupImg {
-    height: 12vh;
-    border-radius: 20px;
-    width: 10vw;
+  height: 12vh;
+  border-radius: 20px;
+  width: 10vw;
 }
 
 /* .soupGuessCard {
@@ -173,7 +178,7 @@ nav h1 {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -219,7 +224,7 @@ nav h1 {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -254,7 +259,7 @@ nav h1 {
 }
 
 .loginHeader {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .loginPage {
@@ -306,7 +311,7 @@ nav h1 {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -349,13 +354,25 @@ nav h1 {
 }
 
 .gameOverLose {
-margin-left: 10%;
-background-color: #3b4545;
-background-color:rgba(0,0,0,0.5);
-color: white;
-height: 30vh;
-width: 40vw;
-border-radius: 25px;
+  margin-left: 10%;
+  background-color: #3b4545;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  height: 30vh;
+  width: 40vw;
+  border-radius: 25px;
+}
+
+.heart {
+  display: flex;
+  /* justify-content: flex-start; */
+  font-size: larger;
+}
+
+.endHeart {
+  display: flex;
+  /* justify-content: center; */
+  font-size: larger;
 }
 
 .soupWin {
@@ -366,7 +383,8 @@ border-radius: 25px;
 }
 
 .mapContainer {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   margin-left: 46%;
   margin-bottom: 30%;
   position: fixed;
@@ -374,21 +392,124 @@ border-radius: 25px;
   height: 40vh;
   width: 50vw;
   background-color: #3b4545;
-  background-color:rgba(94, 135, 135, 0.16);
+  background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
 }
 
 .sam {
-  height: 150px;
+  height: 75px;
   width: fit-content;
 }
 
+.ladle {
+  height: 75px;
+}
+
+.cauldron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cauldronImg {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.cauldronCard {
+  /* display: flex;
+  flex-direction: row;
+  position: fixed; */
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  height: 9.5vh;
+  /* width: 50vw; */
+  background-color: #3b4545;
+  background-color: rgba(145, 173, 173, 0.16);
+  border-radius: 15px;
+  /* top: 54%; */
+}
+
+/* .startBtn {
+display: flex;
+height: fit-content;
+width: fit-content;
+margin-bottom: 1vh;
+margin-top: 0;
+margin-left: 16vw; */
+
+.startBtn {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#5eb2cea9, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 18px;
+  height: 5%;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 1%;
+  margin-right: 4%;
+}
+
+.startBtn:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.startBtn:active {
+  outline: 0;
+}
+
+.startBtn:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  .startBtn {
+    height: 48px;
+  }
+}
+
+
+.startingDiv {
+  display: flex;
+  align-items: flex-start;
+}
+
+.advance1 {
+  display: flex;
+  align-items: flex-start;
+}
+
+
 @keyframes move {
   0% {
-      transform: translateY(25%);
+    transform: translateY(25%);
   }
 
   100% {
-      transform: translateY(-25%);
+    transform: translateY(-25%);
   }
 }
