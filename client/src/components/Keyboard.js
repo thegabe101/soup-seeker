@@ -59,25 +59,25 @@ function Keyboard() {
 
     return (
         <div className='keyboard' onKeyDown={keySense}>
-            {gameStarted == false ? <button className="startBtn" onClick={(() => { setGameStarted(true) })}>Begin seeking</button> : ''}
+            {gameStarted == false ? <button className="startBtn" onClick={(() => { setGameStarted(true) })}>Begin thy search</button> : ''}
             {gameOver.gameOver ? <GameOver /> : <Cauldron />}
             {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
-                {arrOne.map((key) => {
+                {gameStarted && arrOne.map((key) => {
                     return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
                 })}
             </div>
             <div className='line2'>
-                {arrTwo.map((key) => {
+                {gameStarted && arrTwo.map((key) => {
                     return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
                 })}
             </div>
             <div className='line3'>
-                <Key keyValue={'enter'} bigKey />
-                {arrThree.map((key) => {
+                {gameStarted && <Key keyValue={'enter'} bigKey />}
+                {gameStarted && arrThree.map((key) => {
                     return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
                 })}
-                <Key keyValue={'delete'} bigKey />
+                {gameStarted && <Key keyValue={'delete'} bigKey />}
             </div>
         </div>
     )

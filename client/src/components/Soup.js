@@ -5,14 +5,20 @@ import { useState } from 'react';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../App';
 import { soupTypes } from '../soup-types';
+import Letter from './Letter';
 import soupdefault from '../assets/images/soupdefault.png';
 
 
-function Soup() {
-    const { gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board } = useContext(AppContext);
+function Soup({ attemptValue, letterPosition }) {
+    const { gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+
+    const [stateImage, setStateImage] = useState(false);
+
     let randomNum = 0;
     let soupArr = [];
     const max = soupTypes.length;
+
+    // const letter = board[attemptValue][letterPosition];
 
     const pushSoup = () => {
         for (let i = 0; i < max; i++) {
@@ -42,6 +48,7 @@ function Soup() {
     useEffect(() => {
         setSoupPic(soupdefault);
         return () => {
+            // picPusher();
             pushSoup();
         }
     }, [])
@@ -52,15 +59,17 @@ function Soup() {
         return randomNum;
     }
 
+
+
     return (
         <div>
             < div className="soupGuessCard" >
-                {gameStarted == true ? <><h3>On your current row, which soup do you see?</h3>
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h3>Which soup hast though sought?</h3>
                     <button className="button-8" onClick={pushSoup}>{soupIndex[0]}</button>
                     <button className="button-8" onClick={pushSoup}>{soupIndex[1]}</button>
                     <button className="button-8" onClick={pushSoup}>{soupIndex[2]}</button>
                 </> : ''}
-                <img src={soupPic} className="soupImg" />
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg" src={soupPic} /> : <img className="soupImg" src={soupdefault} />}
             </div >
         </div>
     )
