@@ -41,7 +41,7 @@ nav h1 {
 
 .game {
   width: 100vw;
-  height: calc(100vh - 170px);
+  height: calc(90vh - 170px);
   display: flex;
   align-items: center;
   padding-top: 50px;
@@ -51,9 +51,10 @@ nav h1 {
 .board {
   margin-left: 1vw;
   width: 40vw;
-  height: 80vh;
+  height: 85vh;
   /* border: 0.5px solid white; */
   display: flex;
+  margin-top: 10%;
   flex-direction: column;
 }
 
@@ -428,6 +429,15 @@ nav h1 {
   background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
   /* top: 54%; */
+}
+
+.startBtn {
+display: flex;
+height: fit-content;
+width: fit-content;
+margin-bottom: 1vh;
+margin-top: 0;
+margin-left: 16vw;
 }
 
 .startingDiv {

@@ -10,7 +10,8 @@ import { useContext } from "react";
 import { AppContext } from "../App";
 
 export const Map = () => {
-	const { playerPosition, setPlayerPosition } = useContext(AppContext);
+	const { playerPosition, setPlayerPosition, gameOver } =
+		useContext(AppContext);
 
 	return (
 		<div className="mapContainer">

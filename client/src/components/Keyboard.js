@@ -53,6 +53,11 @@ function Keyboard() {
 
     return (
         <div className='keyboard' onKeyDown={keySense}>
+            {gameOver.gameOver ? (
+                ""
+            ) : (
+                <button className="startBtn">Begin seeking</button>
+            )}
             {gameOver.gameOver ? <GameOver /> : <Cauldron />}
             {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>

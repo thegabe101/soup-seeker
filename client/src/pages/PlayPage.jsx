@@ -14,7 +14,9 @@ export const PlayPage = () => {
 
 	return (
 		<div className="game">
+			
 			<Board />
+			
 			{gameOver.gameOver ? "" : <Map />}
 			{/* {gameOver.gameOver ? <GameOver /> : <Cauldron />} */}
 			{gameOver.gameOver ? <GameOver /> : <Keyboard />}
