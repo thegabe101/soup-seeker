@@ -9,7 +9,7 @@ import soupdefault from '../assets/images/soupdefault.png';
 
 
 function Soup(props) {
-    const { soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board } = useContext(AppContext);
+    const { gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board } = useContext(AppContext);
     // let i = 0;
     let randomNum = 0;
     let soupArr = [];
@@ -34,9 +34,13 @@ function Soup(props) {
     }
 
     useEffect(() => {
-        pushSoup();
-        picPusher();
-        setSoupIndex(soupArr);
+        setSoupPic(soupdefault);
+
+        return () => {
+            pushSoup();
+            picPusher();
+            setSoupIndex(soupArr);
+        }
     }, [])
 
 
