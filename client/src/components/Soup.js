@@ -15,16 +15,18 @@ function Soup(props) {
     let soupArr = [];
     const max = soupTypes.length;
 
-    const pushSoup = () => {
+    const genSoupIndex = () => {
         for (let i = 0; i < max; i++) {
             genRandom();
             if (!soupArr.includes(soupTypes[randomNum].name)) {
                 soupArr.push(soupTypes[randomNum].name);
             }
-        }
+            setSoupIndex(soupArr)
+        };
+
     }
 
-    const picPusher = () => {
+    const pushSoup = () => {
         const rand = soupArr[Math.floor(Math.random() * 3)];
         //gets us a random item from the soup array below the index of 3
         let randInd = soupArr.indexOf(rand);
@@ -33,19 +35,30 @@ function Soup(props) {
         setSoupPic(soupTypes[randInd].src);
     }
 
-    useEffect(() => {
-        setSoupPic(soupdefault);
+    // const picPusher = () => {
+    //     const rand = soupArr[Math.floor(Math.random() * 3)];
+    //     //gets us a random item from the soup array below the index of 3
+    //     let randInd = soupArr.indexOf(rand);
+    //     console.log(rand);
+    //     console.log(randInd);
+    //     setSoupPic(soupTypes[randInd].src);
+    // }
 
-        return () => {
-            pushSoup();
-            picPusher();
+    useEffect(() => {
+        genSoupIndex();
+        setSoupPic(soupdefault);
+        if (gameStarted == true) {
             setSoupIndex(soupArr);
         }
+        // pushSoup();
+        // picPusher();
+        // setSoupIndex(soupArr);
+        // return () => {
+        //     picPusher();
+        //     pushSoup();
+        //     setSoupIndex(soupArr);
+        // }
     }, [])
-
-
-
-
 
 
     const genRandom = () => {
@@ -97,12 +110,13 @@ function Soup(props) {
     return (
         <div>
             < div className="soupGuessCard" >
-                <h3>On your current row, which soup do you see?</h3>
-                <button className="button-8" >{soupIndex[0]}</button>
-                <button className="button-8" >{soupIndex[1]}</button>
-                <button className="button-8" >{soupIndex[2]}</button>
+                {gameStarted == true ? <><h3>On your current row, which soup do you see?</h3>
+                    <button className="button-8" onClick={pushSoup}>{soupIndex[0]}</button>
+                    <button className="button-8" onClick={pushSoup}>{soupIndex[1]}</button>
+                    <button className="button-8" onClick={pushSoup}>{soupIndex[2]}</button>
+                    <img src={soupPic} className="soupImg" />
+                </> : ''}
             </div >
-            <img src={soupPic} className="soupImg" />
         </div>
     )
 }

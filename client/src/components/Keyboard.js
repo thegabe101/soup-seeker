@@ -52,7 +52,6 @@ function Keyboard() {
 
     useEffect(() => {
         document.addEventListener('keydown', keySense);
-        console.log(gameStarted);
         return () => {
             document.removeEventListener('keydown', keySense);
         }
