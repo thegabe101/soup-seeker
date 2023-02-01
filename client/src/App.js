@@ -62,20 +62,6 @@ function App() {
       return;
     }
 
-    console.log(radioSoup.soupChoice);
-    console.log(soupIndex)
-
-    // soupIndex.forEach((soup) => {
-    //   if (radioSoup.soupChoice === soup[0] || soup[1] || soup[2]) {
-    //     setPlayerPosition(+ 1)
-    //     console.log(playerPosition)
-    //     return;
-    //   } else {
-    //     console.log('not it');
-    //     return
-    //   };
-    // })
-
     if (radioSoup.soupChoice === soupPicValue) {
       incrementPlayerPosition();
       incrementSoupsCorrect();

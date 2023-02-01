@@ -42,13 +42,6 @@ function Keyboard() {
         }
     });
 
-    // const startGame = () => {
-
-    //         setGameStarted({ gameStarted: true })
-
-    //     console.log(gameStarted);
-    // }
-
     useEffect(() => {
         document.addEventListener('keydown', keySense);
         return () => {
@@ -79,7 +72,10 @@ function Keyboard() {
                 })}
                 {gameStarted && <Key keyValue={'delete'} bigKey />}
             </div>
-            {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition} | Soups correct: {soupsCorrect}</div>}
+            {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition} | Soups correct: {soupsCorrect}
+                <p>Become the soup lord without failing the souple to reach the heart of the soup. </p>
+            </div>}
+
         </div>
     )
 };

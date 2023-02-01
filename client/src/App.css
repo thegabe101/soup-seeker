@@ -385,6 +385,7 @@ nav h1 {
 .mapContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-left: 46%;
   margin-bottom: 30%;
   position: fixed;
@@ -498,7 +499,8 @@ margin-left: 16vw; */
   justify-content: center;
   background-color: #355a5a80;
   height: 7vh;
-  padding: 3%
+  padding: 3%;
+  font-size: 14px;
 }
 
 
@@ -507,12 +509,14 @@ margin-left: 16vw; */
   font-size: small;
   margin: 4px;
   flex-direction: column;
+  align-items: center;
   /* align-items: flex-start; */
 }
 
 .advance1 {
   display: flex;
   align-items: flex-start;
+  margin-top: 3%;
 }
 
 
