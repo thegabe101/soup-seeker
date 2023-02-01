@@ -9,7 +9,7 @@ import soupdefault from '../assets/images/soupdefault.png';
 
 
 function Soup({ attemptValue, letterPosition }) {
-    const { onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+    const { soupPicValue, setSoupPicValue, onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
 
     const setSoupOption = event => {
         setRadioSoup({ ...radioSoup, soupChoice: event.target.value });
@@ -42,10 +42,12 @@ function Soup({ attemptValue, letterPosition }) {
         soups.forEach((soup) => {
             if (soup.name === rand) {
                 setSoupPic(soup.src);
+                setSoupPicValue(soup.name);
             }
         })
     }
 
+    console.log(soupPicValue);
 
     const genRandom = () => {
         randomNum = Math.random() * max;

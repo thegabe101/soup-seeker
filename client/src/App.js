@@ -32,6 +32,8 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [radioSoup, setRadioSoup] = useState({ soupChoice: "" });
   const [mustSoup, setMustSoup] = useState('');
+  const [soupPicValue, setSoupPicValue] = useState(null);
+  const [soupsCorrect, setSoupsCorrect] = useState(0);
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -41,6 +43,17 @@ function App() {
       setCorrectWord(words.todaysWord);
     });
   }, []);
+
+  const incrementPlayerPosition = () => {
+    setPlayerPosition(playerPosition + 1);
+  }
+
+  const incrementSoupsCorrect = () => {
+    setSoupsCorrect(soupsCorrect + 1);
+  }
+
+  console.log(playerPosition);
+  console.log(soupIndex);
 
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
@@ -53,12 +66,20 @@ function App() {
     console.log(soupIndex)
 
     // soupIndex.forEach((soup) => {
-    //   if (radioSoup.soupChoice == !soup[0] || soup[1] || soup[2]) {
-    //     console.log('not it')
+    //   if (radioSoup.soupChoice === soup[0] || soup[1] || soup[2]) {
+    //     setPlayerPosition(+ 1)
+    //     console.log(playerPosition)
     //     return;
-    //     // setPlayerPosition(+ 1)
-    //   } else setPlayerPosition(+ 1);
+    //   } else {
+    //     console.log('not it');
+    //     return
+    //   };
     // })
+
+    if (radioSoup.soupChoice === soupPicValue) {
+      incrementPlayerPosition();
+      incrementSoupsCorrect();
+    }
 
     let currentWord = '';
 
@@ -105,7 +126,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ soupsCorrect, setSoupsCorrect, soupPicValue, setSoupPicValue, mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
