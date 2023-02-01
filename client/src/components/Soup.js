@@ -45,13 +45,6 @@ function Soup({ attemptValue, letterPosition }) {
         })
     }
 
-    useEffect(() => {
-        setSoupPic(soupdefault);
-        return () => {
-            // picPusher();
-            pushSoup();
-        }
-    }, [])
 
     const genRandom = () => {
         randomNum = Math.random() * max;
@@ -60,11 +53,17 @@ function Soup({ attemptValue, letterPosition }) {
     }
 
 
+    useEffect(() => {
+        pushSoup();
+        return () => {
+            pushSoup();
+        }
+    }, [])
 
     return (
         <div>
             < div className="soupGuessCard" >
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h3>Which soup hast though sought?</h3>
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h3>Which soup dost thou seeketh?</h3>
                     <button className="button-8" onClick={pushSoup}>{soupIndex[0]}</button>
                     <button className="button-8" onClick={pushSoup}>{soupIndex[1]}</button>
                     <button className="button-8" onClick={pushSoup}>{soupIndex[2]}</button>
