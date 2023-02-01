@@ -78,7 +78,7 @@ function Keyboard() {
                 })}
                 {gameStarted && <Key keyValue={'delete'} bigKey />}
             </div>
-            <div className='currentPosition'>Current position: {playerPosition}</div>
+            {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition}</div>}
         </div>
     )
 };

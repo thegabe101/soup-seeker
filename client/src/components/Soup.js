@@ -71,7 +71,7 @@ function Soup({ attemptValue, letterPosition }) {
     return (
         <div>
             < div className="soupGuessCard" >
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4>Seek thy soup.</h4>
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4 style={{ 'margin-left': '7px' }}>Seek thy soup.</h4>
                     <div class="wrapper">
                         <input type="radio" name="select" id="option-1" />
                         <input type="radio" name="select" id="option-2" />
