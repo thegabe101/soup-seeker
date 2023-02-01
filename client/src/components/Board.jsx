@@ -13,7 +13,7 @@ function Board() {
 
 	return (
 		<div className="board">
-			{validWord !== "" && <h3>You must guess a valid word!</h3>}
+			{validWord !== "" && <h3>Thee' must venture a valid guess!</h3>}
 			<div className="row">
 				<Letter letterPosition={0} attemptValue={0} />
 				<Letter letterPosition={1} attemptValue={0} />
@@ -22,7 +22,6 @@ function Board() {
 				<Letter letterPosition={4} attemptValue={0} />
 				{currentGuess.attempt == 0 ? (
 					<div>
-						{/* <SoupGuessCard className="soupRow" />  */}
 						<Soup />
 					</div>
 				) : (
@@ -37,7 +36,6 @@ function Board() {
 				<Letter letterPosition={4} attemptValue={1} />
 				{currentGuess.attempt == 1 ? (
 					<div>
-						{/* <SoupGuessCard className="soupRow" />  */}
 						<Soup />
 					</div>
 				) : (
@@ -52,7 +50,6 @@ function Board() {
 				<Letter letterPosition={4} attemptValue={2} />
 				{currentGuess.attempt == 2 ? (
 					<div>
-						{/* <SoupGuessCard className="soupRow" />  */}
 						<Soup />
 					</div>
 				) : (
@@ -67,7 +64,6 @@ function Board() {
 				<Letter letterPosition={4} attemptValue={3} />
 				{currentGuess.attempt == 3 ? (
 					<div>
-						{/* <SoupGuessCard className="soupRow" />  */}
 						<Soup />
 					</div>
 				) : (
@@ -82,7 +78,6 @@ function Board() {
 				<Letter letterPosition={4} attemptValue={4} />
 				{currentGuess.attempt == 4 ? (
 					<div>
-						{/* <SoupGuessCard className="soupRow" />  */}
 						<Soup />
 					</div>
 				) : (
@@ -97,7 +92,6 @@ function Board() {
 				<Letter letterPosition={4} attemptValue={5} />
 				{currentGuess.attempt == 5 ? (
 					<div>
-						{/* <SoupGuessCard className="soupRow" />  */}
 						<Soup />
 					</div>
 				) : (

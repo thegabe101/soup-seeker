@@ -28,9 +28,10 @@ function App() {
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({ gameOver: false, guessedWord: false })
   const [correctWord, setCorrectWord] = useState('');
-  const [playerPosition, setPlayerPosition] = useState(1);
+  const [playerPosition, setPlayerPosition] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
-  // let [currentWord, setCurrentWord] = useState('');
+  const [soupValueSelect, setSoupValueSelect] = useState('');
+  const [updatedSoupValueSelect, setUpdatedSoupValueSelect] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -41,8 +42,11 @@ function App() {
     });
   }, []);
 
-  const onEnter = () => {
+  const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
+
+    // setSoupValueSelect(event.target.value);
+    // console.log(soupValueSelect);
 
     let currentWord = '';
 
@@ -51,10 +55,6 @@ function App() {
       currentWord += board[currentGuess.attempt][i].toLowerCase();
     }
 
-    console.log(currentWord);
-    console.log(correctWord);
-    console.log(typeof currentWord);
-    console.log(typeof correctWord);
     // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
     if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
@@ -94,7 +94,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ updatedSoupValueSelect, setUpdatedSoupValueSelect, soupValueSelect, setSoupValueSelect, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
