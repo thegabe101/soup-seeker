@@ -52,11 +52,13 @@ function App() {
     console.log(radioSoup.soupChoice);
     console.log(soupIndex)
 
-    soupIndex.forEach((soup) => {
-      if (radioSoup === soup) {
-        setPlayerPosition(+ 1)
-      }
-    })
+    // soupIndex.forEach((soup) => {
+    //   if (radioSoup.soupChoice == !soup[0] || soup[1] || soup[2]) {
+    //     console.log('not it')
+    //     return;
+    //     // setPlayerPosition(+ 1)
+    //   } else setPlayerPosition(+ 1);
+    // })
 
     let currentWord = '';
 

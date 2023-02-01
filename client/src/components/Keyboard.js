@@ -59,7 +59,8 @@ function Keyboard() {
     return (
         <div className='keyboard' onKeyDown={keySense}>
             {gameStarted == false ? <button className="startBtn" onClick={(() => { setGameStarted(true) })}>Begin thy search</button> : ''}
-            {gameOver.gameOver ? <GameOver /> : <Cauldron />}
+            {gameOver.gameOver && <GameOver />}
+            {gameStarted == true && !gameOver.gameover && <Cauldron cauldronCard />}
             {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
                 {gameStarted && arrOne.map((key) => {

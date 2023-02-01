@@ -399,6 +399,8 @@ nav h1 {
 .sam {
   height: 75px;
   width: fit-content;
+  background-color: #76aaa868;
+  border-radius: 15px;
 }
 
 .ladle {
@@ -600,14 +602,13 @@ input[type="radio"]{
   color: #fff;
 }
 
-
-
-
-
-
-
-
-
+.pregameCauldron {
+  display: flex;
+  height: max-content;
+  margin-top: 20vh;
+  justify-content: center;
+  align-items: center;
+}
 
 
 @keyframes move {

@@ -14,13 +14,6 @@ export const PlayPage = () => {
 	return (
 		<div className="game">
 			<Board />
-			{/* {gameStarted == true && currentGuess.letterPosition === 5 ? (
-				<>
-					<h3 className="seeketh">Which soup dost thou seeketh?</h3>{" "}
-				</>
-			) : (
-				""
-			)} */}
 			{gameOver.gameOver ? "" : <Map />}
 			{gameOver.gameOver ? <GameOver /> : <Keyboard />}
 		</div>
