@@ -30,7 +30,8 @@ function App() {
   const [correctWord, setCorrectWord] = useState('');
   const [playerPosition, setPlayerPosition] = useState(1);
   const [gameStarted, setGameStarted] = useState(false);
-  // let [currentWord, setCurrentWord] = useState('');
+  const [soupValueSelect, setSoupValueSelect] = useState('');
+  const [updatedSoupValueSelect, setUpdatedSoupValueSelect] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -94,7 +95,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ updatedSoupValueSelect, setUpdatedSoupValueSelect, soupValueSelect, setSoupValueSelect, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />

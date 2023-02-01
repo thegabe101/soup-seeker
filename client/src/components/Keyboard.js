@@ -2,7 +2,6 @@ import React, { useCallback, useState, useEffect } from 'react';
 import '../App.css';
 import Key from './Key';
 import { MdOutlineBackspace } from 'react-icons/md';
-import SoupGuessCard from './SoupCard';
 import { useContext } from 'react';
 import { AppContext } from '../App';
 import Soup from './Soup';
