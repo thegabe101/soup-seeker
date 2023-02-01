@@ -8,16 +8,22 @@ import samauri3 from "../assets/images/samauri3.png";
 import sam from "../assets/images/sam.png";
 import { useContext } from "react";
 import { AppContext } from "../App";
+import { useAuth } from "../components/AuthProvider";
 
 export const Map = () => {
-	const { playerPosition, setPlayerPosition, gameOver } =
+	const { playerPosition, setPlayerPosition, gameOver, gameStarted } =
 		useContext(AppContext);
+
+	const auth = useAuth();
 
 	return (
 		<div className="mapContainer">
-			<div className="startingDiv">
-				<img className="sam" src={sam}></img>
-			</div>
+			{playerPosition == 0 && gameStarted == true && (
+				<div className="startingDiv">
+					<div>{auth.user}</div>
+					<img className="sam" src={sam}></img>
+				</div>
+			)}
 			{playerPosition == 1 && (
 				<div className="advance1">
 					<img className="ladle" src={ladle}></img>

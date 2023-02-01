@@ -494,7 +494,10 @@ margin-left: 16vw; */
 
 .startingDiv {
   display: flex;
-  align-items: flex-start;
+  font-size: small;
+  margin: 4px;
+  flex-direction: column;
+  /* align-items: flex-start; */
 }
 
 .advance1 {

@@ -1,6 +1,6 @@
 import React from 'react';
 import "../App.css";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../App';
 import { soupTypes } from '../soup-types';
@@ -9,7 +9,7 @@ import soupdefault from '../assets/images/soupdefault.png';
 
 
 function Soup({ attemptValue, letterPosition }) {
-    const { updatedSoupValueSelect, setUpdatedSoupValueSelect, soupValueSelect, setSoupValueSelect, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+    const { onEnter, updatedSoupValueSelect, setUpdatedSoupValueSelect, soupValueSelect, setSoupValueSelect, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
 
     // const [stateImage, setStateImage] = useState(false);
 
@@ -17,14 +17,14 @@ function Soup({ attemptValue, letterPosition }) {
     let soupArr = [];
     const max = soupTypes.length;
 
-    const handleChange = (event) => {
-        setSoupValueSelect(event.target.value);
-    }
+    // const handleChange = (event) => {
+    //     setSoupValueSelect(event.target.value);
+    // }
 
-    const handleSoupChange = () => {
-        setUpdatedSoupValueSelect(soupValueSelect);
-        console.log(soupValueSelect);
-    }
+    // const handleSoupChange = () => {
+    //     setUpdatedSoupValueSelect(soupValueSelect);
+    //     console.log(soupValueSelect);
+    // }
 
     const pushSoup = () => {
         for (let i = 0; i < max; i++) {
@@ -36,7 +36,6 @@ function Soup({ attemptValue, letterPosition }) {
         };
         // //gets us a random item from the soup array below the index of 3
         picPusher();
-        handleSoupChange();
     }
 
     const picPusher = () => {
@@ -71,9 +70,9 @@ function Soup({ attemptValue, letterPosition }) {
         <div>
             < div className="soupGuessCard" >
                 {gameStarted == true && currentGuess.letterPosition === 5 ? <><h3>Which soup dost thou seeketh?</h3>
-                    <button className="button-8" type="radio" onClick={pushSoup} onChange={handleChange} value={soupIndex[0]}>{soupIndex[0]}</button>
-                    <button className="button-8" type="radio" onClick={pushSoup} onChange={handleChange} value={soupIndex[1]}>{soupIndex[1]}</button>
-                    <button className="button-8" type="radio" onClick={pushSoup} onChange={handleChange} value={soupIndex[2]}>{soupIndex[2]}</button>
+                    <button className="button-8" type="radio" onClick={onEnter} value={soupIndex[0]}>{soupIndex[0]}</button>
+                    <button className="button-8" type="radio" onClick={onEnter} value={soupIndex[1]}>{soupIndex[1]}</button>
+                    <button className="button-8" type="radio" onClick={onEnter} value={soupIndex[2]}>{soupIndex[2]}</button>
                 </> : ''}
                 {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg" src={soupPic} /> : <img className="soupImg" src={soupdefault} />}
             </div >
