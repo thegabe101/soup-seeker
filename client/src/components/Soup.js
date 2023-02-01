@@ -17,14 +17,15 @@ function Soup({ attemptValue, letterPosition }) {
     let soupArr = [];
     const max = soupTypes.length;
 
-    // const handleChange = (event) => {
-    //     setSoupValueSelect(event.target.value);
-    // }
+    const handleChange = (event) => {
+        setSoupValueSelect(event.target.value);
+        console.log(soupValueSelect)
+    }
 
-    // const handleSoupChange = () => {
-    //     setUpdatedSoupValueSelect(soupValueSelect);
-    //     console.log(soupValueSelect);
-    // }
+    const handleSoupChange = () => {
+        setUpdatedSoupValueSelect(soupValueSelect);
+        console.log(soupValueSelect);
+    }
 
     const pushSoup = () => {
         for (let i = 0; i < max; i++) {
@@ -60,6 +61,7 @@ function Soup({ attemptValue, letterPosition }) {
 
 
     useEffect(() => {
+        console.log(soupIndex);
         pushSoup();
         return () => {
             pushSoup();
@@ -69,15 +71,40 @@ function Soup({ attemptValue, letterPosition }) {
     return (
         <div>
             < div className="soupGuessCard" >
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h3>Which soup dost thou seeketh?</h3>
-                    <button className="button-8" type="radio" onClick={onEnter} value={soupIndex[0]}>{soupIndex[0]}</button>
-                    <button className="button-8" type="radio" onClick={onEnter} value={soupIndex[1]}>{soupIndex[1]}</button>
-                    <button className="button-8" type="radio" onClick={onEnter} value={soupIndex[2]}>{soupIndex[2]}</button>
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4>Seek thy soup.</h4>
+                    <div class="wrapper">
+                        <input type="radio" name="select" id="option-1" />
+                        <input type="radio" name="select" id="option-2" />
+                        <input type="radio" name="select" id="option-3" />
+                        <label for="option-1" class="option option-1">
+                            <div class="dot"></div>
+                            <span>{soupIndex[0]}</span>
+                        </label>
+                        <label for="option-2" class="option option-2">
+                            <div class="dot"></div>
+                            <span>{soupIndex[1]}</span>
+                        </label>
+                        <label for="option-3" class="option option-3">
+                            <div class="dot"></div>
+                            <span>{soupIndex[2]}</span>
+                        </label>
+                    </div>
                 </> : ''}
+                {/* {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4>Seek thy soup.</h4>
+                    <div className='radioSoups'>
+                        <input className="" type="radio" onChange={handleChange} value={soupIndex[0]} name='soupChooser' />{soupIndex[0]}
+                        <input className="" type="radio" onChange={handleChange} value={soupIndex[1]} name='soupChooser' />{soupIndex[1]}
+                        <input className="" type="radio" onChange={handleChange} value={soupIndex[2]} name='soupChooser' />{soupIndex[2]}
+                    </div>
+                </> : ''} */}
                 {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg" src={soupPic} /> : <img className="soupImg" src={soupdefault} />}
             </div >
         </div>
     )
 }
 
+
+// onClick={onEnter}
+// onClick={onEnter}
+// onClick={onEnter}
 export default Soup;

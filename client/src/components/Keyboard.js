@@ -10,7 +10,7 @@ import { Cauldron } from './Cauldron';
 
 
 function Keyboard() {
-    const { gameStarted, setGameStarted, board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters, gameOver } = useContext(AppContext);
+    const { playerPosition, gameStarted, setGameStarted, board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters, gameOver } = useContext(AppContext);
 
     const arrOne = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const arrTwo = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -78,6 +78,7 @@ function Keyboard() {
                 })}
                 {gameStarted && <Key keyValue={'delete'} bigKey />}
             </div>
+            <div className='currentPosition'>Current position: {playerPosition}</div>
         </div>
     )
 };

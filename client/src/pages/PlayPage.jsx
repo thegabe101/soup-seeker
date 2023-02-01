@@ -9,11 +9,18 @@ import { Map } from "./Map";
 import { Cauldron } from "../components/Cauldron";
 
 export const PlayPage = () => {
-	const { gameOver } = useContext(AppContext);
+	const { gameOver, gameStarted, currentGuess } = useContext(AppContext);
 
 	return (
 		<div className="game">
 			<Board />
+			{/* {gameStarted == true && currentGuess.letterPosition === 5 ? (
+				<>
+					<h3 className="seeketh">Which soup dost thou seeketh?</h3>{" "}
+				</>
+			) : (
+				""
+			)} */}
 			{gameOver.gameOver ? "" : <Map />}
 			{gameOver.gameOver ? <GameOver /> : <Keyboard />}
 		</div>
