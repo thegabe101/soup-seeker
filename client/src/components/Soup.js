@@ -13,11 +13,11 @@ function Soup({ attemptValue, letterPosition }) {
 
     const setSoupOption = event => {
         setRadioSoup({ ...radioSoup, soupChoice: event.target.value });
-        console.log(event.target.value);
-        console.log(radioSoup);
+        // console.log(event.target.value);
+        // console.log(radioSoup);
     }
 
-    console.log('RADIOSOUP', radioSoup);
+    // console.log('RADIOSOUP', radioSoup);
 
     let randomNum = 0;
     let soupArr = [];

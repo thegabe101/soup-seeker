@@ -31,6 +31,7 @@ function App() {
   const [playerPosition, setPlayerPosition] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [radioSoup, setRadioSoup] = useState({ soupChoice: "" });
+  const [mustSoup, setMustSoup] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -43,14 +44,23 @@ function App() {
 
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
+    if (radioSoup.soupChoice === '') {
+      setMustSoup('Must soup');
+      return;
+    }
 
-    // setSoupValueSelect(event.target.value);
-    // console.log(soupValueSelect);
+    console.log(radioSoup.soupChoice);
+    console.log(soupIndex)
+
+    soupIndex.forEach((soup) => {
+      if (radioSoup === soup) {
+        setPlayerPosition(+ 1)
+      }
+    })
 
     let currentWord = '';
 
     for (let i = 0; i < 5; i++) {
-      // setCurrentWord(board[currentGuess.attempt][i].toString())
       currentWord += board[currentGuess.attempt][i].toLowerCase();
     }
 
@@ -93,7 +103,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
