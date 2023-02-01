@@ -9,23 +9,19 @@ import soupdefault from '../assets/images/soupdefault.png';
 
 
 function Soup({ attemptValue, letterPosition }) {
-    const { onEnter, updatedSoupValueSelect, setUpdatedSoupValueSelect, soupValueSelect, setSoupValueSelect, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+    const { onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
 
-    // const [stateImage, setStateImage] = useState(false);
+    const setSoupOption = event => {
+        setRadioSoup({ ...radioSoup, soupChoice: event.target.value });
+        console.log(event.target.value);
+        console.log(radioSoup);
+    }
+
+    console.log('RADIOSOUP', radioSoup);
 
     let randomNum = 0;
     let soupArr = [];
     const max = soupTypes.length;
-
-    const handleChange = (event) => {
-        setSoupValueSelect(event.target.value);
-        console.log(soupValueSelect)
-    }
-
-    const handleSoupChange = () => {
-        setUpdatedSoupValueSelect(soupValueSelect);
-        console.log(soupValueSelect);
-    }
 
     const pushSoup = () => {
         for (let i = 0; i < max; i++) {
@@ -42,8 +38,6 @@ function Soup({ attemptValue, letterPosition }) {
     const picPusher = () => {
         const rand = soupArr[Math.floor(Math.random() * 3)];
         let randInd = soupArr.indexOf(rand);
-        console.log(rand);
-        console.log(randInd);
         let soups = Object.values(soupTypes);
         soups.forEach((soup) => {
             if (soup.name === rand) {
@@ -61,7 +55,6 @@ function Soup({ attemptValue, letterPosition }) {
 
 
     useEffect(() => {
-        console.log(soupIndex);
         pushSoup();
         return () => {
             pushSoup();
@@ -71,11 +64,11 @@ function Soup({ attemptValue, letterPosition }) {
     return (
         <div>
             < div className="soupGuessCard" >
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4 style={{ 'margin-left': '7px' }}>Seek thy soup.</h4>
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4 style={{ 'marginLeft': '3px' }}>Seek thy soup.</h4>
                     <div class="wrapper">
-                        <input type="radio" name="select" id="option-1" />
-                        <input type="radio" name="select" id="option-2" />
-                        <input type="radio" name="select" id="option-3" />
+                        <input type="radio" name="select" id="option-1" onChange={setSoupOption} value={soupIndex[0]} />
+                        <input type="radio" name="select" id="option-2" onChange={setSoupOption} value={soupIndex[1]} />
+                        <input type="radio" name="select" id="option-3" onChange={setSoupOption} value={soupIndex[2]} />
                         <label for="option-1" class="option option-1">
                             <div class="dot"></div>
                             <span>{soupIndex[0]}</span>
@@ -90,21 +83,10 @@ function Soup({ attemptValue, letterPosition }) {
                         </label>
                     </div>
                 </> : ''}
-                {/* {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4>Seek thy soup.</h4>
-                    <div className='radioSoups'>
-                        <input className="" type="radio" onChange={handleChange} value={soupIndex[0]} name='soupChooser' />{soupIndex[0]}
-                        <input className="" type="radio" onChange={handleChange} value={soupIndex[1]} name='soupChooser' />{soupIndex[1]}
-                        <input className="" type="radio" onChange={handleChange} value={soupIndex[2]} name='soupChooser' />{soupIndex[2]}
-                    </div>
-                </> : ''} */}
                 {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg" src={soupPic} /> : <img className="soupImg" src={soupdefault} />}
             </div >
         </div>
     )
 }
 
-
-// onClick={onEnter}
-// onClick={onEnter}
-// onClick={onEnter}
 export default Soup;
