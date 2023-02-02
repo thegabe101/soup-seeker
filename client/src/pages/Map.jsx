@@ -18,13 +18,38 @@ export const Map = () => {
 
 	return (
 		<div className="mapContainer">
-			{playerPosition == 0 && gameStarted == true && (
+			{gameStarted == true && (
 				<div className="startingDiv">
 					<div>{auth.user}</div>
 					<img className="sam" src={sam}></img>
+					<h4>Stage: Soup</h4>
 				</div>
 			)}
-			{playerPosition == 1 && (
+			{playerPosition >= 1 && (
+				<div className="advance1">
+					<img className="ladle" src={ladle}></img>
+				</div>
+			)}
+			{gameStarted == true && playerPosition >= 1 && (
+				<div className="startingDiv">
+					<div>{auth.user}</div>
+					<img className="sam" src={sam}></img>
+					<h4>Stage: Soupier</h4>
+				</div>
+			)}
+			{playerPosition >= 2 && (
+				<div className="advance1">
+					<img className="ladle" src={ladle}></img>
+				</div>
+			)}
+			{gameStarted == true && playerPosition >= 2 && (
+				<div className="startingDiv">
+					<div>{auth.user}</div>
+					<img className="sam" src={sam}></img>
+					<h4>Stage: Souptastic</h4>
+				</div>
+			)}
+			{playerPosition >= 3 && (
 				<div className="advance1">
 					<img className="ladle" src={ladle}></img>
 				</div>

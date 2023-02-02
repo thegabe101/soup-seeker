@@ -10,7 +10,7 @@ import { Cauldron } from './Cauldron';
 
 
 function Keyboard() {
-    const { playerPosition, gameStarted, setGameStarted, board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters, gameOver } = useContext(AppContext);
+    const { soupsCorrect, playerPosition, gameStarted, setGameStarted, board, setBoard, currentGuess, setCurrentGuess, onSelector, onDelete, onEnter, disabledLetters, gameOver } = useContext(AppContext);
 
     const arrOne = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const arrTwo = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -42,13 +42,6 @@ function Keyboard() {
         }
     });
 
-    // const startGame = () => {
-
-    //         setGameStarted({ gameStarted: true })
-
-    //     console.log(gameStarted);
-    // }
-
     useEffect(() => {
         document.addEventListener('keydown', keySense);
         return () => {
@@ -59,7 +52,8 @@ function Keyboard() {
     return (
         <div className='keyboard' onKeyDown={keySense}>
             {gameStarted == false ? <button className="startBtn" onClick={(() => { setGameStarted(true) })}>Begin thy search</button> : ''}
-            {gameOver.gameOver ? <GameOver /> : <Cauldron />}
+            {gameOver.gameOver && <GameOver />}
+            {gameStarted == true && !gameOver.gameover && <Cauldron cauldronCard />}
             {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
                 {gameStarted && arrOne.map((key) => {
@@ -78,7 +72,10 @@ function Keyboard() {
                 })}
                 {gameStarted && <Key keyValue={'delete'} bigKey />}
             </div>
-            {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition}</div>}
+            {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition} | Soups correct: {soupsCorrect}
+                <p>Become the soup lord without failing the souple to reach the heart of the soup. </p>
+            </div>}
+
         </div>
     )
 };

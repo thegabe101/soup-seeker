@@ -5,99 +5,118 @@ import Letter from "./Letter";
 import Soup from "./Soup";
 import { useContext } from "react";
 import { AppContext } from "../App";
+import { Cauldron } from "./Cauldron";
+import { GameOver } from "../pages/GameOver";
 // import SoupGuessCard from "./SoupCard";
 
 function Board() {
-	const { board, currentGuess, setCurrentGuess, validWord, setValidWord } =
-		useContext(AppContext);
+	const {
+		mustSoup,
+		board,
+		currentGuess,
+		setCurrentGuess,
+		validWord,
+		setValidWord,
+		gameStarted,
+		gameOver,
+	} = useContext(AppContext);
 
 	return (
 		<div className="board">
+			{mustSoup !== "" && !gameOver.gameOver && (
+				<h3>Yee' must wager a soup!</h3>
+			)}
 			{validWord !== "" && <h3>Thee' must venture a valid guess!</h3>}
-			<div className="row">
-				<Letter letterPosition={0} attemptValue={0} />
-				<Letter letterPosition={1} attemptValue={0} />
-				<Letter letterPosition={2} attemptValue={0} />
-				<Letter letterPosition={3} attemptValue={0} />
-				<Letter letterPosition={4} attemptValue={0} />
-				{currentGuess.attempt == 0 ? (
-					<div>
-						<Soup />
+			{gameStarted == false ? (
+				<Cauldron pregameCauldron />
+			) : (
+				<>
+					<div className="row">
+						<Letter letterPosition={0} attemptValue={0} />
+						<Letter letterPosition={1} attemptValue={0} />
+						<Letter letterPosition={2} attemptValue={0} />
+						<Letter letterPosition={3} attemptValue={0} />
+						<Letter letterPosition={4} attemptValue={0} />
+						{currentGuess.attempt == 0 ? (
+							<div>
+								<Soup />
+							</div>
+						) : (
+							""
+						)}
 					</div>
-				) : (
-					""
-				)}
-			</div>
-			<div className="row">
-				<Letter letterPosition={0} attemptValue={1} />
-				<Letter letterPosition={1} attemptValue={1} />
-				<Letter letterPosition={2} attemptValue={1} />
-				<Letter letterPosition={3} attemptValue={1} />
-				<Letter letterPosition={4} attemptValue={1} />
-				{currentGuess.attempt == 1 ? (
-					<div>
-						<Soup />
+					<div className="row">
+						<Letter letterPosition={0} attemptValue={1} />
+						<Letter letterPosition={1} attemptValue={1} />
+						<Letter letterPosition={2} attemptValue={1} />
+						<Letter letterPosition={3} attemptValue={1} />
+						<Letter letterPosition={4} attemptValue={1} />
+						{currentGuess.attempt == 1 ? (
+							<div>
+								<Soup />
+							</div>
+						) : (
+							""
+						)}
 					</div>
-				) : (
-					""
-				)}
-			</div>
-			<div className="row">
-				<Letter letterPosition={0} attemptValue={2} />
-				<Letter letterPosition={1} attemptValue={2} />
-				<Letter letterPosition={2} attemptValue={2} />
-				<Letter letterPosition={3} attemptValue={2} />
-				<Letter letterPosition={4} attemptValue={2} />
-				{currentGuess.attempt == 2 ? (
-					<div>
-						<Soup />
+					<div className="row">
+						<Letter letterPosition={0} attemptValue={2} />
+						<Letter letterPosition={1} attemptValue={2} />
+						<Letter letterPosition={2} attemptValue={2} />
+						<Letter letterPosition={3} attemptValue={2} />
+						<Letter letterPosition={4} attemptValue={2} />
+						{currentGuess.attempt == 2 ? (
+							<div>
+								<Soup />
+							</div>
+						) : (
+							""
+						)}
 					</div>
-				) : (
-					""
-				)}
-			</div>
-			<div className="row">
-				<Letter letterPosition={0} attemptValue={3} />
-				<Letter letterPosition={1} attemptValue={3} />
-				<Letter letterPosition={2} attemptValue={3} />
-				<Letter letterPosition={3} attemptValue={3} />
-				<Letter letterPosition={4} attemptValue={3} />
-				{currentGuess.attempt == 3 ? (
-					<div>
-						<Soup />
+					<div className="row">
+						<Letter letterPosition={0} attemptValue={3} />
+						<Letter letterPosition={1} attemptValue={3} />
+						<Letter letterPosition={2} attemptValue={3} />
+						<Letter letterPosition={3} attemptValue={3} />
+						<Letter letterPosition={4} attemptValue={3} />
+						{currentGuess.attempt == 3 ? (
+							<div>
+								<Soup />
+							</div>
+						) : (
+							""
+						)}
 					</div>
-				) : (
-					""
-				)}
-			</div>
-			<div className="row">
-				<Letter letterPosition={0} attemptValue={4} />
-				<Letter letterPosition={1} attemptValue={4} />
-				<Letter letterPosition={2} attemptValue={4} />
-				<Letter letterPosition={3} attemptValue={4} />
-				<Letter letterPosition={4} attemptValue={4} />
-				{currentGuess.attempt == 4 ? (
-					<div>
-						<Soup />
+					<div className="row">
+						<Letter letterPosition={0} attemptValue={4} />
+						<Letter letterPosition={1} attemptValue={4} />
+						<Letter letterPosition={2} attemptValue={4} />
+						<Letter letterPosition={3} attemptValue={4} />
+						<Letter letterPosition={4} attemptValue={4} />
+						{currentGuess.attempt == 4 ? (
+							<div>
+								<Soup />
+							</div>
+						) : (
+							""
+						)}
 					</div>
-				) : (
-					""
-				)}
-			</div>
-			<div className="row">
-				<Letter letterPosition={0} attemptValue={5} />
-				<Letter letterPosition={1} attemptValue={5} />
-				<Letter letterPosition={2} attemptValue={5} />
-				<Letter letterPosition={3} attemptValue={5} />
-				<Letter letterPosition={4} attemptValue={5} />
-				{currentGuess.attempt == 5 ? (
-					<div>
-						<Soup />
+					<div className="row">
+						<Letter letterPosition={0} attemptValue={5} />
+						<Letter letterPosition={1} attemptValue={5} />
+						<Letter letterPosition={2} attemptValue={5} />
+						<Letter letterPosition={3} attemptValue={5} />
+						<Letter letterPosition={4} attemptValue={5} />
+						{currentGuess.attempt == 5 ? (
+							<div>
+								<Soup />
+							</div>
+						) : (
+							""
+						)}
 					</div>
-				) : (
-					""
-				)}
-			</div>
+				</>
+			)}
 		</div>
 	);
 }

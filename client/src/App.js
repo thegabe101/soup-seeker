@@ -30,8 +30,10 @@ function App() {
   const [correctWord, setCorrectWord] = useState('');
   const [playerPosition, setPlayerPosition] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
-  const [soupValueSelect, setSoupValueSelect] = useState('');
-  const [updatedSoupValueSelect, setUpdatedSoupValueSelect] = useState('');
+  const [radioSoup, setRadioSoup] = useState({ soupChoice: "" });
+  const [mustSoup, setMustSoup] = useState('');
+  const [soupPicValue, setSoupPicValue] = useState(null);
+  const [soupsCorrect, setSoupsCorrect] = useState(0);
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -42,16 +44,32 @@ function App() {
     });
   }, []);
 
+  const incrementPlayerPosition = () => {
+    setPlayerPosition(playerPosition + 1);
+  }
+
+  const incrementSoupsCorrect = () => {
+    setSoupsCorrect(soupsCorrect + 1);
+  }
+
+  console.log(playerPosition);
+  console.log(soupIndex);
+
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
+    if (radioSoup.soupChoice === '') {
+      setMustSoup('Must soup');
+      return;
+    }
 
-    // setSoupValueSelect(event.target.value);
-    // console.log(soupValueSelect);
+    if (radioSoup.soupChoice === soupPicValue) {
+      incrementPlayerPosition();
+      incrementSoupsCorrect();
+    }
 
     let currentWord = '';
 
     for (let i = 0; i < 5; i++) {
-      // setCurrentWord(board[currentGuess.attempt][i].toString())
       currentWord += board[currentGuess.attempt][i].toLowerCase();
     }
 
@@ -94,7 +112,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ updatedSoupValueSelect, setUpdatedSoupValueSelect, soupValueSelect, setSoupValueSelect, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ soupsCorrect, setSoupsCorrect, soupPicValue, setSoupPicValue, mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
