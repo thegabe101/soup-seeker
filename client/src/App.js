@@ -37,6 +37,7 @@ function App() {
   const [mustSoup, setMustSoup] = useState('');
   const [soupPicValue, setSoupPicValue] = useState(null);
   const [soupsCorrect, setSoupsCorrect] = useState(0);
+  const [resetBoard, setResetBoard] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
 
 
@@ -60,7 +61,9 @@ function App() {
   // console.log(soupIndex);
   console.log(correctWord);
   console.log(gameOver);
-  console.log(correctWord.length);
+  console.log(resetBoard);
+  // console.log(correctWord.length);
+  // console.log(board);
 
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
@@ -84,7 +87,8 @@ function App() {
     //not sure why this \r is appearing in the word set but can just concatenate 
     if (currentWord === correctWord && playerPosition < 9) {
       console.log('reset block hit');
-      setCurrentGuess({ attempt: 0, letterPosition: 0 })
+      setResetBoard('Fresh board.');
+      setCurrentGuess({ attempt: 0, letterPosition: 0 });
       setBoard(emptyBoard);
       setDisabledLetters([]);
     }
@@ -133,7 +137,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ soupsCorrect, setSoupsCorrect, soupPicValue, setSoupPicValue, mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ setResetBoard, resetBoard, soupsCorrect, setSoupsCorrect, soupPicValue, setSoupPicValue, mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
