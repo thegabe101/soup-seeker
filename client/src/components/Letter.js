@@ -6,11 +6,11 @@ import { AppContext } from '../App';
 
 
 function Letter({ letterPosition, attemptValue }) {
-    const { board, correctWord, currentGuess, disabledLetters, setDisabledLetters } = useContext(AppContext);
+    const { board, correctWord, currentGuess, disabledLetters, setDisabledLetters, resetBoard, setResetBoard } = useContext(AppContext);
 
     //define access to each individual letter through indexing by row and then column
 
-    const letter = board[attemptValue][letterPosition];
+    let letter = board[attemptValue][letterPosition];
 
     const correct = correctWord.toUpperCase()[letterPosition] === letter;
     const contains = !correct && letter !== '' && correctWord.toUpperCase().includes(letter);
@@ -20,13 +20,19 @@ function Letter({ letterPosition, attemptValue }) {
     useEffect(() => {
         if (letter !== '' && !correct && !contains) {
             setDisabledLetters((prev) => [...prev, letter])
+        };
+
+        if (resetBoard === 'Fresh board.') {
+            console.log('Reset board clause hit.');
+            letter = '';
+            setResetBoard('');
         }
 
     }, [currentGuess.attempt])
 
 
     return (
-        <div className='letter' id={letterState}>{' '}{letter}</div>
+        <div className='letter' id={letterState}>{letter}</div>
     )
 }
 

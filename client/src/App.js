@@ -14,6 +14,9 @@ import { useNavigate } from 'react-router-dom';
 import { Footer } from './pages/Footer';
 
 
+//primary todo is finding a way to reset the board without using the gamestarted condition upon a correct souple but without reaching the heart of the soup
+//must cycle to a new board and reset word conditions, but NOT reset the soup map 
+
 export const AppContext = createContext();
 
 function App() {
@@ -34,14 +37,16 @@ function App() {
   const [mustSoup, setMustSoup] = useState('');
   const [soupPicValue, setSoupPicValue] = useState(null);
   const [soupsCorrect, setSoupsCorrect] = useState(0);
+  const [resetBoard, setResetBoard] = useState('');
   let [soupIndex, setSoupIndex] = useState([]);
 
 
   useEffect(() => {
     genWordSet().then((words) => {
       setWordSet(words.wordSet);
-      setCorrectWord(words.todaysWord);
+      setCorrectWord(words.todaysWord.toLowerCase().slice(0, -1));
     });
+
   }, []);
 
   const incrementPlayerPosition = () => {
@@ -52,17 +57,22 @@ function App() {
     setSoupsCorrect(soupsCorrect + 1);
   }
 
-  console.log(playerPosition);
-  console.log(soupIndex);
+  // console.log(playerPosition);
+  // console.log(soupIndex);
+  console.log(correctWord);
+  console.log(gameOver);
+  console.log(resetBoard);
+  // console.log(correctWord.length);
+  // console.log(board);
 
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
-    if (radioSoup.soupChoice === '') {
+    if (radioSoup.soupChoice === '' && currentGuess.letterPosition === 5) {
       setMustSoup('Must soup');
       return;
     }
 
-    if (radioSoup.soupChoice === soupPicValue) {
+    if (radioSoup.soupChoice === soupPicValue && validWord !== 'Not null') {
       incrementPlayerPosition();
       incrementSoupsCorrect();
     }
@@ -75,17 +85,31 @@ function App() {
 
     // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
-    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
-      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-      console.log(currentWord)
-      console.log(correctWord);
-    } else {
-      setValidWord('Not null');
-    } if (currentWord === correctWord) {
+    if (currentWord === correctWord && playerPosition < 9) {
+      console.log('reset block hit');
+      setResetBoard('Fresh board.');
+      setCurrentGuess({ attempt: 0, letterPosition: 0 });
+      setBoard(emptyBoard);
+      setDisabledLetters([]);
+    }
+
+    else if (currentWord === correctWord && playerPosition >= 9) {
+      console.log('gameover block hit')
       setGameOver({ gameOver: true, guessedWord: true });
       return;
-    };
-    if (currentGuess.attempt === 5) {
+    }
+    else if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
+      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
+      console.log(correctWord.length);
+      console.log(currentWord.length);
+    }
+    else if (!wordSet.has(currentWord.toLowerCase() + `\r`)) {
+      setValidWord('Not null');
+      console.log(correctWord.length);
+      console.log(currentWord.length);
+    }
+    //need a new or altered condition here for board reset; may need to create external function/state
+    else if (currentGuess.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false })
       return;
     };
@@ -108,11 +132,12 @@ function App() {
     setBoard(currentBoard);
     setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 });
     setValidWord('');
+    setMustSoup('');
   }
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ soupsCorrect, setSoupsCorrect, soupPicValue, setSoupPicValue, mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
+      <AppContext.Provider value={{ setResetBoard, resetBoard, soupsCorrect, setSoupsCorrect, soupPicValue, setSoupPicValue, mustSoup, radioSoup, setRadioSoup, gameStarted, setGameStarted, playerPosition, setPlayerPosition, gameOver, setGameOver, disabledLetters, setDisabledLetters, validWord, setValidWord, correctWord, soupIndex, setSoupIndex, board, setBoard, currentGuess, setCurrentGuess, gamesWon, setGamesWon, onSelector, onDelete, onEnter, soupInfo, setSoupInfo, soupPic, setSoupPic, userPersist, setUserPersist }}>
         <AuthProvider>
           <Router>
             <NavBar />
