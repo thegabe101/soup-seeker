@@ -14,6 +14,9 @@ import { useNavigate } from 'react-router-dom';
 import { Footer } from './pages/Footer';
 
 
+//primary todo is finding a way to reset the board without using the gamestarted condition upon a correct souple but without reaching the heart of the soup
+//must cycle to a new board and reset word conditions, but NOT reset the soup map 
+
 export const AppContext = createContext();
 
 function App() {
@@ -62,7 +65,7 @@ function App() {
       return;
     }
 
-    if (radioSoup.soupChoice === soupPicValue) {
+    if (radioSoup.soupChoice === soupPicValue && validWord !== 'Not null') {
       incrementPlayerPosition();
       incrementSoupsCorrect();
     }
@@ -79,12 +82,15 @@ function App() {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
       console.log(currentWord)
       console.log(correctWord);
-    } else {
-      setValidWord('Not null');
-    } if (currentWord === correctWord) {
+    }
+    else if (currentWord.toLowerCase() === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true });
       return;
-    };
+    }
+    else {
+      setValidWord('Not null');
+    }
+    //need a new or altered condition here for board reset; may need to create external function/state
     if (currentGuess.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false })
       return;
