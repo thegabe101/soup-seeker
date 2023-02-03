@@ -17,7 +17,7 @@ export const GameOver = () => {
 			<h3 className="soupWin">Today's word was {correctWord}.</h3>
 			{gameOver.guessedWord && (
 				<h3 className="soupWin">
-					Thy soup was sought in {currentGuess.attempt} attempts.
+					Thy soup was sought in {currentGuess.attempt + 1} attempts.
 				</h3>
 			)}
 		</div>

@@ -43,7 +43,7 @@ function App() {
   useEffect(() => {
     genWordSet().then((words) => {
       setWordSet(words.wordSet);
-      setCorrectWord(words.todaysWord);
+      setCorrectWord(words.todaysWord.toLowerCase().slice(0, -1));
     });
 
   }, []);
@@ -60,6 +60,7 @@ function App() {
   // console.log(soupIndex);
   console.log(correctWord);
   console.log(gameOver);
+  console.log(correctWord.length);
 
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
@@ -81,18 +82,23 @@ function App() {
 
     // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
-    if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
-      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-    }
-    else if (currentWord.toLowerCase() === correctWord) {
+    if (currentWord === correctWord) {
+      console.log('gameover block hit')
       setGameOver({ gameOver: true, guessedWord: true });
       return;
     }
-    else {
+    else if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
+      setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
+      console.log(correctWord.length);
+      console.log(currentWord.length);
+    }
+    else if (!wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setValidWord('Not null');
+      console.log(correctWord.length);
+      console.log(currentWord.length);
     }
     //need a new or altered condition here for board reset; may need to create external function/state
-    if (currentGuess.attempt === 5) {
+    else if (currentGuess.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false })
       return;
     };
