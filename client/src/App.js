@@ -45,6 +45,7 @@ function App() {
       setWordSet(words.wordSet);
       setCorrectWord(words.todaysWord);
     });
+
   }, []);
 
   const incrementPlayerPosition = () => {
@@ -55,12 +56,14 @@ function App() {
     setSoupsCorrect(soupsCorrect + 1);
   }
 
-  console.log(playerPosition);
-  console.log(soupIndex);
+  // console.log(playerPosition);
+  // console.log(soupIndex);
+  console.log(correctWord);
+  console.log(gameOver);
 
   const onEnter = (event) => {
     if (currentGuess.letterPosition !== 5) return;
-    if (radioSoup.soupChoice === '') {
+    if (radioSoup.soupChoice === '' && currentGuess.letterPosition === 5) {
       setMustSoup('Must soup');
       return;
     }
@@ -80,8 +83,6 @@ function App() {
     //not sure why this \r is appearing in the word set but can just concatenate 
     if (wordSet.has(currentWord.toLowerCase() + `\r`)) {
       setCurrentGuess({ attempt: currentGuess.attempt + 1, letterPosition: 0 });
-      console.log(currentWord)
-      console.log(correctWord);
     }
     else if (currentWord.toLowerCase() === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true });
@@ -114,6 +115,7 @@ function App() {
     setBoard(currentBoard);
     setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition - 1 });
     setValidWord('');
+    setMustSoup('');
   }
 
   return (
