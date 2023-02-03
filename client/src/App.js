@@ -82,7 +82,14 @@ function App() {
 
     // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
-    if (currentWord === correctWord) {
+    if (currentWord === correctWord && playerPosition < 9) {
+      console.log('reset block hit');
+      setCurrentGuess({ attempt: 0, letterPosition: 0 })
+      setBoard(emptyBoard);
+      setDisabledLetters([]);
+    }
+
+    else if (currentWord === correctWord && playerPosition >= 9) {
       console.log('gameover block hit')
       setGameOver({ gameOver: true, guessedWord: true });
       return;

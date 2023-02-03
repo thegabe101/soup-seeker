@@ -376,10 +376,14 @@ nav h1 {
 }
 
 .soupWin {
+  display: inline-block;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 2%;
+  /* margin-top: 60px; */
   opacity: 1;
+  height: fit-content;
+  padding: 5%;
 }
 
 .mapContainer {
