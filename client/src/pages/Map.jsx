@@ -85,7 +85,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Souperior</h4>
+							<h4 className="stage">Stage: Souplantic</h4>
 							{playerPosition >= 7 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>
@@ -109,7 +109,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Souperior</h4>
+							<h4 className="stage">Stage: Soupnado</h4>
 							{playerPosition >= 8 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>
@@ -133,7 +133,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Souperior</h4>
+							<h4 className="stage">Stage: Soup Lord</h4>
 							{playerPosition >= 9 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>

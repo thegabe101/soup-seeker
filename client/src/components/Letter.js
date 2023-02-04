@@ -2,12 +2,12 @@ import React from 'react';
 import '../App.css';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../App';
-import { emptyBoard } from './Words';
+import { emptyBoard } from '../App.js';
 
 
 
 function Letter({ letterPosition, attemptValue }) {
-    const { board, correctWord, currentGuess, disabledLetters, setDisabledLetters, resetBoard, setResetBoard } = useContext(AppContext);
+    const { board, correctWord, currentGuess, disabledLetters, setDisabledLetters, resetBoard, setResetBoard, setBoard, setCurrentGuess } = useContext(AppContext);
 
     //define access to each individual letter through indexing by row and then column
 
@@ -18,39 +18,34 @@ function Letter({ letterPosition, attemptValue }) {
     const letterState = currentGuess.attempt > attemptValue &&
         (correct ? "correct" : contains ? "almost" : 'error');
 
-    // const resetLetter = () => {
-    //     if (resetBoard === 'Fresh board.') {
-    //         console.log('Reset board clause hit.');
-    //         letter = '';
-    //         setResetBoard('');
-    //     }
-    // }
 
     useEffect(() => {
+        // if (resetBoard === 'Fresh board.') {
+        //     setCurrentGuess({ attempt: 0, letterPosition: 0 });
+        // }
+        // if (currentGuess.attemptValue === 0 && currentGuess.letterPosition < 5) {
+        //     letter = '';
+        // }
+        if (resetBoard === 'Fresh board.') {
+            setDisabledLetters([]);
+        }
         if (letter !== '' && !correct && !contains) {
             setDisabledLetters((prev) => [...prev, letter])
         };
-        findLetter();
-        // return () => {
-        //     resetLetter();
-        // }
-
     }, [currentGuess.attempt])
 
 
-    // const findLetter = () => {
-    //     if (!emptyBoard) {
-    //         let letter = board[attemptValue][letterPosition];
-    //         return letter;
-    //     } else if (emptyBoard) {
-    //         let letter = '';
-    //         return letter;
-    //     }
-    // }
-
     return (
-        <div className='letter' id={letterState}>{letter}</div>
+        <div className='letter' id={letterState}>
+            {/* {currentGuess.attempt === 0 && currentGuess.letterPosition === 0 ? '' : <>{letter}</>} */}
+            {/* {resetBoard === 'Fresh board.' && currentGuess.attempt < attemptValue ||
+                resetBoard === 'Fresh board.' && currentGuess.attempt === 0 && currentGuess.letterPosition === 0 ? '' :
+                <>
+                    {letter}</>
+            } */}
+            {letter}
+        </div>
     )
-}
+};
 
 export default Letter;

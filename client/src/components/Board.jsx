@@ -19,6 +19,7 @@ function Board() {
 		setValidWord,
 		gameStarted,
 		gameOver,
+		souplesWon,
 	} = useContext(AppContext);
 
 	return (

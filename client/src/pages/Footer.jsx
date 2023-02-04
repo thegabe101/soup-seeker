@@ -14,9 +14,15 @@ export const Footer = () => {
 					size: "1.7em",
 				}}
 			>
-				<FiGithub className="iconPadding" />
-				<CiTwitter className="iconPadding" />
-				<CiFacebook className="iconPadding" />
+				<a href="https://github.com/thegabe101/soup-seeker">
+					<FiGithub className="iconPadding" />
+				</a>
+				<a href="#">
+					<CiTwitter className="iconPadding" />
+				</a>
+				<a href="#">
+					<CiFacebook className="iconPadding" />
+				</a>
 			</IconContext.Provider>
 		</div>
 	);
