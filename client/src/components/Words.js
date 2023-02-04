@@ -1,29 +1,23 @@
-import wordBank from '../word-bank.txt';
+// import wordBank from '../word-bank.txt';
 
-export const emptyBoard = [
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-]
+// export const emptyBoard = [
+//     ["", "", "", "", ""],
+//     ["", "", "", "", ""],
+//     ["", "", "", "", ""],
+//     ["", "", "", "", ""],
+//     ["", "", "", "", ""],
+//     ["", "", "", "", ""],
+// ];
 
-export const genWordSet = async () => {
-    let wordSet;
-    let todaysWord;
-    await fetch(wordBank)
-        .then((response) => response.text())
-        .then((result) => {
-            // console.log(result)
-            // console.log(result)
-            const wordArray = result.split('\n');
-            // console.log(wordArray);
-            todaysWord = wordArray[Math.floor(Math.random() * wordArray.length)];
-            wordSet = new Set(wordArray);
-            // console.log(wordSet);
-            // console.log(wordSet);
-        });
-    // console.log(wordSet)
-    return { wordSet, todaysWord };
-};
+// export const genWordSet = async () => {
+//     let wordSet;
+//     let todaysWord;
+//     await fetch(wordBank)
+//         .then((response) => response.text())
+//         .then((result) => {
+//             const wordArray = result.split('\n');
+//             todaysWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+//             wordSet = new Set(wordArray);
+//         });
+//     return { wordSet, todaysWord };
+// };

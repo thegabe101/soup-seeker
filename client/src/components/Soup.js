@@ -47,7 +47,7 @@ function Soup({ attemptValue, letterPosition }) {
         })
     }
 
-    console.log(soupPicValue);
+    // console.log(soupPicValue);
 
     const genRandom = () => {
         randomNum = Math.random() * max;
