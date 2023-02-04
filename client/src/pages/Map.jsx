@@ -19,7 +19,7 @@ export const Map = () => {
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
 					<img className="sam" src={sam}></img>
-					<h4 className="stage">Stage: Soup</h4>
+					<h4 className="stage"> Soup</h4>
 					{playerPosition >= 1 && (
 						<div className="advance1">
 							<img className="ladle" src={ladle}></img>
@@ -36,7 +36,7 @@ export const Map = () => {
 								style={{ border: "0px" }}
 							></img>
 							<h4 className="stage" style={{ border: "0px" }}>
-								Stage: Souperior
+								Souperior
 							</h4>
 							{playerPosition >= 5 && (
 								<div className="advance1">
@@ -51,7 +51,7 @@ export const Map = () => {
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
 					<img className="sam" src={sam}></img>
-					<h4 className="stage">Stage: Soupier</h4>
+					<h4 className="stage">Soupier</h4>
 					{playerPosition >= 1 && (
 						<div className="advance1">
 							<img className="ladle" src={ladle}></img>
@@ -61,7 +61,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Soupfather</h4>
+							<h4 className="stage">Soupfather</h4>
 							{playerPosition >= 6 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>
@@ -75,7 +75,7 @@ export const Map = () => {
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
 					<img className="sam" src={sam}></img>
-					<h4 className="stage">Stage: Soupour</h4>
+					<h4 className="stage">Soupour</h4>
 					{playerPosition >= 2 && (
 						<div className="advance1">
 							<img className="ladle" src={ladle}></img>
@@ -85,7 +85,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Souplantic</h4>
+							<h4 className="stage">Souplantic</h4>
 							{playerPosition >= 7 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>
@@ -99,7 +99,7 @@ export const Map = () => {
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
 					<img className="sam" src={sam}></img>
-					<h4 className="stage">Stage: Souptastic</h4>
+					<h4 className="stage">Souptastic</h4>
 					{playerPosition >= 3 && (
 						<div className="advance1">
 							<img className="ladle" src={ladle}></img>
@@ -109,7 +109,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Soupnado</h4>
+							<h4 className="stage">Soupnado</h4>
 							{playerPosition >= 8 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>
@@ -123,7 +123,7 @@ export const Map = () => {
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
 					<img className="sam" src={sam}></img>
-					<h4 className="stage">Stage: Soupalomaniac</h4>
+					<h4 className="stage">Soupalomaniac</h4>
 					{playerPosition >= 4 && (
 						<div className="advance1">
 							<img className="ladle" src={ladle}></img>
@@ -133,7 +133,7 @@ export const Map = () => {
 						<div className="secondDiv">
 							<h4 className="stage">{auth.user}</h4>
 							<img className="sam" src={sam}></img>
-							<h4 className="stage">Stage: Soup Lord</h4>
+							<h4 className="stage">Soup Deity</h4>
 							{playerPosition >= 9 && (
 								<div className="advance1">
 									<img className="ladle" src={ladle}></img>
