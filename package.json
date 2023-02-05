@@ -1,0 +1,26 @@
+{
+	"name": "soup-seeker",
+	"version": "1.0.0",
+	"description": "Soup Seeker is a Wordle spinoff (a \"souple\", if you will) that adds a slight twist to the regular Wordle formula. In Soup Seeker, players must not only guess the correct five-letter-word, but also choose the soup displayed on the screen with each word they concoct. Should they get nine soups correct without ever failing the Wordle, they become the Soup Lord; should they fail the Wordle without getting nine soups correct, they shall simply remain a soup-wolfing peasant.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thegabe101/soup-seeker.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/thegabe101/soup-seeker/issues"
+	},
+	"homepage": "https://github.com/thegabe101/soup-seeker#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"mysql": "^2.18.1"
+	}
+}
