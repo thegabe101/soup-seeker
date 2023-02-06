@@ -27,7 +27,7 @@ app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    db.query("CREATE TABLE IF NOT EXISTS `users` (`email` varchar(20) NOT NULL, `username` varchar(20) NOT NULL, `password` varchar(20) NOT NULL); INSERT IGNORE INTO `users` (`email`, `username`, `password`) VALUES (`?`, `?`, `?`);", [email, username, password], (err, result) => {
+    db.query("CREATE TABLE IF NOT EXISTS `users` (`email` varchar(20) NOT NULL, `username` varchar(20) NOT NULL, `password` varchar(20) NOT NULL); INSERT INTO `users` (`email`, `username`, `password`) VALUES (?, ?, ?);", [email, username, password], (err, result) => {
         console.log(result)
         console.log(err);
     })
