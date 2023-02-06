@@ -21,13 +21,17 @@ app.get('/', (req, res) => {
     res.send('hello there')
 })
 
+app.post('/', (req, res) => {
+    db.query("CREATE TABLE users (email VARCHAR(20) NOT NULL, username VARCHAR(20) NOT NULL, password VARCHAR(20) NOT NULL);")
+})
+
 app.post('/register', (req, res) => {
 
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
 
-    db.query("CREATE TABLE users (email VARCHAR(20) NOT NULL, username VARCHAR(20) NOT NULL, password VARCHAR(20) NOT NULL);", "INSERT INTO users (email, username, password) VALUES (`?`, `?`, `?`);", [email, username, password], (err, result) => {
+    db.query("INSERT INTO users (email, username, password) VALUES (?, ?, ?);", [email, username, password], (err, result) => {
         console.log(result)
         console.log(err);
     })
