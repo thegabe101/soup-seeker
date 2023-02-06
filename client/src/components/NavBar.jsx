@@ -20,7 +20,7 @@ export const NavBar = () => {
 			<NavLink className="soupIc" to="/">
 				<img src={soupic}></img>
 			</NavLink>
-			<h2>Soup Seeker</h2>
+			<h2 className="soupSeekerTitle">Soup Seeker</h2>
 
 			{!auth.user && (
 				<NavLink to="/login" className="button-5">

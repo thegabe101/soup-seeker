@@ -67,56 +67,53 @@ export const Login = () => {
 	return (
 		<div className="loginPage">
 			<h1 className="loginHeader">Enter within and seek thy soup...</h1>
-			<div className="loginContainer">
-				<h1 className="loginText">Login</h1>
-				<input
-					className="form__input"
-					type="text"
-					placeholder="username"
-					onChange={(e) => {
-						setLogUsername(e.target.value);
-					}}
-				/>
-				<input
-					className="form__input"
-					type="text"
-					placeholder="password"
-					onChange={(e) => {
-						setLogPassword(e.target.value);
-					}}
-				/>
+			<h1 className="loginText">Login</h1>
+			<input
+				className="form__input"
+				type="text"
+				placeholder="username"
+				onChange={(e) => {
+					setLogUsername(e.target.value);
+				}}
+			/>
+			<input
+				className="form__input"
+				type="text"
+				placeholder="password"
+				onChange={(e) => {
+					setLogPassword(e.target.value);
+				}}
+			/>
+			<div>
 				<button className="button-7" onClick={loginUser}>
 					Seek
 				</button>
-				<br />
 			</div>
-			<div>
-				<h3 className="loginText">New seeker? Sign up below...</h3>
-				<input
-					className="form__input"
-					type="text"
-					placeholder="email"
-					onChange={(e) => {
-						setEmail(e.target.value);
-					}}
-				/>
-				<input
-					className="form__input"
-					type="text"
-					placeholder="username"
-					onChange={(e) => {
-						setUserName(e.target.value);
-					}}
-				/>
-				<input
-					className="form__input"
-					type="text"
-					placeholder="password"
-					onChange={(e) => {
-						setPasswordReg(e.target.value);
-					}}
-				/>
-			</div>
+			<h3 className="loginText">New seeker? Sign up below...</h3>
+			<input
+				className="form__input"
+				type="text"
+				placeholder="email"
+				onChange={(e) => {
+					setEmail(e.target.value);
+				}}
+			/>
+			<input
+				className="form__input"
+				type="text"
+				placeholder="username"
+				onChange={(e) => {
+					setUserName(e.target.value);
+				}}
+			/>
+			<input
+				className="form__input"
+				type="text"
+				placeholder="password"
+				onChange={(e) => {
+					setPasswordReg(e.target.value);
+				}}
+			/>
 			<div>
 				<button className="button-7" onClick={postNewUser}>
 					Register
