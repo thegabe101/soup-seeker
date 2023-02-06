@@ -27,7 +27,7 @@ app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    db.query("CREATE TABLE IF NOT EXISTS users (email VARCHAR(20), username VARCHAR(20), password VARCHAR(20)) INSERT INTO users (email, username, password) VALUES (?, ?, ?);"[email, username, password], (err, result) => {
+    db.query("CREATE TABLE IF NOT EXISTS `users` (`id` INT(11) NOT NULL AUTO_INCREMENT, `email` VARCHAR(20) NOT NULL, `username` VARCHAR(20) NOT NULL, `password` VARCHAR(20) NOT NULL) ENGINE=JawsDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; INSERT INTO `users` (`email`, `username`, `password`) VALUES (?, ?, ?);"[email, username, password], (err, result) => {
         console.log(result)
         console.log(err);
     })
