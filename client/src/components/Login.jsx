@@ -30,7 +30,7 @@ export const Login = () => {
 
 	const postNewUser = () => {
 		axios
-			.post("http://localhost:3001/register", {
+			.post("https://soup-seeker.herokuapp.com/register", {
 				email: email,
 				username: userName,
 				password: passwordReg,
@@ -42,7 +42,7 @@ export const Login = () => {
 
 	const loginUser = () => {
 		axios
-			.post("http://localhost:3001/loginuser", {
+			.post("https://soup-seeker.herokuapp.com/loginuser", {
 				username: logUsername,
 				password: logPassword,
 			})
