@@ -32,7 +32,7 @@ function Board() {
 				<Cauldron pregameCauldron />
 			) : (
 				<>
-					<div className="row">
+					<div className="row row1">
 						<Letter letterPosition={0} attemptValue={0} />
 						<Letter letterPosition={1} attemptValue={0} />
 						<Letter letterPosition={2} attemptValue={0} />
@@ -46,7 +46,7 @@ function Board() {
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row2">
 						<Letter letterPosition={0} attemptValue={1} />
 						<Letter letterPosition={1} attemptValue={1} />
 						<Letter letterPosition={2} attemptValue={1} />
@@ -60,7 +60,7 @@ function Board() {
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row3">
 						<Letter letterPosition={0} attemptValue={2} />
 						<Letter letterPosition={1} attemptValue={2} />
 						<Letter letterPosition={2} attemptValue={2} />
@@ -74,7 +74,7 @@ function Board() {
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row4">
 						<Letter letterPosition={0} attemptValue={3} />
 						<Letter letterPosition={1} attemptValue={3} />
 						<Letter letterPosition={2} attemptValue={3} />
@@ -88,7 +88,7 @@ function Board() {
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row5">
 						<Letter letterPosition={0} attemptValue={4} />
 						<Letter letterPosition={1} attemptValue={4} />
 						<Letter letterPosition={2} attemptValue={4} />
@@ -102,7 +102,7 @@ function Board() {
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row6">
 						<Letter letterPosition={0} attemptValue={5} />
 						<Letter letterPosition={1} attemptValue={5} />
 						<Letter letterPosition={2} attemptValue={5} />

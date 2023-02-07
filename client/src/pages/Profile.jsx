@@ -20,7 +20,7 @@ export const Profile = () => {
 	return (
 		<div className="container">
 			<div className="card-wrapper">
-				<h1>Welcome, Seeker</h1>
+				<h1 className="welcomeSeeker">Welcome, Seeker</h1>
 				<h2>
 					You have won {gamesWon} games in your soup seeking career.
 				</h2>

@@ -19,4 +19,6 @@ Soup Seeker presented a number of challenges throughout its development cycle. B
 
 # Deployed Link
 
-Coming soon.
+https://soup-seeker.netlify.app/
+
+\*\*\* This link represents an unfinished version of the app and may not be mobile-responsive depending on your device. If you have any suggestions, concerns, or comments, please feel free to contact me and fill me in!
