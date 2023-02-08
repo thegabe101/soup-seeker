@@ -98,15 +98,14 @@ function App() {
     setSouplesWon(souplesWon + 1);
   }
 
-  // console.log(board);
   console.log(correctWord);
-  // console.log(gameOver);
+  console.log(gameOver);
   // console.log(resetBoard);
 
 
   const onEnter = () => {
     if (currentGuess.letterPosition !== 5) return;
-    if (radioSoup.soupChoice === '' && currentGuess.letterPosition === 5) {
+    if (radioSoup.soupChoice === '') {
       setMustSoup('Must soup');
       return;
     }
@@ -121,7 +120,6 @@ function App() {
     for (let i = 0; i < 5; i++) {
       currentWord += board[currentGuess.attempt][i].toLowerCase();
     }
-
 
     const empty = [
       ["", "", "", "", ""],
@@ -141,9 +139,7 @@ function App() {
       setBoard(empty);
       setDisabledLetters([]);
       incrementSouplesWon();
-      //BROKEN
       setNextWord();
-      // console.log(board);
     }
 
     else if (currentWord === correctWord && playerPosition >= 9) {
@@ -162,7 +158,7 @@ function App() {
       console.log(currentWord.length);
     }
     //need a new or altered condition here for board reset; may need to create external function/state
-    else if (currentGuess.attempt === 5) {
+    else if (currentGuess.attempt === 5 && playerPosition < 10) {
       setGameOver({ gameOver: true, guessedWord: false })
       return;
     };
@@ -175,7 +171,8 @@ function App() {
     const currentBoard = [...board];
     currentBoard[currentGuess.attempt][currentGuess.letterPosition] = keyValue;
     setBoard(currentBoard);
-    setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition + 1 })
+    setCurrentGuess({ ...currentGuess, letterPosition: currentGuess.letterPosition + 1 });
+    setMustSoup('');
   }
 
   const onDelete = () => {

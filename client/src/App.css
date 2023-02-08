@@ -83,8 +83,8 @@ nav {
 .keyboard {
   display: inline-block;
   width: 500px;
-  height: 85vh;
-  margin-top: 95vh;
+  height: 100vh;
+  margin-top: 50vh;
   margin-left: 45%;
   position: fixed;
 }
@@ -375,13 +375,13 @@ nav {
 .heart {
   display: flex;
   /* justify-content: flex-start; */
-  font-size: larger;
+  font-size: smaller;
 }
 
 .endHeart {
   display: flex;
   /* justify-content: center; */
-  font-size: larger;
+  font-size: smaller;
 }
 
 .soupWin {
@@ -399,18 +399,18 @@ nav {
 
 .mapContainer {
   display: flex;
-  /* grid-template-columns: 3; */
-  /* flex-direction: column;
-  flex-wrap: wrap; */
-  margin-left: 46%;
-  margin-bottom: 30%;
-  position: fixed;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
   background-color: black;
-  height: 40vh;
-  width: 50vw;
+  height:min-content;
+  width: 500px;
   background-color: #3b4545;
   background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
+}
+
+.mapDiv {
+  display: flex;
 }
 
 .sam {
@@ -439,16 +439,21 @@ nav {
 .cauldronImg {
   margin-left: 5%;
   margin-right: 5%;
+  height: 45px;
+  width: 45px
 }
 
 .cauldronCard {
   display: flex;
-  justify-content: center;
   background-color: black;
-  height: 9.5vh;
+  height: fit-content;
+  align-items: flex-end;
+  justify-content: baseline;
+  flex-direction:column;
   background-color: #3b4545;
   background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
+  margin-top: 0px;
   /* top: 54%; */
 }
 
@@ -505,6 +510,7 @@ nav {
   height: 7vh;
   padding: 3%;
   font-size: 14px;
+  border-radius: 15px;
 }
 
 .startingDiv {
@@ -616,10 +622,13 @@ input[type="radio"]{
 
 .pregameCauldron {
   display: flex;
+  flex-direction: column;
   height: max-content;
-  margin-top: 20vh;
+  margin-top: 25vh;
+  margin-left: 50vw;
   justify-content: center;
   align-items: center;
+  font-size: xx-large;
 }
 
 .soupLordImg {
@@ -828,9 +837,16 @@ button {
     margin-bottom: 0.5rem;
 }
 
+.seek {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .line {
     display: inline-block;
 }
+
 
 @media screen and (max-width: 900px) {
 
@@ -840,11 +856,16 @@ button {
     align-items: center;
     }
     .pregameCauldron {
-      margin-top: 5vh;
+      margin-top: 1vh;
+      margin-right: 50vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+    .cauldronImg{
+      height: max-content;
+      width: max-content;
     }
     .loginText {
         display: smaller;
@@ -872,7 +893,44 @@ button {
     }
     .mapContainer {
       display: flex;
-      flex-direction: row;
+      margin-left: 0;
+      height: fit-content;
+      width: fit-content;
+      margin-top: 25vh;
+      /* margin-right: 5vw; */
+      /* display: flex;
+      margin-left: 46%;
+      margin-bottom: 30%;
+      position: fixed;
+      background-color: black;
+      height: 40vh;
+      width: 50vw;
+      background-color: #3b4545;
+      background-color: rgba(145, 173, 173, 0.16);
+      border-radius: 15px; */
+    }
+    /* .mapDiv {
+      display: flex;
+      align-items:start;
+      justify-content: center;
+    } */
+    .secondDiv {
+      display: block;
+      height: fit-content;
+      width: fit-content;
+      margin: 0;
+    }
+    .stage {
+      display: block;
+      height: fit-content;
+      width: fit-content;
+      margin: 0;
+    }
+    .advance1 {
+      display: block;
+      height: fit-content;
+      width: fit-content;
+      margin: 0;
     }
     .keyboard {
       display: inline-block;
@@ -892,9 +950,8 @@ button {
       width: 100vw;
       height: 100vh;
       display: flex;
-      align-items: center;
-      padding: 50px;
-      flex-direction: column;
+      align-items: baseline;
+      flex-direction: row;
     }
     .container {
       padding: 10%;
@@ -912,11 +969,34 @@ button {
     .startBtn {
       width: 50vw;
       height: 15vh;
-      margin-top: 40vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: xx-large;
+      border-radius: 15px;
+      margin-top: 50%;
     }
     .currentPosition{
-      display: none;
+      position: fixed;
+      bottom: 35vh;
+      height: fit-content;
     }
+    .loginStat {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      font-size: small;
+      color: white;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    }
+
+    @media screen and (max-width: 900px) {
+      .currentPosition {
+        display: none;
+      }
     }
 
 @keyframes move {

@@ -7,6 +7,7 @@ import { AppContext } from '../App';
 import Soup from './Soup';
 import { GameOver } from '../pages/GameOver';
 import { Cauldron } from './Cauldron';
+import { Map } from '../pages/Map';
 
 
 function Keyboard() {
@@ -52,7 +53,7 @@ function Keyboard() {
     return (
         <div className='keyboard' onKeyDown={keySense}>
             {gameOver.gameOver && <GameOver />}
-            {gameStarted == true && !gameOver.gameover && <Cauldron cauldronCard />}
+            <div className="mapDiv">{gameOver.gameOver ? "" : <Map />}</div>
             {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
             <div className='line1'>
                 {gameStarted && arrOne.map((key) => {

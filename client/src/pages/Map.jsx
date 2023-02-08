@@ -6,6 +6,7 @@ import sam from "../assets/images/sam.png";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { useAuth } from "../components/AuthProvider";
+import { Cauldron } from "../components/Cauldron";
 
 export const Map = () => {
 	const { playerPosition, setPlayerPosition, gameOver, gameStarted } =
@@ -142,6 +143,9 @@ export const Map = () => {
 						</div>
 					)}
 				</div>
+			)}
+			{gameStarted == true && !gameOver.gameover && (
+				<Cauldron cauldronCard />
 			)}
 		</div>
 	);
