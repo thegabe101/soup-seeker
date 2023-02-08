@@ -372,17 +372,17 @@ nav {
 }
 
 
-.heart {
+/* .heart {
   display: flex;
-  /* justify-content: flex-start; */
+  justify-content: flex-start;
   font-size: smaller;
 }
 
 .endHeart {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   font-size: smaller;
-}
+} */
 
 .soupWin {
   opacity: 1;
@@ -457,7 +457,7 @@ nav {
   /* top: 54%; */
 }
 
-/* .startBtn {
+.startBtn {
   align-items: center;
   background-color: initial;
   background-image: linear-gradient(#5eb2cea9, #25292e);
@@ -491,8 +491,8 @@ nav {
 }
 
 .startBtn:hover {
-  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
-  opacity: .85;
+  background-color: #fb8332;
+  box-shadow: rgba(156, 53, 2, 0.862) 4px 4px 12px;
 }
 
 .startBtn:active {
@@ -501,7 +501,7 @@ nav {
 
 .startBtn:focus {
   box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
-} */
+}
 
 .currentPosition {
   display: flex;
@@ -621,15 +621,13 @@ input[type="radio"]{
 }
 
 .pregameCauldron {
-  display: flex;
-  flex-direction: column;
-  height: max-content;
-  margin-top: 25vh;
-  margin-left: 50vw;
-  justify-content: center;
-  align-items: center;
-  font-size: xx-large;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+
 
 .soupLordImg {
   display: flex;
@@ -655,23 +653,6 @@ input[type="radio"]{
     letter-spacing: .03em;
 }
 
-/* .loginPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-
-/* .loginContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 20vw;
-    height: 20vh;
-    padding: 15%;
-} */
-
 .form__input {
     background-color: #39375012;
     color: aliceblue;
@@ -690,6 +671,9 @@ input[type="radio"]{
     flex-direction: row;
     width: 100%;
     color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .button-7 {
@@ -856,16 +840,17 @@ button {
     align-items: center;
     }
     .pregameCauldron {
-      margin-top: 1vh;
-      margin-right: 50vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
     .cauldronImg{
       height: max-content;
       width: max-content;
+      display: flex;
+      margin-left: 35%;
+      
     }
     .loginText {
         display: smaller;
@@ -897,23 +882,7 @@ button {
       height: fit-content;
       width: fit-content;
       margin-top: 25vh;
-      /* margin-right: 5vw; */
-      /* display: flex;
-      margin-left: 46%;
-      margin-bottom: 30%;
-      position: fixed;
-      background-color: black;
-      height: 40vh;
-      width: 50vw;
-      background-color: #3b4545;
-      background-color: rgba(145, 173, 173, 0.16);
-      border-radius: 15px; */
     }
-    /* .mapDiv {
-      display: flex;
-      align-items:start;
-      justify-content: center;
-    } */
     .secondDiv {
       display: block;
       height: fit-content;
@@ -968,13 +937,13 @@ button {
     }
     .startBtn {
       width: 50vw;
-      height: 15vh;
+      height: fit-content;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: xx-large;
       border-radius: 15px;
-      margin-top: 50%;
+      margin-top: 5%;
     }
     .currentPosition{
       position: fixed;
@@ -992,6 +961,7 @@ button {
       align-items: center;
     }
     }
+
 
     @media screen and (max-width: 900px) {
       .currentPosition {
