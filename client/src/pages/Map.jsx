@@ -144,9 +144,11 @@ export const Map = () => {
 					)}
 				</div>
 			)}
+			<div>
 			{gameStarted == true && !gameOver.gameover && (
 				<Cauldron cauldronCard />
 			)}
+			</div>
 		</div>
 	);
 };

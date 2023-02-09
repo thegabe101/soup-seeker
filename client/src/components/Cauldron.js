@@ -12,9 +12,9 @@ export const Cauldron = ({ cauldronCard, pregameCauldron }) => {
             <h1 className='heart'>The Heart</h1>
             <img className="cauldronImg" src={cauldron}></img>
             <h1 className='endHeart'>of the Soup</h1>
-            <div >
-                {gameStarted == false ? <button className='button-7 startBtn' onClick={(() => { setGameStarted(true) })}>Begin thy search</button> : ''}
-            </div>
+            <br />
+            {gameStarted == true && <h6>Stage 11</h6>}
+            {gameStarted == false ? <button className='button-7 ' onClick={(() => { setGameStarted(true) })}>Begin thy search</button> : ''}
         </div>
     )
 }

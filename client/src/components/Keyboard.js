@@ -51,31 +51,32 @@ function Keyboard() {
     }, [keySense]);
 
     return (
-        <div className='keyboard' onKeyDown={keySense}>
-            {gameOver.gameOver && <GameOver />}
-            <div className="mapDiv">{gameOver.gameOver ? "" : <Map />}</div>
-            {/* {board[0][4] ? <SoupGuessCard /> : ''} */}
-            <div className='line1'>
-                {gameStarted && arrOne.map((key) => {
-                    return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
-                })}
-            </div>
-            <div className='line2'>
-                {gameStarted && arrTwo.map((key) => {
-                    return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
-                })}
-            </div>
-            <div className='line3'>
-                {gameStarted && <Key keyValue={'enter'} bigKey />}
-                {gameStarted && arrThree.map((key) => {
-                    return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
-                })}
-                {gameStarted && <Key keyValue={'delete'} bigKey />}
-            </div>
-            {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition}/10 | Soups correct: {soupsCorrect}
-                <p>Become the soup lord without failing the souple to reach the heart of the soup. </p>
-            </div>}
+        <div>
+            <div className='keyboard' onKeyDown={keySense}>
+                {gameOver.gameOver && <GameOver />}
+                <div className="mapDiv">{gameOver.gameOver ? "" : <Map />}</div>
+                <div className='line1'>
+                    {gameStarted && arrOne.map((key) => {
+                        return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
+                    })}
+                </div>
+                <div className='line2'>
+                    {gameStarted && arrTwo.map((key) => {
+                        return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
+                    })}
+                </div>
+                <div className='line3'>
+                    {gameStarted && <Key keyValue={'enter'} bigKey />}
+                    {gameStarted && arrThree.map((key) => {
+                        return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
+                    })}
+                    {gameStarted && <Key keyValue={'delete'} bigKey />}
+                </div>
+                {gameStarted == true && <div className='currentPosition'>Current position: {playerPosition}/11 | Soups correct: {soupsCorrect}
+                    <p>Become the soup lord without failing the souple to reach the heart of the soup. </p>
+                </div>}
 
+            </div>
         </div>
     )
 };
