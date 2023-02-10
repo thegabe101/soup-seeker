@@ -52,7 +52,7 @@ function Keyboard() {
 
     return (
         <div>
-            <div className='keyboard' onKeyDown={keySense}>
+            <div className={gameStarted ? "keyboard" : ''} onKeyDown={keySense}>
                 {gameOver.gameOver && <GameOver />}
                 <div className="mapDiv">{gameOver.gameOver ? "" : <Map />}</div>
                 <div className='line1'>

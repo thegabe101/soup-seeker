@@ -83,8 +83,8 @@ nav {
 }
 
 .keyboard {
-  width: 50%;
-  height: calc(130vh - 170px);
+  width: 55vw;
+  height: calc(145vh - 170px);
   margin-left: 2%;
   position: fixed;
   transform: translate(0%, -30%);
@@ -143,15 +143,12 @@ nav {
 }
 
 /* .soupGuessCard {
-  display: flex;
-  flex-direction: row;
-  border: #b49f39 1px solid;
-  padding: 7px;
-  height: fit-content;
-  width: 100%;
-  font-size: 16px;
-  position: relative;
-  margin-left: 75%;
+display: flex;
+flex-direction: column;
+width: fit-content;
+justify-content: center;
+align-items: center;
+margin: ;
 } */
 
 
@@ -388,27 +385,26 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: black;
-  height: 100%;
+  height: 450px;
   width: 100%;
   background-color: #3b4545;
   background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
 }
 
-/* .mapDiv {
-  display: flex;
-} */
-
 .sam {
-  height: 75px;
+  height: 9vh;
   width: fit-content;
   background-color: #76aaa868;
   border-radius: 15px;
-  margin-right: 90%;
+  margin-right: 10%;
 }
 
 .stage {
   display: flex;
+  margin:3px;
+  text-align: center;
+  justify-content: center;
 }
 
 .ladle {
@@ -431,17 +427,17 @@ nav {
 }
 
 .cauldronCard {
+  font-size: small;
   display: flex;
-  background-color: black;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-direction:column;
-  background-color: #3b4545;
-  background-color: rgba(145, 173, 173, 0.16);
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items:center;
+  height: 450px;
+  width:min-content;
+  padding: 5px;
+  border: #2c362c solid 1px;
   border-radius: 15px;
-  margin-top: 0px;
-  /* top: 54%; */
+  margin-left: 25%;
 }
 
 .startBtn {
@@ -512,13 +508,13 @@ nav {
 }
 
 .secondDiv {
+  display: block;
   font-size: small;
-  width: 20%;
-  margin: 4px;
   height: fit-content;
+  /* width: 15%; */
+  margin: 4px;
   align-items: center;
   justify-content: center;
-  /* border-right: rgba(63, 214, 101, 0.358) solid 3px; */
 }
 
 
@@ -820,13 +816,47 @@ button {
     display: inline-block;
 }
 
+/* media queries: small to larger*/
+
+/* @media only screen and (max-width: 768px) {
+  .loginPage{
+    display: flex;
+    height: fit-content;
+    color:#000;
+  }
+  .game {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+  }
+  .board {
+    height: 25vh;
+    width: 100vw;
+    top:3%;
+    position: fixed;
+  }
+  .keyboard {
+    display: inline-block;
+    width: 100%;
+    height: fit-content;
+    bottom: 5%;
+    margin-left: 0;
+    position: fixed;
+    transform: translate(0%, 0%);
+  }
+} */
+
 
 @media screen and (max-width: 900px) {
 
     .loginHeader {
-    font-size: smaller;
+    /* font-size: smaller;
     justify-content: center;
     align-items: center;
+     */
+     display: none;
     }
     .pregameCauldron {
       position: fixed;
@@ -849,11 +879,14 @@ button {
     .loginPage {
       display: flex;
       flex-direction: column;
+      justify-content: center;
     }
     .button-7 {
       display: inline-flex;
       width: 50%;
       justify-content: baseline;
+      height: fit-content;
+      padding: 5px;
     }
     .soupSeekerTitle {
       display: none;
@@ -866,11 +899,15 @@ button {
       display: none;
     }
     .mapContainer {
-      display: flex;
-      margin-left: 0;
+      display: none;
+      /* display: flex;
+      flex-direction: row;
+      background-color: black;
       height: fit-content;
-      width: fit-content;
-      margin-top: 25vh;
+      width: 100%;
+      background-color: #3b4545;
+      background-color: rgba(145, 173, 173, 0.16);
+      border-radius: 15px; */
     }
     .secondDiv {
       display: block;
@@ -950,7 +987,11 @@ button {
       justify-content: center;
       align-items: center;
     }
+    .soupImg {
+      width: max-content;
     }
+    }
+
 
     @media screen and (max-width: 900px) {
       .currentPosition {

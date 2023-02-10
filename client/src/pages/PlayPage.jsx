@@ -14,6 +14,7 @@ export const PlayPage = () => {
 	return (
 		<div className="game">
 			<Board />
+			
 			{gameOver.gameOver ? <GameOver /> : <Keyboard />}
 		</div>
 	);
