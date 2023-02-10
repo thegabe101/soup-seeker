@@ -14,7 +14,7 @@ export const Cauldron = ({ cauldronCard, pregameCauldron }) => {
             <img className="cauldronImg" src={cauldron}></img>
             <h1>of the Soup</h1>
             <br />
-            {gameStarted == true && <h4>11x <img className='ladle' src={ladle} /></h4>}
+            {gameStarted == true && <h4>Soup Lord 11x <img className='ladle' src={ladle} /></h4>}
             {gameStarted == false ? <button className='button-7 ' onClick={(() => { setGameStarted(true) })}>Begin thy search</button> : ''}
         </div>
     )

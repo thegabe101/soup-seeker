@@ -20,7 +20,7 @@ export const NavBar = () => {
 	return (
 		<nav>
 			<NavLink className="soupIc" to="/">
-				<img src={soupic}></img>
+				<img className="soupIc" src={soupic}></img>
 			</NavLink>
 			<h2 className="soupSeekerTitle">Soup Seeker</h2>
 

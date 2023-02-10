@@ -6,10 +6,11 @@ import { AppContext } from '../App';
 import { soupTypes } from '../soup-types';
 import Letter from './Letter';
 import soupdefault from '../assets/images/soupdefault.png';
+import ladle from '../assets/images/ladle.png';
 
 
 function Soup({ attemptValue, letterPosition }) {
-    const { soupPicValue, setSoupPicValue, onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+    const { playerPosition, soupPicValue, setSoupPicValue, onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
 
     const setSoupOption = event => {
         setRadioSoup({ ...radioSoup, soupChoice: event.target.value });
@@ -65,8 +66,8 @@ function Soup({ attemptValue, letterPosition }) {
 
     return (
         <div>
-            < div className="soupGuessCard" >
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4 style={{ 'marginLeft': '3px' }}>Seek thy soup.</h4>
+            < div >
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4 style={{ 'marginLeft': '3px' }} className='thy'>Seek thy soup.</h4>
                     <div class="wrapper">
                         <input type="radio" name="select" id="option-1" onChange={setSoupOption} value={soupIndex[0]} />
                         <input type="radio" name="select" id="option-2" onChange={setSoupOption} value={soupIndex[1]} />
@@ -85,7 +86,8 @@ function Soup({ attemptValue, letterPosition }) {
                         </label>
                     </div>
                 </> : ''}
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg" src={soupPic} /> : <img className="soupImg" src={soupdefault} />}
+                {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg wrapperImg" src={soupPic} /> : <><h6 className='currentPositionFlex'>{playerPosition}x<img className='ladle' src={ladle}></img><img className="soupImg" src={soupdefault} /></h6></>}
+
             </div >
         </div>
     )

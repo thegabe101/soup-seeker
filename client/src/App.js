@@ -98,8 +98,10 @@ function App() {
     setSouplesWon(souplesWon + 1);
   }
 
+  console.log(currentGuess.attempt);
   console.log(correctWord);
   console.log(gameOver);
+  console.log(playerPosition);
   // console.log(resetBoard);
 
 
@@ -132,7 +134,7 @@ function App() {
 
     // + `\r`
     //not sure why this \r is appearing in the word set but can just concatenate 
-    if (currentWord === correctWord && playerPosition < 9 || currentWord === nextWord && playerPosition < 9) {
+    if (currentWord === correctWord && playerPosition <= 8 || currentWord === nextWord && playerPosition <= 8) {
       console.log('---------------reset block hit---------------');
       setResetBoard('Fresh board.');
       setCurrentGuess({ attempt: 0, letterPosition: 0 });
@@ -141,8 +143,13 @@ function App() {
       incrementSouplesWon();
       setNextWord();
     }
-
-    else if (currentWord === correctWord && playerPosition >= 9) {
+    //need a new or altered condition here for board reset; may need to create external function/state
+    else if (currentGuess.attempt >= 5) {
+      setGameOver({ gameOver: true, guessedWord: false })
+      return;
+    }
+    //increase the array index w attempt; reset position in array to start for next guess 
+    else if (playerPosition >= 9) {
       console.log('gameover block hit')
       setGameOver({ gameOver: true, guessedWord: true });
       return;
@@ -157,12 +164,6 @@ function App() {
       console.log(correctWord.length);
       console.log(currentWord.length);
     }
-    //need a new or altered condition here for board reset; may need to create external function/state
-    else if (currentGuess.attempt === 5 && playerPosition < 10) {
-      setGameOver({ gameOver: true, guessedWord: false })
-      return;
-    };
-    //increase the array index w attempt; reset position in array to start for next guess 
   };
 
   const onSelector = (keyValue) => {
