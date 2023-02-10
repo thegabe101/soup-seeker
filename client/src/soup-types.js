@@ -13,6 +13,8 @@ import miso from './assets/images/miso.jpg';
 import frenchonion from './assets/images/frenchonion.jpg';
 import butternutsquash from './assets/images/butternutsquash.jpg';
 import pozole from "./assets/images/pozole.jpg";
+import beefbarley from "./assets/images/beefbarley.jpg";
+import lentil from "./assets/images/lentil.jpg";
 
 export const soupTypes = [
     {
@@ -89,5 +91,15 @@ export const soupTypes = [
         name: "pozole",
         src: pozole,
         index: 12
+    },
+    {
+        name: "beef barley",
+        src: beefbarley,
+        index: 13
+    },
+    {
+        name: "lentil",
+        src: lentil,
+        index: 14
     }
 ]

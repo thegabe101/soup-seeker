@@ -6,6 +6,7 @@ import sam from "../assets/images/sam.png";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { useAuth } from "../components/AuthProvider";
+import { Cauldron } from "../components/Cauldron";
 
 export const Map = () => {
 	const { playerPosition, setPlayerPosition, gameOver, gameStarted } =
@@ -14,7 +15,7 @@ export const Map = () => {
 	const auth = useAuth();
 
 	return (
-		<div className="mapContainer">
+		<div className={gameStarted ? "mapContainer" : ""}>
 			{gameStarted == true && (
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
@@ -22,6 +23,7 @@ export const Map = () => {
 					<h4 className="stage"> Soup</h4>
 					{playerPosition >= 1 && (
 						<div className="advance1">
+							<h4>1x</h4>
 							<img className="ladle" src={ladle}></img>
 						</div>
 					)}
@@ -40,6 +42,7 @@ export const Map = () => {
 							</h4>
 							{playerPosition >= 5 && (
 								<div className="advance1">
+									<h4>6x</h4>
 									<img className="ladle" src={ladle}></img>
 								</div>
 							)}
@@ -54,6 +57,7 @@ export const Map = () => {
 					<h4 className="stage">Soupier</h4>
 					{playerPosition >= 1 && (
 						<div className="advance1">
+							<h4>2x</h4>
 							<img className="ladle" src={ladle}></img>
 						</div>
 					)}
@@ -64,6 +68,7 @@ export const Map = () => {
 							<h4 className="stage">Soupfather</h4>
 							{playerPosition >= 6 && (
 								<div className="advance1">
+									<h4>7x</h4>
 									<img className="ladle" src={ladle}></img>
 								</div>
 							)}
@@ -78,6 +83,7 @@ export const Map = () => {
 					<h4 className="stage">Soupour</h4>
 					{playerPosition >= 2 && (
 						<div className="advance1">
+							<h4>3x</h4>
 							<img className="ladle" src={ladle}></img>
 						</div>
 					)}
@@ -88,6 +94,7 @@ export const Map = () => {
 							<h4 className="stage">Souplantic</h4>
 							{playerPosition >= 7 && (
 								<div className="advance1">
+									<h4>8x</h4>
 									<img className="ladle" src={ladle}></img>
 								</div>
 							)}
@@ -102,6 +109,7 @@ export const Map = () => {
 					<h4 className="stage">Souptastic</h4>
 					{playerPosition >= 3 && (
 						<div className="advance1">
+							<h4>4x</h4>
 							<img className="ladle" src={ladle}></img>
 						</div>
 					)}
@@ -112,6 +120,7 @@ export const Map = () => {
 							<h4 className="stage">Soupnado</h4>
 							{playerPosition >= 8 && (
 								<div className="advance1">
+									<h4>9x</h4>
 									<img className="ladle" src={ladle}></img>
 								</div>
 							)}
@@ -123,9 +132,10 @@ export const Map = () => {
 				<div className="secondDiv">
 					<h4 className="stage">{auth.user}</h4>
 					<img className="sam" src={sam}></img>
-					<h4 className="stage">Soupalomaniac</h4>
+					<h4 className="stage">Soupreme</h4>
 					{playerPosition >= 4 && (
 						<div className="advance1">
+							<h4>5x</h4>
 							<img className="ladle" src={ladle}></img>
 						</div>
 					)}
@@ -136,6 +146,7 @@ export const Map = () => {
 							<h4 className="stage">Soup Deity</h4>
 							{playerPosition >= 9 && (
 								<div className="advance1">
+									<h4>10x</h4>
 									<img className="ladle" src={ladle}></img>
 								</div>
 							)}
@@ -143,6 +154,11 @@ export const Map = () => {
 					)}
 				</div>
 			)}
+			<div>
+				{gameStarted == true && !gameOver.gameover && (
+					<Cauldron cauldronCard />
+				)}
+			</div>
 		</div>
 	);
 };

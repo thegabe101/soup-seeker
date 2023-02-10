@@ -32,84 +32,84 @@ function Board() {
 				<Cauldron pregameCauldron />
 			) : (
 				<>
-					<div className="row">
+					<div className="row row1">
 						<Letter letterPosition={0} attemptValue={0} />
 						<Letter letterPosition={1} attemptValue={0} />
 						<Letter letterPosition={2} attemptValue={0} />
 						<Letter letterPosition={3} attemptValue={0} />
 						<Letter letterPosition={4} attemptValue={0} />
 						{currentGuess.attempt == 0 ? (
-							<div>
+							<div className="mainCard">
 								<Soup />
 							</div>
 						) : (
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row2">
 						<Letter letterPosition={0} attemptValue={1} />
 						<Letter letterPosition={1} attemptValue={1} />
 						<Letter letterPosition={2} attemptValue={1} />
 						<Letter letterPosition={3} attemptValue={1} />
 						<Letter letterPosition={4} attemptValue={1} />
 						{currentGuess.attempt == 1 ? (
-							<div>
+							<div className="mainCard">
 								<Soup />
 							</div>
 						) : (
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row3">
 						<Letter letterPosition={0} attemptValue={2} />
 						<Letter letterPosition={1} attemptValue={2} />
 						<Letter letterPosition={2} attemptValue={2} />
 						<Letter letterPosition={3} attemptValue={2} />
 						<Letter letterPosition={4} attemptValue={2} />
 						{currentGuess.attempt == 2 ? (
-							<div>
+							<div className="mainCard">
 								<Soup />
 							</div>
 						) : (
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row4">
 						<Letter letterPosition={0} attemptValue={3} />
 						<Letter letterPosition={1} attemptValue={3} />
 						<Letter letterPosition={2} attemptValue={3} />
 						<Letter letterPosition={3} attemptValue={3} />
 						<Letter letterPosition={4} attemptValue={3} />
 						{currentGuess.attempt == 3 ? (
-							<div>
+							<div className="mainCard">
 								<Soup />
 							</div>
 						) : (
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row5">
 						<Letter letterPosition={0} attemptValue={4} />
 						<Letter letterPosition={1} attemptValue={4} />
 						<Letter letterPosition={2} attemptValue={4} />
 						<Letter letterPosition={3} attemptValue={4} />
 						<Letter letterPosition={4} attemptValue={4} />
 						{currentGuess.attempt == 4 ? (
-							<div>
+							<div className="mainCard">
 								<Soup />
 							</div>
 						) : (
 							""
 						)}
 					</div>
-					<div className="row">
+					<div className="row row6">
 						<Letter letterPosition={0} attemptValue={5} />
 						<Letter letterPosition={1} attemptValue={5} />
 						<Letter letterPosition={2} attemptValue={5} />
 						<Letter letterPosition={3} attemptValue={5} />
 						<Letter letterPosition={4} attemptValue={5} />
 						{currentGuess.attempt == 5 ? (
-							<div>
+							<div className="mainCard">
 								<Soup />
 							</div>
 						) : (
@@ -118,6 +118,9 @@ function Board() {
 					</div>
 				</>
 			)}
+			<div className="flexWrapper floatCard">
+				<Soup />
+			</div>
 		</div>
 	);
 }

@@ -6,6 +6,8 @@ import { useAuth } from "./AuthProvider";
 import { useNavigate } from "react-router-dom";
 import soupicon from "../assets/images/souppng.png";
 import soupic from "../assets/images/soupic.jpg";
+import { Login } from "./Login";
+import { LandingPage } from "../pages/LandingPage";
 
 export const NavBar = () => {
 	const auth = useAuth();
@@ -18,11 +20,11 @@ export const NavBar = () => {
 	return (
 		<nav>
 			<NavLink className="soupIc" to="/">
-				<img src={soupic}></img>
+				<img className="soupIc" src={soupic}></img>
 			</NavLink>
 			<h2 className="soupSeekerTitle">Soup Seeker</h2>
 
-			{!auth.user && (
+			{!auth.user && !(<Login />) && (
 				<NavLink to="/login" className="button-5">
 					Login
 				</NavLink>
@@ -42,6 +44,11 @@ export const NavBar = () => {
 					Logout
 				</button>
 			)}
+			{/* {<LandingPage /> && (
+				<NavLink to="/login" className="button-5">
+					Login
+				</NavLink>
+			)} */}
 		</nav>
 	);
 };
