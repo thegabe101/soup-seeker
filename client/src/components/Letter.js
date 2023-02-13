@@ -20,15 +20,6 @@ function Letter({ letterPosition, attemptValue }) {
 
 
     useEffect(() => {
-        // if (resetBoard === 'Fresh board.') {
-        //     setCurrentGuess({ attempt: 0, letterPosition: 0 });
-        // }
-        // if (currentGuess.attemptValue === 0 && currentGuess.letterPosition < 5) {
-        //     letter = '';
-        // }
-        if (resetBoard === 'Fresh board.') {
-            setDisabledLetters([]);
-        }
         if (letter !== '' && !correct && !contains) {
             setDisabledLetters((prev) => [...prev, letter])
         };
@@ -37,12 +28,6 @@ function Letter({ letterPosition, attemptValue }) {
 
     return (
         <div className='letter' id={letterState}>
-            {/* {currentGuess.attempt === 0 && currentGuess.letterPosition === 0 ? '' : <>{letter}</>} */}
-            {/* {resetBoard === 'Fresh board.' && currentGuess.attempt < attemptValue ||
-                resetBoard === 'Fresh board.' && currentGuess.attempt === 0 && currentGuess.letterPosition === 0 ? '' :
-                <>
-                    {letter}</>
-            } */}
             {letter}
         </div>
     )
