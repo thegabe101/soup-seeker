@@ -1139,6 +1139,40 @@ display: none;
     }
 
 
+    @media screen and (max-height: 900px) and (min-width: 900px) {
+      .keyboard {
+        display: inline-block;
+        width: fit-content;
+        height: fit-content;
+        bottom: 5%;
+        margin-left: 0;
+        position: fixed;
+        transform: translate(0%, 0%);
+        margin-top: 0;
+      }
+      .mapContainer {
+        display: inline-flex;
+        flex-direction: row;
+        background-color: black;
+        height: fit-content;
+        width: fit-content;
+        flex-wrap: wrap;
+        background-color: #3b4545;
+        background-color: rgba(145, 173, 173, 0.16);
+        border-radius: 15px;
+      }
+      .cauldronCard {
+        display: none;
+      }
+      .sam {
+        height: 5vh;
+        width: fit-content;
+        background-color: #76aaa868;
+        border-radius: 15px;
+        margin-right: 10%;
+      }
+    }
+
     @media screen and (max-width: 900px) {
       .currentPosition {
         display: none;
