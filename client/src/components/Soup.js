@@ -7,12 +7,16 @@ import { soupTypes } from '../soup-types';
 import Letter from './Letter';
 import soupdefault from '../assets/images/soupdefault.png';
 import ladle from '../assets/images/ladle.png';
-
+import { useAuth } from "../components/AuthProvider";
+import souplord from '../assets/images/souplord.jpg';
 
 function Soup({ attemptValue, letterPosition }) {
-    const { playerPosition, soupPicValue, setSoupPicValue, onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+    const { souplesWon, gameOver, guessedWord, playerPosition, soupPicValue, setSoupPicValue, onEnter, radioSoup, setRadioSoup, gameStarted, setGameStarted, soupInfo, setSoupInfo, soupIndex, setSoupIndex, soupPic, setSoupPic, board, currentGuess } = useContext(AppContext);
+
+    const auth = useAuth();
 
     const setSoupOption = event => {
+        console.log('clicked');
         setRadioSoup({ ...radioSoup, soupChoice: event.target.value });
         // console.log(event.target.value);
         // console.log(radioSoup);
@@ -67,7 +71,7 @@ function Soup({ attemptValue, letterPosition }) {
     return (
         <div>
             < div >
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <><h4 style={{ 'marginLeft': '3px' }} className='thy'>Seek thy soup.</h4>
+                {gameStarted == true && currentGuess.letterPosition === 5 && gameOver.guessedWord == false && gameOver.gameOver == false ? <><h4 style={{ 'marginLeft': '3px' }} className='thy'>Seek thy soup.</h4>
                     <div class="wrapper">
                         <input type="radio" name="select" id="option-1" onChange={setSoupOption} value={soupIndex[0]} />
                         <input type="radio" name="select" id="option-2" onChange={setSoupOption} value={soupIndex[1]} />
@@ -86,8 +90,20 @@ function Soup({ attemptValue, letterPosition }) {
                         </label>
                     </div>
                 </> : ''}
-                {gameStarted == true && currentGuess.letterPosition === 5 ? <img className="soupImg wrapperImg" src={soupPic} /> : <><h6 className='currentPositionFlex'>{playerPosition}x<img className='ladle' src={ladle}></img><img className="soupImg" src={soupdefault} /></h6></>}
-
+                {gameStarted == true && currentGuess.letterPosition === 5 && gameOver.guessedWord == false && gameOver.gameOver == false ? <img className="soupImg wrapperImg" src={soupPic} /> : <><h6 className='currentPositionFlex'>{playerPosition + 1}x/11<img className='ladle ladleCard' src={ladle}></img><img className="soupImg" src={soupdefault} /></h6></>}
+                <div className='flexLord'>
+                    {gameOver.guessedWord == true ? (
+                        <h3 className='flexLordText'>{auth.user} has become The Lord of the Soup</h3>
+                    ) : (
+                        ""
+                    )}
+                    {gameOver.guessedWord == true ? (
+                        <img className="flexLordImg" src={souplord} />
+                    ) : (
+                        ""
+                    )}
+                    {gameOver.guessedWord == false && gameOver.gameOver == true ? <h6 className='flexLordTextFail'>Yee' hath failed to become thee' Lord of the Soup for yee' did not aquire 11 ladles without failing a Souple.</h6> : ''}
+                </div>
             </div >
         </div>
     )

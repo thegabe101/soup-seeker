@@ -20,26 +20,30 @@ export const GameOver = () => {
 
 	return (
 		<div className="gameOverLose">
-			{guessedWord ? (
+			{gameOver.guessedWord == true ? (
 				<h3>{auth.user} has become The Lord of the Soup</h3>
 			) : (
 				""
 			)}
-			{guessedWord ? <img className="soupLordImg" src={souplord} /> : ""}
+			{gameOver.guessedWord == true ? (
+				<img className="soupLordImg" src={souplord} />
+			) : (
+				""
+			)}
+			<h3>Yee had {souplesWon} Souples correct.</h3>
+			<br />
 			<h3>
-				{gameOver.guessedWord
+				Yee failed to collect 11 ladles before without failing a Souple.
+			</h3>
+			<br />
+			{gameOver.guessedWord && (
+				<h3>Thy soup was sought in {soupsCorrect + 1} attempts.</h3>
+			)}
+			<h3>
+				{gameOver.guessedWord == true
 					? "Thee' hath fared well."
 					: "Thy soup was not sought."}
 			</h3>
-			<h3 className="yee">Yee had {souplesWon} Souples correct.</h3>
-			<br />
-			{gameOver.guessedWord && (
-				<h3>
-					<br />
-					Thy soup was sought in {soupsCorrect + 1} attempts.
-				</h3>
-			)}
-			<br />
 			<button className="playAgain">Seek Again</button>
 		</div>
 	);
