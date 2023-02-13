@@ -118,9 +118,13 @@ function Board() {
 					</div>
 				</>
 			)}
-			<div className="flexWrapper floatCard">
-				<Soup />
-			</div>
+			{gameStarted == true ? (
+				<div className="flexWrapper floatCard">
+					<Soup />
+				</div>
+			) : (
+				""
+			)}
 		</div>
 	);
 }

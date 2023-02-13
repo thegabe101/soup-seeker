@@ -54,7 +54,7 @@ function Keyboard() {
     return (
         <div>
             <div className={gameStarted ? "keyboard" : ''} onKeyDown={keySense}>
-                {gameOver.gameOver && <GameOver />}
+                {gameOver.gameOver == true && <GameOver />}
                 <div className="mapDiv">{gameOver.gameOver ? "" : <Map />}</div>
                 <div className='line1'>
                     {gameStarted && arrOne.map((key) => {

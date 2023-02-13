@@ -11,6 +11,11 @@
   background-blend-mode: multiply;
 }
 
+.soupSeekerTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 body {
   padding: 0%;
   margin: 0;
@@ -239,6 +244,13 @@ nav {
   flex-direction: column; 
 }
 
+.ladleCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15%;
+}
+
 .soupIc {
   padding: 1px;
   border-radius: 15px;
@@ -303,14 +315,15 @@ nav {
   display: flex;
   flex-direction: column;
   margin-left: 15vw;
-  margin-bottom: 8vh;
+  margin-top: 5vh;
   background-color: #3b4545;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  height: 100%;
+  height:fit-content;
   width: 40vw;
   border-radius: 25px;
   padding: 3%;
+  font-size: 13px;
 }
 
 .yee {
@@ -419,6 +432,10 @@ nav {
   margin-right: 5%;
   height: 45px;
   width: 45px;
+}
+
+.flexLord {
+  display: none;
 }
 
 .cauldronCard {
@@ -555,6 +572,7 @@ nav {
   background: #d9d9d9;
   border-radius: 50%;
   position: relative;
+  margin-right: 10px;
 }
 .wrapper .option .dot::before{
   position: absolute;
@@ -563,7 +581,7 @@ nav {
   left: 4px;
   width: 12px;
   height: 12px;
-  background: #0a5351;
+  background: #1f9f9f;
   border-radius: 50%;
   opacity: 0;
   transform: scale(1.5);
@@ -587,7 +605,8 @@ input[type="radio"]{
 #option-2:checked:checked ~ .option-2 .dot::before,
 #option-3:checked:checked ~ .option-3 .dot::before{
   opacity: 1;
-  transform: scale(1);
+  transform: scale(2);
+  border: #000;
 }
 .wrapper .option span{
   font-size: 20px;
@@ -597,6 +616,21 @@ input[type="radio"]{
 #option-2:checked:checked ~ .option-2 span,
 #option-3:checked:checked ~ .option-3 span{
   color: #fff;
+}
+
+.wrapperImg {
+  display: inline-flex;
+  flex-direction: column;
+  background: rgba(114, 138, 147, 0.45);
+  /* width: 20vw; */
+  height: 9vh;
+  margin:0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5%;
+  margin-left: 3vw;
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
 }
 
 .pregameCauldron {
@@ -841,16 +875,61 @@ button {
 .wrapper {
   display: inline-flex;
   flex-direction: row;
-  background: rgba(114, 138, 147, 0.45);
-  height: fit-content;
-  width: fit-content;
+  background: rgba(7, 33, 43, 0.45);
+  height: 100%;
+  width: 95vw;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 5%;
-  margin: 3%;
+  margin: 1px;
+  /* padding: 5%;
+  /*margin-right: 3%; */
   box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
 }
+
+.wrapper .option{
+  background: rgba(4, 19, 40, 0.405);
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-shrink: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0px 10px;
+  border: 2px solid rgba(24, 29, 26, 0.678);
+  transition: all 0.3s ease;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.wrapper .option .dot{
+  height: 20px;
+  width: 25px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 10px;
+}
+
+
+.wrapperImg {
+  display: inline-flex;
+  flex-direction: column;
+  background: rgba(114, 138, 147, 0.45);
+  /* width: 20vw; */
+  height: 9vh;
+  margin:0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 1%;
+  margin-left: 3vw;
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+}
+
     .loginHeader {
      display: none;
     }
@@ -910,6 +989,9 @@ button {
       height: 40px;
       /* margin: 0px; */
     }
+    .yee {
+      display: none;
+    }
     .soupIc {
       display: none;
     }
@@ -957,6 +1039,7 @@ button {
       margin-left: 0;
       position: fixed;
       transform: translate(0%, 0%);
+      margin-top: 0;
     }
     .board {
       height: 50vh;
@@ -1010,8 +1093,9 @@ button {
       align-items: center;
     }
     .soupImg {
-      width: max-content;
-        height: 7vh;
+      width: 20vw;
+        height: 9vh;
+        margin:0;
     }
     .App {
       text-align: center;
@@ -1024,6 +1108,33 @@ button {
       background-position: 50%;
       background-color: rgba(7, 8, 6, 0.579);
       background-blend-mode: multiply;
+    }
+    .gameOverLose{
+display: none;
+    }
+    .flexLord {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 40vh;
+    }
+    .flexLordImg {
+      display: flex;
+      height: 35%;
+      width: 25%;
+      border-radius: 15px;
+      margin: 10px;
+    }
+    .flexLordText {
+      font-size: smaller;
+      flex-wrap: wrap;
+    }
+    .flexLordTextFail {
+      font-size: smaller;
+      flex-wrap: wrap;
+      margin-bottom: 50%;
     }
     }
 
