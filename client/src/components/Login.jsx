@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-// import { AppContext } from "../App";
 import { FiGithub } from "react-icons/fi";
 import { CiTwitter } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
@@ -28,6 +27,8 @@ export const Login = () => {
 
 	const { userPersist, setUserPersist } = useContext(AppContext);
 
+	const URL_PREFIX_LOCAL_HOST = `http://localhost:3001`;
+
 	const postNewUser = () => {
 		axios
 			.post("https://soup-seeker.herokuapp.com/register", {
@@ -38,6 +39,13 @@ export const Login = () => {
 			.then((response) => {
 				console.log(response);
 			});
+		setLoginStat(
+			<h3>
+				Welcome, seeker of the soup {userName}. Please login with your
+				credentials in the login box above; our registration service is
+				not fully integrated yet =).
+			</h3>
+		);
 	};
 
 	const loginUser = () => {

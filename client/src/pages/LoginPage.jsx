@@ -15,8 +15,6 @@ export const LoginPage = () => {
 	return (
 		<div>
 			<Login />
-			{/* <Register /> */}
-			{/* {userPersist !== true ? <Login /> : <PlayPage />} */}
 		</div>
 	);
 };
