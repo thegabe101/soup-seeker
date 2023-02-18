@@ -32,9 +32,13 @@ export const GameOver = () => {
 			)}
 			<h3>Yee had {souplesWon} Souples correct.</h3>
 			<br />
-			<h3>
-				Yee failed to collect 11 ladles before without failing a Souple.
-			</h3>
+			{gameOver.guessedWord == false ? (
+				<h3>
+					Yee failed to collect 11 ladles without failing a Souple.
+				</h3>
+			) : (
+				""
+			)}
 			<br />
 			{gameOver.guessedWord && (
 				<h3>Thy soup was sought in {soupsCorrect + 1} attempts.</h3>
