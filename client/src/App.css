@@ -35,21 +35,21 @@ nav {
 
 .game {
   width: 50%;
-  height: calc(90vh - 170px);
+  height: 80%;
   display: flex;
   align-items: center;
   padding-top: 50px;
   flex-direction: row;
-  margin-top: 1%;
+  margin-top: 0;
   margin-bottom: 1%;
 }
 
 .board {
   margin-left: 1vw;
   width: 40vw;
-  height: 85vh;
+  height: 100%;
   display: flex;
-  margin-top: 10%;
+  /* margin-top: 10%; */
   flex-direction: column;
 }
 
@@ -75,6 +75,8 @@ nav {
   background-color: rgba(35, 172, 172, 0.16);
 }
 
+
+
 #correct {
   background-color: #316e2cbc;
 }
@@ -88,9 +90,9 @@ nav {
 }
 
 .keyboard {
-  width: 55vw;
+  width: 40vw;
   height: calc(145vh - 170px);
-  margin-left: 2%;
+  margin-left: 10%;
   position: fixed;
   transform: translate(0%, -30%);
 }
@@ -319,11 +321,11 @@ nav {
   background-color: #3b4545;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  height:fit-content;
+  height:max-content;
   width: 40vw;
   border-radius: 25px;
   padding: 3%;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .yee {
@@ -393,11 +395,19 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: black;
-  height: 450px;
-  width: 100%;
+  height: fit-content;
+  width: fit-content;
   background-color: #3b4545;
   background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
+  margin-top: 5%;
+}
+
+.mapDiv {
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  margin: 6%;
 }
 
 .sam {
@@ -449,7 +459,7 @@ nav {
   padding: 5px;
   border: #2c362c solid 1px;
   border-radius: 15px;
-  margin-left: 25%;
+  /* margin-left: 25%; */
 }
 
 .startBtn {
@@ -645,6 +655,8 @@ input[type="radio"]{
 .soupLordImg {
   display: flex;
   border-radius: 25px;
+  height: 100%;
+  width: 100%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
@@ -1044,7 +1056,7 @@ button {
     .board {
       height: 50vh;
       width: 100vw;
-      top:3%;
+      top:10%;
       position: fixed;
     }
     .game {
@@ -1142,9 +1154,9 @@ display: none;
     @media screen and (max-height: 900px) and (min-width: 900px) {
       .keyboard {
         display: inline-block;
-        width: fit-content;
+        width: 60vw;
         height: fit-content;
-        bottom: 5%;
+        bottom: 6%;
         margin-left: 0;
         position: fixed;
         transform: translate(0%, 0%);
@@ -1155,14 +1167,15 @@ display: none;
         flex-direction: row;
         background-color: black;
         height: fit-content;
-        width: fit-content;
+        width: 50vw;
         flex-wrap: wrap;
         background-color: #3b4545;
         background-color: rgba(145, 173, 173, 0.16);
         border-radius: 15px;
       }
       .cauldronCard {
-        display: none;
+        display: flex;
+        height: 100%;
       }
       .sam {
         height: 5vh;
@@ -1170,6 +1183,9 @@ display: none;
         background-color: #76aaa868;
         border-radius: 15px;
         margin-right: 10%;
+      }
+      .ladle {
+        display: none;
       }
     }
 
@@ -1186,6 +1202,29 @@ display: none;
       margin-top: 5%;
       height: min-content;
       width: min-content;
+      }
+    }
+
+    @media screen and (max-height: 700px){
+      .mapDiv {
+        display: none;
+      }
+      .keyboard {
+        display: block;
+      }
+      .gameOverLose {
+        display: none;
+      }
+      .flexLord {
+        display: block;
+      }
+      .flexLordImg {
+        display: none;
+      }
+      .flexLordTextFail {
+        font-size: smaller;
+        flex-wrap: wrap;
+        margin-bottom: 50%;
       }
     }
 
