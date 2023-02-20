@@ -75,11 +75,7 @@ nav {
   background-color: rgba(35, 172, 172, 0.16);
 }
 
-.mapDiv {
-  display: flex;
-  justify-content: center;
-  height: 20%;
-}
+
 
 #correct {
   background-color: #316e2cbc;
@@ -95,9 +91,8 @@ nav {
 
 .keyboard {
   width: 40vw;
-  margin-bottom: 2%;
   height: calc(145vh - 170px);
-  margin-left: 2%;
+  margin-left: 10%;
   position: fixed;
   transform: translate(0%, -30%);
 }
@@ -326,11 +321,11 @@ nav {
   background-color: #3b4545;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  height:fit-content;
+  height:max-content;
   width: 40vw;
   border-radius: 25px;
   padding: 3%;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .yee {
@@ -400,13 +395,19 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: black;
-  height: 100%;
+  height: fit-content;
   width: fit-content;
   background-color: #3b4545;
   background-color: rgba(145, 173, 173, 0.16);
   border-radius: 15px;
   margin-top: 5%;
+}
 
+.mapDiv {
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  margin: 6%;
 }
 
 .sam {
@@ -654,6 +655,8 @@ input[type="radio"]{
 .soupLordImg {
   display: flex;
   border-radius: 25px;
+  height: 100%;
+  width: 100%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
@@ -1164,14 +1167,15 @@ display: none;
         flex-direction: row;
         background-color: black;
         height: fit-content;
-        width: fit-content;
+        width: 50vw;
         flex-wrap: wrap;
         background-color: #3b4545;
         background-color: rgba(145, 173, 173, 0.16);
         border-radius: 15px;
       }
       .cauldronCard {
-        display: none;
+        display: flex;
+        height: 100%;
       }
       .sam {
         height: 5vh;
@@ -1179,6 +1183,9 @@ display: none;
         background-color: #76aaa868;
         border-radius: 15px;
         margin-right: 10%;
+      }
+      .ladle {
+        display: none;
       }
     }
 
@@ -1195,6 +1202,29 @@ display: none;
       margin-top: 5%;
       height: min-content;
       width: min-content;
+      }
+    }
+
+    @media screen and (max-height: 700px){
+      .mapDiv {
+        display: none;
+      }
+      .keyboard {
+        display: block;
+      }
+      .gameOverLose {
+        display: none;
+      }
+      .flexLord {
+        display: block;
+      }
+      .flexLordImg {
+        display: none;
+      }
+      .flexLordTextFail {
+        font-size: smaller;
+        flex-wrap: wrap;
+        margin-bottom: 50%;
       }
     }
 
